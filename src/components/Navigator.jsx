@@ -19,24 +19,18 @@ export default class Navigator extends Component {
         <Navbar.Collapse id="navbarsExampleDefault">
           <Navbar.Nav mr="auto">
 
-            <Nav.Item activeClassName="active">
-              <Link className="nav-link" to="/">Index</Link>
+            <Nav.Item>
+              <Link activeClassName="active" className="nav-link" to="/">Home</Link>
             </Nav.Item>
 
-            <Nav.Item activeClassName="active">
-              <Link className="nav-link" to="/home">Home</Link>
+            <Nav.Item>
+              <Link activeClassName="active" className="nav-link" to="/about">About</Link>
             </Nav.Item>
 
             <Nav.Item activeClassName="active">
               <Link className="nav-link" to="/users">Users</Link>
             </Nav.Item>
 
-            <Nav.ItemLink href="/" active>
-              Home
-              <BSpan srOnly>(current)</BSpan>
-            </Nav.ItemLink>
-
-            <Nav.ItemLink href="#" disabled>Disabled</Nav.ItemLink>
             <Nav.Item dropdown>
               <Nav.Link
                 dropdownToggle

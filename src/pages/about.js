@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 
-class Home extends Component {
+class About extends Component {
     render() {
         return (
             <div className="About-page">
                 <h1>About</h1>
-
-
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pulvinar lorem elit, ac imperdiet dolor ultrices et. Pellentesque neque est, auctor sit amet blandit a, ornare id sapien. Sed et diam in lorem porta faucibus. Quisque pulvinar enim nibh. Integer ut mattis nibh, at dictum purus. Sed tincidunt tellus metus, lacinia semper sem gravida id. In hac habitasse platea dictumst. Integer facilisis est at lorem hendrerit scelerisque. Sed scelerisque condimentum enim nec placerat. Phasellus id dolor blandit, tincidunt mi sit amet, pulvinar quam. Maecenas vitae nulla sed purus lobortis ultricies. Morbi arcu ligula, mattis a pulvinar vitae, aliquam vitae est.
 
                 Integer vestibulum blandit nulla, sed tempus nisl pharetra suscipit. Mauris ut velit eu libero lacinia posuere. Fusce ex tortor, ultrices eu felis vel, placerat rhoncus sem. Integer eget vehicula magna, sed semper augue. Pellentesque a diam vel elit viverra tristique vitae eget augue. Donec gravida diam quis nulla finibus egestas. Nam sapien urna, lobortis at risus vitae, pulvinar tincidunt dolor.
@@ -21,4 +19,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default About;

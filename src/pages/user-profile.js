@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const UserProfile = React.createClass({
-  render: function() {
-    return (<h1>User Profile for userId: {this.props.params.userId}</h1>);
-  }
-});
+const UserProfile = ({match}) => {
+
+  return (
+      <div className="user-page">
+        <h1>User {match.params.id}</h1>
+      </div>
+  )
+};
 
 export default UserProfile;

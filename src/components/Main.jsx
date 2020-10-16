@@ -15,7 +15,7 @@ export default class Main extends Component {
                     <Route exact path='/' component={Home}/>
                     <Route exact path='/about' component={About}/>
                     <Route exact path='/users' component={UserList}/>
-                    <Route exact path='/users/:userId' component={User}/>
+                    <Route exact path='/users/:id' component={User}/>
                 </Switch>
             </Container>
         )

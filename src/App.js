@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <Navigator />
-        <Main />
+          <Main/>
       </React.Fragment>
     );
   }

@@ -7,6 +7,7 @@ import {
   Button,
   BSpan
 } from 'bootstrap-4-react';
+import {Link} from 'react-router-dom';
 
 export default class Navigator extends Component {
   render() {
@@ -17,11 +18,24 @@ export default class Navigator extends Component {
 
         <Navbar.Collapse id="navbarsExampleDefault">
           <Navbar.Nav mr="auto">
-            <Nav.ItemLink href="#" active>
+
+            <Nav.Item activeClassName="active">
+              <Link className="nav-link" to="/">Index</Link>
+            </Nav.Item>
+
+            <Nav.Item activeClassName="active">
+              <Link className="nav-link" to="/home">Home</Link>
+            </Nav.Item>
+
+            <Nav.Item activeClassName="active">
+              <Link className="nav-link" to="/users">Users</Link>
+            </Nav.Item>
+
+            <Nav.ItemLink href="/" active>
               Home
               <BSpan srOnly>(current)</BSpan>
             </Nav.ItemLink>
-            <Nav.ItemLink href="#">Link</Nav.ItemLink>
+
             <Nav.ItemLink href="#" disabled>Disabled</Nav.ItemLink>
             <Nav.Item dropdown>
               <Nav.Link

@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 
 class Profile extends Component {
     render() {
-        let userId = this.props.match.params.id;
+        let user = this.props.match.params;
         return (
             <div className="user-page">
-                <h1>User {userId}</h1>
+                <h1>User {user.id}</h1>
             </div>
         );
     }

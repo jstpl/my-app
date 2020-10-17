@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import UserList from '../views/user-list';
 import * as userApi from '../../api/user-api';
-import store from '../../store';
+import store from '../../app/store';
 import { loadSearchLayout } from '../../actions/search-layout-actions';
 
 const UserListContainer = React.createClass({

@@ -11,12 +11,7 @@ export default class Main extends Component {
     render() {
         return (
             <Container as="main" role="main">
-                <Switch>
-                    <Route exact path='/' component={Home}/>
-                    <Route exact path='/about' component={About}/>
-                    <Route exact path='/users' component={UserList}/>
-                    <Route exact path='/users/:id' component={UserProfile}/>
-                </Switch>
+
             </Container>
         )
     }

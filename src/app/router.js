@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import {Route, BrowserRouter, HashRouter, IndexRoute} from 'react-router-dom';
+import React from 'react';
+import {Route, BrowserRouter, HashRouter} from 'react-router-dom';
 import Home from '../pages/home';
 import About from '../pages/about';
-import UserList from '../pages/user-list';
-import UserProfile from '../pages/user-profile';
+import UserList from '../pages/user/user-list';
+import UserProfile from '../pages/user/user-profile';
 
 // Layouts
 import MainLayout from '../components/layouts/main-layout';
@@ -16,10 +16,13 @@ export default (
     <HashRouter>
         <MainLayout/>
         <Route component={MainLayout}>
+            {/*Route для главной страницы содержит prop exact, благодаря которому пути сравниваются строго.*/}
             <Route exact path='/' component={Home}/>
             <Route exact path='/about' component={About}/>
-            <Route exact path='/users' component={UserList}/>
-            <Route exact path='/users/:id' component={UserProfile}/>
+            <Route path='/users'>
+                <Route exact path='/users' component={UserList}/>
+                <Route exact path='/users/:id' component={UserProfile}/>
+            </Route>
         </Route>
     </HashRouter>
 );

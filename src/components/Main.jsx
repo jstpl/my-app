@@ -4,8 +4,8 @@ import {Route, Switch} from 'react-router-dom'
 
 import Home from '../pages/home';
 import About from '../pages/about';
-import UserList from '../pages/user-list';
-import UserProfile from '../pages/user-profile';
+import UserList from '../pages/user/user-list';
+import UserProfile from '../pages/user/user-profile';
 
 export default class Main extends Component {
     render() {

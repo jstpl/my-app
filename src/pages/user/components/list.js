@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 
-// import UserView from 'user';
-
 let users = [
     {
         id: 2,
@@ -36,7 +34,7 @@ class List extends Component {
             <div className="data-list">
                 <h2>This is a USER page!</h2>
                 <ul>
-                    {users.map(user => {
+                    {users.map(function (user) {
                         return (
                             <li key={user.id}>
                                 <Link to={'/users/' + user.id}>{user.name}</Link>

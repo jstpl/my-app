@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default React.createClass({
+class SearchForm extends Component{
 
-  getQuery: function() {
-    return this.refs.search.value;
-  },
+    getQuery() {
+        return this.refs.search.value;
+    }
 
-  render: function() {
-    return (
-      <form onSubmit={this.props.search} className="search">
-        <input type="text" ref="search" placeholder="Search" />
-        <button>Search</button>
-      </form>
-    );
-  }
+    render() {
+        return (
+            <form onSubmit={this.props.search} className="search">
+                <input type="text" ref="search" placeholder="Search" />
+                <button>Search</button>
+            </form>
+        );
+    }
 
-});
+}
+export default SearchForm;

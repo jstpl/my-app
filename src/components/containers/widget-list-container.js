@@ -1,24 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import WidgetList from '../views/widget-list';
 import * as widgetApi from '../../api/widget-api';
 import store from '../../app/store';
 import { loadSearchLayout } from '../../actions/search-layout-actions';
 
-const WidgetListContainer = React.createClass({
+class WidgetListContainer extends Component {
 
-  componentDidMount: function() {
+  componentDidMount() {
     widgetApi.getWidgets();
     store.dispatch(loadSearchLayout('widgets', 'Widget Results'));
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       <WidgetList widgets={this.props.widgets} deleteWidget={widgetApi.deleteWidget} />
     );
   }
 
-});
+};
 
 const mapStateToProps = function(store) {
   return {

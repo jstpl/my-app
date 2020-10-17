@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import * as userApi from '../../api/user-api';
 import * as widgetApi from '../../api/widget-api';
 import { loadSearchLayout } from '../../actions/search-layout-actions';
 import SearchForm from '../views/search-form';
 
-const SearchFormContainer = React.createClass({
+class SearchFormContainer extends Component {
 
-  search: function(event) {
+  search(event) {
     event.preventDefault();
 
     // By assigning a "child" ref to <SearchForm />, we
@@ -20,14 +20,14 @@ const SearchFormContainer = React.createClass({
     } else if (this.props.searchType === 'widgets') {
       widgetApi.searchWidgets(query);
     }
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       <SearchForm search={this.search} ref="child" />
     );
   }
 
-});
+};
 
 export default SearchFormContainer;

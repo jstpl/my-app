@@ -5,11 +5,13 @@ import About from '../pages/about';
 
 // Layouts
 import MainLayout from '../components/layouts/main-layout';
+import SearchLayoutContainer from '../components/containers/search-layout-container';
+
+
 import UserRoutes from "../pages/user/routes";
-// import SearchLayoutContainer from "../docs/teach/guide-3-redux/app/components/containers/search-layout-container";
-// import UserListContainer from "./components/containers/user-list-container";
-// import UserProfileContainer from "./components/containers/user-profile-container";
-// import SearchLayoutContainer from './components/containers/search-layout-container';
+
+import UserListContainer from "../components/containers/user-list-container";
+import UserProfileContainer from "../components/containers/user-profile-container";
 
 export default (
     <HashRouter>

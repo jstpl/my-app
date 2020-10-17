@@ -6,8 +6,8 @@ import UserList from "./user-list";
 const UserRoutes = function () {
     return (
         <Switch>
-            <Route exact path='/users' component={UserList}/>
-            <Route exact path='/users/:id' component={UserProfile}/>
+            <Route exact path='' component={UserList}/>
+            <Route exact path=':id' component={UserProfile}/>
         </Switch>
     );
 };

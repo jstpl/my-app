@@ -1,22 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import UserProfile from '../views/user-profile';
 import * as userApi from '../../api/user-api';
 
-const UserProfileContainer = React.createClass({
+class UserProfileContainer extends Component {
 
-  componentDidMount: function() {
+  componentDidMount() {
     let userId = this.props.params.userId
     userApi.getProfile(userId)
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       <UserProfile {...this.props.profile} />
     );
   }
 
-});
+};
 
 const mapStateToProps = function(store) {
   return {

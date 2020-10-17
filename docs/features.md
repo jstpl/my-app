@@ -27,7 +27,16 @@
     Not authorized Page
     FREE Lifetime Updates
 
-# Tech stack
+## Features
+
+API integration ready
+Sample data provided
+Simple folder structure
+Ready to use widgets
+Developer friendly architecture
+Multilevel menus
+
+## Tech stack
 
 bootstrap 4
 React
@@ -38,11 +47,6 @@ Firebase
 Saas
 Sketch
 Webpack 4
-API integration ready
-Sample data provided
-Simple folder structure
-Ready to use widgets
-Developer friendly architecture
 React-loadable
 React-charts
 Saas-loader
@@ -60,4 +64,3 @@ React-big-calendar
 Axios
 Eslint
 React-jvectormap
-Multilevel menus

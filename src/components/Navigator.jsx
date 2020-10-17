@@ -31,6 +31,10 @@ export default class Navigator extends Component {
               <Link className="nav-link" to="/users">Users</Link>
             </Nav.Item>
 
+            <Nav.Item activeclassname="active">
+              <Link className="nav-link" to="/qwerty">Qwerty</Link>
+            </Nav.Item>
+
             <Nav.Item dropdown>
               <Nav.Link
                 dropdownToggle

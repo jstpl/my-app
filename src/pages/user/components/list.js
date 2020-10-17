@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import {Link} from "react-router-dom";
 import * as userApi from "../../../api/user-api";
-import UserList from "../views/list";
+import UserListView from "../views/list";
 
 let users = [
     {
@@ -33,7 +32,7 @@ let users = [
 class List extends Component {
     render() {
         return (
-            <UserList users={users} deleteUser={userApi.deleteUser}/>
+            <UserListView users={users} deleteUser={userApi.deleteUser}/>
         );
     }
 }

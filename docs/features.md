@@ -26,3 +26,38 @@
     3 different types of Charts
     Not authorized Page
     FREE Lifetime Updates
+
+# Tech stack
+
+bootstrap 4
+React
+Redux
+Redux Saga
+Npm
+Firebase
+Saas
+Sketch
+Webpack 4
+API integration ready
+Sample data provided
+Simple folder structure
+Ready to use widgets
+Developer friendly architecture
+React-loadable
+React-charts
+Saas-loader
+Node-saas
+Auth0
+React-instantsearch (Aligolia)
+Google-map-react
+React-leaflet
+React-intl
+React-dng
+React-dragula
+React-joyride
+React-notifications
+React-big-calendar
+Axios
+Eslint
+React-jvectormap
+Multilevel menus

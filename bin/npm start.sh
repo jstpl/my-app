@@ -1,3 +1,3 @@
 #!/bin/sh
 cd ..
-npm start
+sudo npm start

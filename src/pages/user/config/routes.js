@@ -1,7 +1,7 @@
 import React from 'react';
 import {Switch, Route} from "react-router-dom";
-import UserProfile from "./user-profile";
-import UserList from "./user-list";
+import UserProfile from "../components/user-profile";
+import UserList from "../components/user-list";
 
 const UserRoutes = function () {
     return (

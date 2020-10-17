@@ -20,14 +20,14 @@ export default class Navigator extends Component {
           <Navbar.Nav mr="auto">
 
             <Nav.Item>
-              <Link activeClassName="active" className="nav-link" to="/">Home</Link>
+              <Link activeclassname="active" className="nav-link" to="/">Home</Link>
             </Nav.Item>
 
             <Nav.Item>
-              <Link activeClassName="active" className="nav-link" to="/about">About</Link>
+              <Link activeclassname="active" className="nav-link" to="/about">About</Link>
             </Nav.Item>
 
-            <Nav.Item activeClassName="active">
+            <Nav.Item activeclassname="active">
               <Link className="nav-link" to="/users">Users</Link>
             </Nav.Item>
 

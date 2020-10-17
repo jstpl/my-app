@@ -1,5 +1,4 @@
-import { combineReducers } from 'redux';
-
+import {combineReducers} from 'redux';
 // Reducers
 import userReducer from './user-reducer';
 import widgetReducer from './widget-reducer';

@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import {Link, Switch, Route} from "react-router-dom";
-import UserProfile from "./user-profile";
+import React, {Component} from 'react';
+import {Link} from "react-router-dom";
 
 // import UserView from 'user';
 

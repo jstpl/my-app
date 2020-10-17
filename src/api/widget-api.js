@@ -1,17 +1,17 @@
 import axios from 'axios';
 import store from '../app/store';
-import { getWidgetsSuccess, deleteWidgetSuccess } from '../actions/widget-actions';
+import {deleteWidgetSuccess, getWidgetsSuccess} from '../actions/widget-actions';
 
 /**
  * Get widgets
  */
 
 export function getWidgets() {
-  return axios.get('http://localhost:3001/widgets')
-    .then(response => {
-      store.dispatch(getWidgetsSuccess(response.data));
-      return response;
-    });
+    return axios.get('http://localhost:3001/widgets')
+        .then(response => {
+            store.dispatch(getWidgetsSuccess(response.data));
+            return response;
+        });
 }
 
 /**
@@ -19,11 +19,11 @@ export function getWidgets() {
  */
 
 export function searchWidgets(query = '') {
-  return axios.get('http://localhost:3001/widgets?q='+ query)
-    .then(response => {
-      store.dispatch(getWidgetsSuccess(response.data));
-      return response;
-    });
+    return axios.get('http://localhost:3001/widgets?q=' + query)
+        .then(response => {
+            store.dispatch(getWidgetsSuccess(response.data));
+            return response;
+        });
 }
 
 /**
@@ -31,9 +31,9 @@ export function searchWidgets(query = '') {
  */
 
 export function deleteWidget(widgetId) {
-  return axios.delete('http://localhost:3001/widgets/' + widgetId)
-    .then(response => {
-      store.dispatch(deleteWidgetSuccess(widgetId));
-      return response;
-    });
+    return axios.delete('http://localhost:3001/widgets/' + widgetId)
+        .then(response => {
+            store.dispatch(deleteWidgetSuccess(widgetId));
+            return response;
+        });
 }

@@ -1,13 +1,13 @@
 import React from 'react';
 import {Route, Switch} from "react-router-dom";
-import UserProfile from "../components/user-profile";
-import UserList from "../components/user-list";
+import Profile from "../components/profile";
+import List from "../components/list";
 
 const UserRoutes = function () {
     return (
         <Switch>
-            <Route exact path='/users' component={UserList}/>
-            <Route exact path='/users/:id' component={UserProfile}/>
+            <Route exact path='/users' component={List}/>
+            <Route exact path='/users/:id' component={Profile}/>
         </Switch>
     );
 };

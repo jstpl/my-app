@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 // import UserView from 'user';
 
-class UserList extends Component {
+class List extends Component {
     render() {
         return (
             <div>
@@ -21,4 +21,4 @@ class UserList extends Component {
     }
 }
 
-export default UserList;
+export default List;

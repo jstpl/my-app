@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UserProfile = ({match}) => {
+const Profile = ({match}) => {
 
     return (
         <div className="user-page">
@@ -9,4 +9,4 @@ const UserProfile = ({match}) => {
     )
 };
 
-export default UserProfile;
+export default Profile;

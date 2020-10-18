@@ -7,8 +7,10 @@ import {deleteUserSuccess, getUsersSuccess, userProfileSuccess} from '../actions
  */
 
 export function getUsers() {
-    return axios.get('http://localhost:3001/users')
+    return axios.get('http://localhost:3000/api/users.json')
         .then(response => {
+            // let data = JSON.parse(response.data);
+            //console.log(response.data);
             store.dispatch(getUsersSuccess(response.data));
             return response;
         });

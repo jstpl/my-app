@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import * as userApi from "../api/user-api";
 import UserListView from "../views/list";
+import store from "../../../app/store";
+import {loadSearchLayout} from "../../../teach/actions/search-layout-actions";
 
 let users = [
     {
@@ -30,11 +33,25 @@ let users = [
 ];
 
 class List extends Component {
+
+    componentDidMount() {
+        userApi.getUsers();
+        //store.dispatch(loadSearchLayout('users', 'User Results'));
+    }
+
     render() {
+        //console.log(this.props.users);
         return (
-            <UserListView users={users} deleteUser={userApi.deleteUser}/>
+            <UserListView users={this.props.users} deleteUser={userApi.deleteUser}/>
         );
     }
 }
 
-export default List;
+const mapStateToProps = function (store) {
+    return {
+        users: store.userState.users
+    };
+};
+
+export default connect(mapStateToProps)(List);
+

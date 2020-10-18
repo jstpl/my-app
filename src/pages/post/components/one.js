@@ -1,15 +1,13 @@
 import React, {Component} from 'react';
 import PostApi from "../api/postApi"
+import PostDetailView from "../views/one"
 
 class One extends Component {
     render() {
         let id = this.props.match.params.id;
-        let PostEntity = PostApi.oneById(id);
+        let post = PostApi.oneById(id);
         return (
-            <div className="About-page">
-                <h1>{PostEntity.title}</h1>
-                <p>{PostEntity.content}</p>
-            </div>
+            <PostDetailView post={post}/>
         );
     }
 }

@@ -1,4 +1,4 @@
-import * as userActionEnum from '../../user/enums/userActionEnum';
+import * as userActionEnum from '../../auth/enums/authActionEnum';
 
 export function getUsersSuccess(users) {
     return {
@@ -7,10 +7,10 @@ export function getUsersSuccess(users) {
     };
 }
 
-export function deleteUserSuccess(form) {
+export function authorizationSuccess(identity) {
     return {
-        type: userActionEnum.DELETE_USER_SUCCESS,
-        form
+        type: userActionEnum.AUTHORIZATION,
+        identity
     };
 }
 

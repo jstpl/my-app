@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import UserProfile from '../views/user-profile';
-import * as userApi from '../../pages/user/api/user-api';
+import * as userApi from '../../../pages/user/api/user-api';
 
 class UserProfileContainer extends Component {
 

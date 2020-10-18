@@ -5,7 +5,9 @@ import collection from "../data/collection";
 
 let Api = {
     all: function () {
-        //return axios.get('http://localhost:3000/api/post.json');
+        axios.get('http://localhost:3000/api/post.json').then(function (response) {
+            console.log(response);
+        });
         return collection;
     },
     oneById: function (id) {

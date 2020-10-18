@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import * as userApi from '../../pages/user/api/user-api';
+import * as userApi from '../../../pages/user/api/user-api';
 import * as widgetApi from '../../api/widget-api';
 import SearchForm from '../views/search-form';
 

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import PostApi from "../api/postApi"
-import PostDetailView from "../views/one"
+import PostDetailView from "../views/detail"
 
-class One extends Component {
+class Detail extends Component {
     render() {
         let id = this.props.match.params.id;
         let post = PostApi.oneById(id);
@@ -12,4 +12,4 @@ class One extends Component {
     }
 }
 
-export default One;
+export default Detail;

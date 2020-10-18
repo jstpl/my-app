@@ -1,14 +1,14 @@
 import React from 'react';
 import {Route, Switch} from "react-router-dom";
 import List from "../components/list";
-import One from "../components/one";
+import Detail from "../components/detail";
 
 const PostRoutes = function () {
     return (
         <Switch>
             {/*Route для главной страницы содержит prop exact, благодаря которому пути сравниваются строго.*/}
             <Route exact path='/post' component={List}/>
-            <Route exact path='/post/:id' component={One}/>
+            <Route exact path='/post/:id' component={Detail}/>
         </Switch>
     );
 };

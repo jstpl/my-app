@@ -1,7 +1,7 @@
 import React from 'react';
 import {HashRouter, Route} from 'react-router-dom';
 // Layouts
-import MainLayout from '../components/layouts/MainLayout';
+import MainLayout from './layouts/MainLayout';
 
 import UserRoutes from "../pages/user/config/routes";
 import SiteRoutes from "../pages/site/config/routes";

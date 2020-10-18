@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import * as userApi from "../../../api/user-api";
+import * as userApi from "../api/user-api";
 import UserListView from "../views/list";
 
 let users = [

@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchFormContainer from '../containers/search-form-container';
+import SearchFormContainer from '../../components/containers/search-form-container';
 
 // Using "Stateless Functional Components"
 export default function (props) {

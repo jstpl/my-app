@@ -3,7 +3,7 @@ import {Route, Switch} from "react-router-dom";
 import List from "./components/list";
 import Detail from "./components/detail";
 
-const PostRoutes = function () {
+export default function () {
     return (
         <Switch>
             {/*Route для главной страницы содержит prop exact, благодаря которому пути сравниваются строго.*/}
@@ -12,5 +12,3 @@ const PostRoutes = function () {
         </Switch>
     );
 };
-
-export default PostRoutes;

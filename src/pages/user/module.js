@@ -3,7 +3,7 @@ import {Route, Switch} from "react-router-dom";
 import Profile from "./components/profile";
 import List from "./components/list";
 
-const UserRoutes = function () {
+export default function () {
     return (
         <div>
             <h2>This is a user page!</h2>
@@ -14,5 +14,3 @@ const UserRoutes = function () {
         </div>
     );
 };
-
-export default UserRoutes;

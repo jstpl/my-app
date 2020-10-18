@@ -6,7 +6,7 @@ const initialState = {
     userProfile: {}
 };
 
-const userReducer = function (state = initialState, action) {
+export default function (state = initialState, action) {
     switch (action.type) {
         case userActionEnum.GET_USERS_SUCCESS:
             return Object.assign({}, state, {users: action.users});
@@ -19,5 +19,3 @@ const userReducer = function (state = initialState, action) {
     }
     return state;
 };
-
-export default userReducer;

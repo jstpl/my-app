@@ -3,7 +3,7 @@ import collection from "../data/collection";
 // import store from "../../../app/store";
 // import {getUsersSuccess} from "../../user/actions/user-actions";
 
-let Api = {
+export default {
     all: function () {
         axios.get('http://localhost:3000/api/post.json').then(function (response) {
             console.log(response);
@@ -19,5 +19,3 @@ let Api = {
         }
     }
 };
-
-export default Api;

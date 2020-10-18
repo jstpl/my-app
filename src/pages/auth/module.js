@@ -2,7 +2,7 @@ import React from 'react';
 import {Route, Switch} from "react-router-dom";
 import Auth from "./components/auth";
 
-const UserRoutes = function () {
+export default function () {
     return (
         <div>
             {/*<h2>This is a user page!</h2>*/}
@@ -12,5 +12,3 @@ const UserRoutes = function () {
         </div>
     );
 };
-
-export default UserRoutes;

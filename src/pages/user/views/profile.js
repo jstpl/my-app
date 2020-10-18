@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 export default function (props) {
     return (
         <div className="user-page">
-            <h1>User {props.user.id}</h1>
+            <h1>{props.user.name} #{props.user.id}</h1>
         </div>
     );
 }

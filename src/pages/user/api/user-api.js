@@ -1,5 +1,6 @@
 import axios from 'axios';
 import store from '../../../app/store';
+import config from '../../../app/config'
 import {deleteUserSuccess, getUsersSuccess, userProfileSuccess} from '../actions/user-actions';
 
 /**
@@ -7,7 +8,7 @@ import {deleteUserSuccess, getUsersSuccess, userProfileSuccess} from '../actions
  */
 
 export function getUsers() {
-    return axios.get('http://localhost:3000/api/users.json')
+    return axios.get(config.apiUrl + '/users.json')
         .then(response => {
             // let data = JSON.parse(response.data);
             //console.log(response.data);
@@ -52,7 +53,7 @@ export function getProfile(userId) {
     let profile = {};
 
     // Get the user data from our local database.
-    return axios.get('http://localhost:3000/api/users/' + userId + '.json')
+    return axios.get(config.apiUrl + '/users/' + userId + '.json')
         .then(response => {
 
             let user = response.data;

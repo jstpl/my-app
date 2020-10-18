@@ -17,7 +17,7 @@ export default class Navigator extends Component {
                         </Nav.Item>
 
                         <Nav.Item>
-                            <Link activeclassname="active" className="nav-link" to="/about">About</Link>
+                            <Link activeclassname="active" className="nav-link" to="/post">Posts</Link>
                         </Nav.Item>
 
                         <Nav.Item activeclassname="active">

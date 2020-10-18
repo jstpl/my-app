@@ -10,6 +10,7 @@ import {Container} from "bootstrap-4-react";
 export default function (props) {
     return (
         <React.Fragment>
+
             <Navigator/>
 
             <Container>

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Breadcrumb} from "bootstrap-4-react/lib/components";
 import {Link} from "react-router-dom";
 
-export default class Main extends Component {
+export default class Breadcrumbs extends Component {
     render() {
         return (
             <Breadcrumb>

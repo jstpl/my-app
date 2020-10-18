@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 export default function (props) {
     return (
         <div className="data-list">
+            <h1>Users</h1>
             <ul>
                 {props.users.map(function (user) {
                     return (

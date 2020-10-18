@@ -1,7 +1,11 @@
+import axios from 'axios';
 import collection from "../data/collection";
+// import store from "../../../app/store";
+// import {getUsersSuccess} from "../../user/actions/user-actions";
 
 let Api = {
     all: function () {
+        //return axios.get('http://localhost:3000/api/post.json');
         return collection;
     },
     oneById: function (id) {

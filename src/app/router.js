@@ -12,10 +12,9 @@ import {Container} from "bootstrap-4-react";
 
 export default (
     <HashRouter>
-        <MainLayout/>
-        <Route component={Main}>
-            <Route component={SiteRoutes}/>
-            <Route component={UserRoutes}/>
-        </Route>
+        <MainLayout>
+                <Route component={SiteRoutes}/>
+                <Route component={UserRoutes}/>
+        </MainLayout>
     </HashRouter>
 );

@@ -10,23 +10,11 @@ import {Container} from "bootstrap-4-react";
 
 export default function (props) {
     return (
-        <div className="app">
-            <header className="primary-header"></header>
+        <React.Fragment>
             <Navigator/>
             <Container as="main" role="main">
-                <main>
-                    ssssss
-                    {props.children}
-                </main>
+                {props.children}
             </Container>
-
-        </div>
-
-        /*<React.Fragment>
-<Navigator/>
-
-
-
-        </React.Fragment>*/
+        </React.Fragment>
     );
 }

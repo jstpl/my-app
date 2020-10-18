@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-// import * as userApi from "../api/userApi";
-// import UserListView from "../views/list";
 import {Link} from "react-router-dom";
 
 const ui = [
@@ -104,7 +102,6 @@ class List extends Component {
                     })}
                 </ul>
             </div>
-            // <UserListView uiList={this.props.ui}/>
         );
     }
 }

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import { toast } from 'react-toastify';
+import {toast} from 'react-toastify';
 
-const notify = function() {
+const notify = function () {
     toast("Default Notification !");
 
     toast.success("Success Notification !", {

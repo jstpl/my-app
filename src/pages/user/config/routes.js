@@ -5,10 +5,13 @@ import List from "../components/list";
 
 const UserRoutes = function () {
     return (
-        <Switch>
-            <Route exact path='/users' component={List}/>
-            <Route exact path='/users/:id' component={Profile}/>
-        </Switch>
+        <div>
+            <h2>This is a user page!</h2>
+            <Switch>
+                <Route exact path='/users' component={List}/>
+                <Route exact path='/users/:id' component={Profile}/>
+            </Switch>
+        </div>
     );
 };
 

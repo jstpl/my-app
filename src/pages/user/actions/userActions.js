@@ -1,22 +1,22 @@
-import * as types from '../enums/userActionEnum';
+import * as userActionEnum from '../enums/userActionEnum';
 
 export function getUsersSuccess(users) {
     return {
-        type: types.GET_USERS_SUCCESS,
+        type: userActionEnum.GET_USERS_SUCCESS,
         users
     };
 }
 
 export function deleteUserSuccess(userId) {
     return {
-        type: types.DELETE_USER_SUCCESS,
+        type: userActionEnum.DELETE_USER_SUCCESS,
         userId
     };
 }
 
 export function userProfileSuccess(userProfile) {
     return {
-        type: types.USER_PROFILE_SUCCESS,
+        type: userActionEnum.USER_PROFILE_SUCCESS,
         userProfile
     };
 }

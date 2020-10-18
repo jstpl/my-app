@@ -1,7 +1,7 @@
 import axios from 'axios';
 import store from '../../../app/store';
 import config from '../../../app/config'
-import {deleteUserSuccess, getUsersSuccess, userProfileSuccess} from '../actions/user-actions';
+import * as userAction from '../actions/userActions';
 
 /**
  * Get all users
@@ -9,7 +9,7 @@ import {deleteUserSuccess, getUsersSuccess, userProfileSuccess} from '../actions
 export function getUsers() {
     return axios.get(config.apiUrl + '/users.json')
         .then(response => {
-            store.dispatch(getUsersSuccess(response.data));
+            store.dispatch(userAction.getUsersSuccess(response.data));
             return response;
         });
 }
@@ -20,7 +20,7 @@ export function getUsers() {
 export function searchUsers(query = '') {
     return axios.get(config.apiUrl + '/users?q=' + query)
         .then(response => {
-            store.dispatch(getUsersSuccess(response.data));
+            store.dispatch(userAction.getUsersSuccess(response.data));
             return response;
         });
 }
@@ -31,7 +31,7 @@ export function searchUsers(query = '') {
 export function deleteUser(userId) {
     return axios.delete(config.apiUrl + '/users/' + userId)
         .then(response => {
-            store.dispatch(deleteUserSuccess(userId));
+            store.dispatch(userAction.deleteUserSuccess(userId));
             return response;
         });
 }
@@ -41,16 +41,11 @@ export function deleteUser(userId) {
  * three XHR requests to get all the profile info.
  */
 export function getProfile(userId) {
+    store.dispatch(userAction.userProfileSuccess({}));
 
-    // Start with an empty profile object and build it up
-    // from multiple XHR requests.
-
-    store.dispatch(userProfileSuccess({}));
-
-    // Get the user data from our local database.
     return axios.get(config.apiUrl + '/users/' + userId + '.json')
         .then(response => {
             let user = response.data;
-            store.dispatch(userProfileSuccess(user));
+            store.dispatch(userAction.userProfileSuccess(user));
         });
 }

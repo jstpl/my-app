@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
-import {Container} from 'bootstrap-4-react';
 
 export default class Footer extends Component {
     render() {
         return (
-            <div>
+            <small className="text-muted">
                 {this.props.children}
-            </div>
+            </small>
         )
     }
 }

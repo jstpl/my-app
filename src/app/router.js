@@ -10,7 +10,7 @@ export default (
     <HashRouter>
         <MainLayout>
             <Route component={SiteRoutes}/>
-            <Route component={UserRoutes}/>
+            <Route path="/users" component={UserRoutes}/>
         </MainLayout>
     </HashRouter>
 );

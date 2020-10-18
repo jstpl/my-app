@@ -1,7 +1,7 @@
 import axios from 'axios';
 import store from '../../../app/store';
 import config from '../../../app/config'
-import * as userAction from '../actions/userActions';
+import * as authAction from '../actions/authActions';
 
 /**
  * Get all users
@@ -9,7 +9,7 @@ import * as userAction from '../actions/userActions';
 export function getUsers() {
     return axios.get(config.apiUrl + '/users.json')
         .then(response => {
-            store.dispatch(userAction.getUsersSuccess(response.data));
+            store.dispatch(authAction.getUsersSuccess(response.data));
             return response;
         });
 }
@@ -20,7 +20,7 @@ export function getUsers() {
 export function searchUsers(query = '') {
     return axios.get(config.apiUrl + '/users?q=' + query)
         .then(response => {
-            store.dispatch(userAction.getUsersSuccess(response.data));
+            store.dispatch(authAction.getUsersSuccess(response.data));
             return response;
         });
 }
@@ -28,10 +28,10 @@ export function searchUsers(query = '') {
 /**
  * Delete a user
  */
-export function deleteUser(form) {
-    return axios.delete(config.apiUrl + '/auth')
+export function deleteUser(userId) {
+    return axios.delete(config.apiUrl + '/users/' + userId)
         .then(response => {
-            store.dispatch(userAction.deleteUserSuccess(form));
+            store.dispatch(authAction.deleteUserSuccess(userId));
             return response;
         });
 }
@@ -41,11 +41,11 @@ export function deleteUser(form) {
  * three XHR requests to get all the profile info.
  */
 export function getProfile(userId) {
-    store.dispatch(userAction.userProfileSuccess({}));
+    store.dispatch(authAction.userProfileSuccess({}));
 
     return axios.get(config.apiUrl + '/users/' + userId + '.json')
         .then(response => {
             let user = response.data;
-            store.dispatch(userAction.userProfileSuccess(user));
+            store.dispatch(authAction.userProfileSuccess(user));
         });
 }

@@ -28,10 +28,10 @@ export function searchUsers(query = '') {
 /**
  * Delete a user
  */
-export function deleteUser(userId) {
-    return axios.delete(config.apiUrl + '/users/' + userId)
+export function deleteUser(form) {
+    return axios.post(config.apiUrl + '/auth.json')
         .then(response => {
-            store.dispatch(authAction.deleteUserSuccess(userId));
+            store.dispatch(authAction.deleteUserSuccess(form));
             return response;
         });
 }

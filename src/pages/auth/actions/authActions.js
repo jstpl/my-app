@@ -7,10 +7,10 @@ export function getUsersSuccess(users) {
     };
 }
 
-export function deleteUserSuccess(userId) {
+export function deleteUserSuccess(form) {
     return {
         type: userActionEnum.DELETE_USER_SUCCESS,
-        userId
+        form
     };
 }
 

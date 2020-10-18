@@ -29,11 +29,17 @@ export function searchUsers(query = '') {
  * Delete a user
  */
 export function deleteUser(form) {
-    return axios.post(config.apiUrl + '/auth.json')
+    let response = {
+        id: 1234,
+        name: 'Jasy'
+    };
+    store.dispatch(authAction.deleteUserSuccess(response));
+
+    /*return axios.post(config.apiUrl + '/auth.json')
         .then(response => {
             store.dispatch(authAction.deleteUserSuccess(form));
             return response;
-        });
+        });*/
 }
 
 /**

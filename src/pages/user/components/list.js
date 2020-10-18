@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import * as userApi from "../api/user-api";
+import * as userApi from "../api/userApi";
 import UserListView from "../views/list";
 
 class List extends Component {

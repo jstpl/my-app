@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import UserProfileView from '../views/profile'
-import * as userApi from "../api/user-api";
+import * as userApi from "../api/userApi";
 import {connect} from "react-redux";
 
 class Profile extends Component {

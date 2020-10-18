@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import UserList from '../views/user-list';
-import * as userApi from '../../../pages/user/api/user-api';
+import * as userApi from '../../../pages/user/api/userApi';
 import store from '../../../app/store';
 import {loadSearchLayout} from '../../actions/search-layout-actions';
 

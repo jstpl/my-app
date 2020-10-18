@@ -6,12 +6,9 @@ import {deleteUserSuccess, getUsersSuccess, userProfileSuccess} from '../actions
 /**
  * Get all users
  */
-
 export function getUsers() {
     return axios.get(config.apiUrl + '/users.json')
         .then(response => {
-            // let data = JSON.parse(response.data);
-            //console.log(response.data);
             store.dispatch(getUsersSuccess(response.data));
             return response;
         });
@@ -20,9 +17,8 @@ export function getUsers() {
 /**
  * Search users
  */
-
 export function searchUsers(query = '') {
-    return axios.get('http://localhost:3001/users?q=' + query)
+    return axios.get(config.apiUrl + '/users?q=' + query)
         .then(response => {
             store.dispatch(getUsersSuccess(response.data));
             return response;
@@ -32,9 +28,8 @@ export function searchUsers(query = '') {
 /**
  * Delete a user
  */
-
 export function deleteUser(userId) {
-    return axios.delete('http://localhost:3001/users/' + userId)
+    return axios.delete(config.apiUrl + '/users/' + userId)
         .then(response => {
             store.dispatch(deleteUserSuccess(userId));
             return response;
@@ -45,45 +40,17 @@ export function deleteUser(userId) {
  * getProfile() is much more complex because it has to make
  * three XHR requests to get all the profile info.
  */
-
 export function getProfile(userId) {
 
     // Start with an empty profile object and build it up
     // from multiple XHR requests.
-    let profile = {};
+
+    store.dispatch(userProfileSuccess({}));
 
     // Get the user data from our local database.
     return axios.get(config.apiUrl + '/users/' + userId + '.json')
         .then(response => {
-
             let user = response.data;
-            // profile.name = user.name;
-            // profile.twitter = user.twitter;
-            // profile.worksOn = user.worksOn;
-
             store.dispatch(userProfileSuccess(user));
-
-
-            // Then use the github attribute from the previous request to
-            // sent two XHR requests to GitHub's API. The first for their
-            // general user info, and the second for their repos.
-            /*return Promise.all([
-                axios.get('https://api.github.com/users/' + user.github),
-                axios.get('https://api.github.com/users/' + user.github + '/repos')
-            ]).then(results => {
-
-                let githubProfile = results[0].data;
-                let githubRepos = results[1].data;
-
-                profile.imageUrl = githubProfile.avatar_url;
-                profile.repos = githubRepos;
-
-                store.dispatch(userProfileSuccess(profile));
-
-
-
-            });*/
-
         });
-
 }

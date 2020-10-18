@@ -1,5 +1,5 @@
 
-let UrlHelper = {
+export default {
     getLocation: function(href) {
         return new URL(window.location);
         /*let urlObject = document.createElement("a");
@@ -10,5 +10,3 @@ let UrlHelper = {
         return this.getLocation(url).origin;
     }
 };
-
-export default UrlHelper;

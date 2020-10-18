@@ -25,7 +25,7 @@ export default class Navigator extends Component {
                         </Nav.Item>
 
                         <Nav.Item activeclassname="active">
-                            <Link className="nav-link" to="/qwerty">Qwerty</Link>
+                            <Link className="nav-link" to="/auth">Auth</Link>
                         </Nav.Item>
 
                         <Nav.Item dropdown>

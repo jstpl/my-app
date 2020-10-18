@@ -4,12 +4,17 @@ import Breadcrumbs from '../components/Breadcrumbs';
 import Main from "../components/Main";
 import Footer from "../components/Footer";
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import './MainLayout.css';
 import {Container} from "bootstrap-4-react";
 
 export default function (props) {
     return (
         <React.Fragment>
+
+            <ToastContainer />
 
             <Navigator/>
 

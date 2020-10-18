@@ -4,9 +4,7 @@ import * as authApi from "../api/authApi";
 import {Button, Form} from "bootstrap-4-react";
 // import AuthView from "../views/auth";
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { toast } from 'react-toastify';
 const notify = () => toast("Wow so easy !");
 
 class Auth extends Component {
@@ -60,7 +58,6 @@ class Auth extends Component {
                 <Button primary type="submit">Submit</Button>
 
                 <button onClick={notify}>Notify !</button>
-                <ToastContainer />
 
             </Form>
             // <AuthView identity={this.props.identity} authorization={}/>

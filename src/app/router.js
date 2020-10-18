@@ -1,8 +1,8 @@
 import React from 'react';
 import {HashRouter, Route} from 'react-router-dom';
 // Layouts
-// import MainLayout from './layouts/MainLayout';
-import MainLayout from './layouts/AdminLteLayout';
+import MainLayout from './layouts/MainLayout';
+// import MainLayout from './layouts/AdminLteLayout';
 
 import UserModule from "../pages/user/module";
 import AuthModule from "../pages/auth/module";

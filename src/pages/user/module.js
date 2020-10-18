@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Switch} from "react-router-dom";
-import Profile from "../components/profile";
-import List from "../components/list";
+import Profile from "./components/profile";
+import List from "./components/list";
 
 const UserRoutes = function () {
     return (

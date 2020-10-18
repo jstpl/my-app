@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Switch} from "react-router-dom";
-import List from "../components/list";
-import Detail from "../components/detail";
+import List from "./components/list";
+import Detail from "./components/detail";
 
 const PostRoutes = function () {
     return (

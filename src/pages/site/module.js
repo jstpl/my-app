@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Switch} from "react-router-dom";
-import Home from "../components/home";
+import Home from "./components/home";
 
 const SiteRoutes = function () {
     return (

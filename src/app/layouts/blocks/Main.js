@@ -4,9 +4,9 @@ import {Container} from 'bootstrap-4-react';
 export default class Main extends Component {
     render() {
         return (
-            <Container as="main" role="main">
+            <div>
                 {this.props.children}
-            </Container>
+            </div>
         )
     }
 }

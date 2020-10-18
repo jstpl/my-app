@@ -7,6 +7,7 @@ import UserModule from "../pages/user/module";
 import AuthModule from "../pages/auth/module";
 import PostModule from "../pages/post/module";
 import SiteModule from "../pages/site/module";
+import UiModule from "../pages/ui/module";
 
 export default (
     <HashRouter>
@@ -15,6 +16,7 @@ export default (
             <Route path="/post" component={PostModule}/>
             <Route path="/users" component={UserModule}/>
             <Route component={AuthModule}/>
+            <Route component={UiModule}/>
         </MainLayout>
     </HashRouter>
 );

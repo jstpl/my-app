@@ -1,8 +1,10 @@
 
 import RpcClient from '../../../../app/libs/rpcClient/RpcClient.js';
+import responseEncoder from "../../../../app/libs/rpcClient/encoders/responseEncoder";
+import _ from "lodash";
 
 class AuthRepository {
-    auth(body) {
+    getTokenByForm(body) {
         /*const body = {
             login: 'admin',
             password: 'Wwwqqq111',
@@ -11,8 +13,23 @@ class AuthRepository {
             method: 'authentication.getTokenByPassword',
             body: body,
         };
-        return RpcClient.sendRequest(requestEntity);
+        let clientPromise = RpcClient.sendRequest(requestEntity);
+        return this.createRpcPromise(clientPromise);
+        // console.log(responseEntity);
+        // return responseEntity.body.token;
         //return RpcClient.send('authentication.getTokenByPassword', body);
+    }
+
+    createRpcPromise(axiosPromise) {
+        return new Promise(function (resolve, reject) {
+            axiosPromise
+                .then(function (responseEntity) {
+                    resolve(responseEntity.body.token);
+                })
+                .catch(function (responseEntity) {
+                    reject(responseEntity.error);
+                });
+        });
     }
 }
 

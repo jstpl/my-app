@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-// import * as authApi from "../api/authApi";
 import authService from "../services/authService";
 import {Button, Form} from "bootstrap-4-react";
 // import AuthView from "../views/auth";
@@ -29,7 +28,7 @@ class Auth extends Component {
     }
 
     handleSubmit(event) {
-        authService.getTokenByForm(this.state);
+        authService.authByForm(this.state);
         //alert('A name was submitted: ' + this.state.login + ' - ' + this.state.password);
         event.preventDefault();
     }

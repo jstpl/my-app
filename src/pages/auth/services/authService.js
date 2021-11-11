@@ -5,21 +5,19 @@ import authRepository from '../repositories/rpc/authRepository';
 import {toast} from 'react-toastify';
 
 let authService = {
-    getTokenByForm: function (form) {
-// let authRepository = new AuthRepository();
-        authRepository.auth(form)
-            .then(function (responseEntity) {
-                //console.log(responseEntity);
-                toast.success("Success!" + responseEntity.body.token);
+    authByForm: function (form) {
+        authRepository.getTokenByForm(form)
+            .then(function (token) {
+                toast.success("Success!" + token);
                 let identityEntity = {
                     id: 1234,
                     name: 'Jasy'
                 };
                 store.dispatch(authAction.authorizationSuccess(identityEntity));
             })
-            .catch(function (responseEntity) {
+            .catch(function (error) {
                 //console.log(JSON.stringify(responseEntity.error));
-                toast.error(responseEntity.error.message);
+                toast.error(error.message);
             });
     }
 };

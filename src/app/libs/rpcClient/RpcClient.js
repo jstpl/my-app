@@ -22,22 +22,10 @@ let RpcClient = {
         return new Promise(function (resolve, reject) {
             axiosPromise
                 .then(function (response) {
-                    if(response.headers['content-type'] === 'application/json') {
-                        let responseEntity = responseEncoder.decode(response.data);
-                        if (_.isEmpty(responseEntity.error)) {
-                            resolve(responseEntity);
-                        } else {
-                            reject(responseEntity);
-                        }
+                    let responseEntity = responseEncoder.decode(response);
+                    if (_.isEmpty(responseEntity.error)) {
+                        resolve(responseEntity);
                     } else {
-                        let responseEntity = {
-                            "jsonrpc": "2.0",
-                            "error": {
-                                "code": -32300,
-                                "message": "Transport error. Not JSON data.",
-                                "data": response,
-                            },
-                        };
                         reject(responseEntity);
                     }
                 })
@@ -46,8 +34,8 @@ let RpcClient = {
                         "jsonrpc": "2.0",
                         "error": {
                             "code": -32300,
-                            "message": "Transport error",
-                            "data": error,
+                            "message": error,
+                            //"data": error,
                         },
                     };
                     reject(responseEntity);

@@ -2,7 +2,6 @@ import axios from 'axios';
 import store from '../../../app/store';
 import config from '../../../app/config'
 import * as userAction from '../actions/userActions';
-import RpcClient from '../../../app/components/RpcClient.js';
 
 /**
  * Get all users

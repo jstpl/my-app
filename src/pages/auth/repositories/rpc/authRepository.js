@@ -7,7 +7,12 @@ class AuthRepository {
             login: 'admin',
             password: 'Wwwqqq111',
         };*/
-        return RpcClient.send('authentication.getTokenByPassword', body);
+        let requestEntity = {
+            method: 'authentication.getTokenByPassword',
+            body: body,
+        };
+        return RpcClient.sendRequest(requestEntity);
+        //return RpcClient.send('authentication.getTokenByPassword', body);
     }
 }
 

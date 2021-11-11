@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import authService from "../services/authService";
 import {Button, Form} from "bootstrap-4-react";
+import {toast} from "react-toastify";
+
 // import AuthView from "../views/auth";
 
 class Auth extends Component {
@@ -29,6 +31,13 @@ class Auth extends Component {
 
     handleSubmit(event) {
         authService.authByForm(this.state);
+            /*.then(function (data) {
+                 console.log(data)
+            })
+            .catch(function (error) {
+                //console.log(error)
+                //toast.error(JSON.stringify(error));
+            });*/
         //alert('A name was submitted: ' + this.state.login + ' - ' + this.state.password);
         event.preventDefault();
     }
@@ -39,12 +48,14 @@ class Auth extends Component {
                 <h1>Authorization</h1>
                 <Form.Group>
                     <label htmlFor="exampleInputEmail1">Email address</label>
-                    <Form.Input value={this.state.login} onChange={this.handleChange} name="login" type="text" id="exampleInputEmail1" placeholder="Enter email" />
+                    <Form.Input value={this.state.login} onChange={this.handleChange} name="login" type="text"
+                                id="exampleInputEmail1" placeholder="Enter email"/>
                     {/*<Form.Text text="muted">We'll never share your email with anyone else.</Form.Text>*/}
                 </Form.Group>
                 <Form.Group>
                     <label htmlFor="exampleInputPassword1">Password</label>
-                    <Form.Input value={this.state.password} onChange={this.handleChange} name="password" type="password" id="exampleInputPassword1" placeholder="Password" />
+                    <Form.Input value={this.state.password} onChange={this.handleChange} name="password" type="password"
+                                id="exampleInputPassword1" placeholder="Password"/>
                 </Form.Group>
                 {/*<Form.Group>*/}
                 {/*    <Form.Check>*/}

@@ -3,12 +3,15 @@ import store from '../../../app/store';
 import * as authAction from '../actions/authActions';
 import authRepository from '../repositories/rpc/authRepository';
 import {toast} from 'react-toastify';
+import eventEmitter from '../../../app/libs/eventEmitter';
+import * as authEventEnum from '../../auth/enums/authEventEnum';
 
 let authService = {
     authByForm: function (form) {
-        authRepository.getTokenByForm(form)
+        return authRepository.getTokenByForm(form)
             .then(function (token) {
-                toast.success("Success!" + token);
+                eventEmitter.emit(authEventEnum.AUTHORIZATION, token);
+                //toast.success("Success!" + token);
                 let identityEntity = {
                     id: 1234,
                     name: 'Jasy'
@@ -18,7 +21,7 @@ let authService = {
             .catch(function (error) {
                 toast.error(JSON.stringify(error));
             });
-    }
+    },
 };
 
 export default authService;

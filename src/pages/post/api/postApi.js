@@ -13,7 +13,7 @@ export default {
     oneById: function (id) {
         for (let k in collection) {
             let entity = collection[k];
-            if(entity.id == id) {
+            if(entity.id === id) {
                 return entity;
             }
         }

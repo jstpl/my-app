@@ -1,6 +1,6 @@
-import axios from 'axios';
+// import axios from 'axios';
 import store from '../../../app/store';
-import config from '../../../app/config'
+// import config from '../../../app/config'
 import * as authAction from '../actions/authActions';
 
 /**

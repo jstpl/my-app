@@ -2,11 +2,27 @@ import axios from 'axios';
 import store from '../../../app/store';
 import config from '../../../app/config'
 import * as userAction from '../actions/userActions';
+import RpcClient from '../../../app/components/RpcClient.js';
 
 /**
  * Get all users
  */
 export function getUsers() {
+
+    const promise = RpcClient.send('authentication.getTokenByPassword', {
+        login: 'admin',
+        password: 'Wwwqqq111',
+    });
+
+    promise
+        .then(function (responseEntity) {
+            console.log(responseEntity);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
+
     return axios.get(config.apiUrl + '/users.json')
         .then(response => {
             store.dispatch(userAction.getUsersSuccess(response.data));

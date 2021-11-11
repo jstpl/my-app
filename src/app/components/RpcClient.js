@@ -29,9 +29,6 @@ let RpcClient = {
         }
         return request;
     },
-    decodeRequest: function () {
-
-    },
     decodeResponse: function (data) {
         let responseEntity = {};
         if (!_.isEmpty(data.result)) {
@@ -64,7 +61,11 @@ let RpcClient = {
             axiosPromise
                 .then(function (response) {
                     let responseEntity = RpcClient.decodeResponse(response.data);
-                    resolve(responseEntity);
+                    if(_.isEmpty(responseEntity.error)) {
+                        resolve(responseEntity);
+                    } else {
+                        reject(responseEntity);
+                    }
                 })
                 .catch(function (error) {
                     reject(error);

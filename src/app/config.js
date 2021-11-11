@@ -1,7 +1,7 @@
 
 import UrlHelper from "./helpers/urlHelper"
 
-let apiOrigin = 'http://daryn.orl';
+let apiOrigin = 'http://tournament.casino';
 let apiOrigin1 = UrlHelper.getOrigin(window.location);
 
 export default {

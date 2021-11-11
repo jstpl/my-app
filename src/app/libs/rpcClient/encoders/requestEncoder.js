@@ -1,0 +1,26 @@
+import _ from "lodash";
+
+let requestEncoder = {
+    encode: function (requestEntity) {
+        requestEntity.meta = typeof requestEntity.meta === 'object' ? requestEntity.meta : {};
+        requestEntity.meta.version = !_.isEmpty(requestEntity.version) ? requestEntity.version : 1;
+        let request = {
+            jsonrpc: '2.0',
+            method: requestEntity.method,
+            params: {},
+            id: typeof requestEntity.id !== 'undefined' ? requestEntity.id : +new Date(),
+        };
+        if (!_.isEmpty(requestEntity.body)) {
+            request.params.body = requestEntity.body;
+        }
+        if (!_.isEmpty(requestEntity.meta)) {
+            request.params.meta = requestEntity.meta;
+        }
+        return request;
+    },
+    decode: function () {
+
+    },
+};
+
+export default requestEncoder;

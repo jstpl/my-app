@@ -1,5 +1,5 @@
 
-import RpcClient from '../../../../app/components/RpcClient.js';
+import RpcClient from '../../../../app/libs/rpcClient/RpcClient.js';
 
 class AuthRepository {
     auth(body) {

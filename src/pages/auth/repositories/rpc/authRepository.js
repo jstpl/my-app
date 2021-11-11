@@ -1,7 +1,5 @@
 
 import RpcClient from '../../../../app/libs/rpcClient/RpcClient.js';
-import responseEncoder from "../../../../app/libs/rpcClient/encoders/responseEncoder";
-import _ from "lodash";
 
 class AuthRepository {
     getTokenByForm(body) {
@@ -15,9 +13,6 @@ class AuthRepository {
         };
         let clientPromise = RpcClient.sendRequest(requestEntity);
         return this.createRpcPromise(clientPromise);
-        // console.log(responseEntity);
-        // return responseEntity.body.token;
-        //return RpcClient.send('authentication.getTokenByPassword', body);
     }
 
     createRpcPromise(axiosPromise) {

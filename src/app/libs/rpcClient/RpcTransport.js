@@ -1,7 +1,5 @@
 import axios from 'axios';
 import config from '../../config'
-import responseEncoder from "./encoders/responseEncoder";
-import _ from "lodash";
 
 let RpcTransport = {
     send: function (body) {
@@ -18,7 +16,6 @@ let RpcTransport = {
         return new Promise(function (resolve, reject) {
             axiosPromise
                 .then(function (response) {
-                   // console.log(response.headers['content-type']);
                     if(response.headers['content-type'] === 'application/json') {
                         if(typeof response.data === 'object') {
                             resolve(response.data);

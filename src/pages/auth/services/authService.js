@@ -16,8 +16,7 @@ let authService = {
                 store.dispatch(authAction.authorizationSuccess(identityEntity));
             })
             .catch(function (error) {
-                //console.log(JSON.stringify(responseEntity.error));
-                toast.error(error.message);
+                toast.error(JSON.stringify(error));
             });
     }
 };

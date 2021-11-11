@@ -1,19 +1,20 @@
 import axios from 'axios';
 import _ from 'lodash';
+import config from '../../app/config'
 
 let RpcClient = {
-    url: 'http://daryn.orl/json-rpc',
     send: function (method, body, meta, version) {
         let request = {
             method: method,
             body: body,
             meta: meta,
+            version: version,
         };
         return this.sendRequest(request);
     },
     encodeRequest: function (requestEntity) {
         requestEntity.meta = typeof requestEntity.meta === 'object' ? requestEntity.meta : {};
-        requestEntity.meta.version = typeof requestEntity.version !== 'undefined' ? requestEntity.version : 1;
+        requestEntity.meta.version = !_.isEmpty(requestEntity.version) ? requestEntity.version : 1;
         let request = {
             jsonrpc: '2.0',
             method: requestEntity.method,
@@ -42,19 +43,23 @@ let RpcClient = {
                 responseEntity.meta = result.meta;
             }
         }
+        if (!_.isEmpty(data.error)) {
+            responseEntity.error = data.error;
+        }
         responseEntity.id = !_.isEmpty(responseEntity.id) ? responseEntity.id : +new Date();
         return responseEntity;
     },
     sendRequest: function (requestEntity) {
-
-
         let body = RpcClient.encodeRequest(requestEntity);
         let options = {
             headers: {
                 'Content-Type': 'application/json',
             },
         };
-        let axiosPromise = axios.post(this.url, body, options);
+        let axiosPromise = axios.post(config.rpcUrl, body, options);
+        return this.createRpcPromise(axiosPromise);
+    },
+    createRpcPromise: function (axiosPromise) {
         return new Promise(function (resolve, reject) {
             axiosPromise
                 .then(function (response) {

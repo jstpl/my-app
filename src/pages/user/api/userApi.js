@@ -8,17 +8,6 @@ import RpcClient from '../../../app/components/RpcClient.js';
  * Get all users
  */
 export function getUsers() {
-
-    /*const body = {
-        login: 'admin',
-        password: 'Wwwqqq111',
-    };
-    const promise = RpcClient.send('authentication.getTokenByPassword', body);
-
-    promise.then(function (responseEntity) {
-        console.log(responseEntity);
-    });*/
-
     return axios.get(config.apiUrl + '/users.json')
         .then(response => {
             store.dispatch(userAction.getUsersSuccess(response.data));

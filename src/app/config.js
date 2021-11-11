@@ -1,8 +1,10 @@
 
 import UrlHelper from "./helpers/urlHelper"
 
-let apiOrigin = UrlHelper.getOrigin(window.location);
+let apiOrigin = 'http://daryn.orl';
+let apiOrigin1 = UrlHelper.getOrigin(window.location);
 
 export default {
-    apiUrl: apiOrigin + "/api",
+    apiUrl: apiOrigin1 + "/api",
+    rpcUrl: apiOrigin + "/json-rpc",
 };

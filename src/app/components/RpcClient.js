@@ -4,48 +4,41 @@ import _ from 'lodash';
 let RpcClient = {
     url: 'http://daryn.orl/json-rpc',
     send: function (method, body, meta, version) {
-
-
         let request = {
             method: method,
             body: body,
             meta: meta,
         };
-
         return this.sendRequest(request);
     },
-    encodeRequest: function(requestEntity) {
-
+    encodeRequest: function (requestEntity) {
         requestEntity.meta = typeof requestEntity.meta === 'object' ? requestEntity.meta : {};
         requestEntity.meta.version = typeof requestEntity.version !== 'undefined' ? requestEntity.version : 1;
-
-        let axiosBody = {
+        let request = {
             jsonrpc: '2.0',
             method: requestEntity.method,
             params: {},
             id: typeof requestEntity.id !== 'undefined' ? requestEntity.id : +new Date(),
         };
-
-        if(!_.isEmpty(requestEntity.body)) {
-            axiosBody.params.body = requestEntity.body;
+        if (!_.isEmpty(requestEntity.body)) {
+            request.params.body = requestEntity.body;
         }
-
-        if(!_.isEmpty(requestEntity.meta)) {
-            axiosBody.params.meta = requestEntity.meta;
+        if (!_.isEmpty(requestEntity.meta)) {
+            request.params.meta = requestEntity.meta;
         }
-        return axiosBody;
+        return request;
     },
-    decodeRequest: function() {
+    decodeRequest: function () {
 
     },
-    decodeResponse: function(data) {
+    decodeResponse: function (data) {
         let responseEntity = {};
-        if(!_.isEmpty(data.result)) {
+        if (!_.isEmpty(data.result)) {
             let result = data.result;
-            if(!_.isEmpty(result.body)) {
+            if (!_.isEmpty(result.body)) {
                 responseEntity.body = result.body;
             }
-            if(!_.isEmpty(result.meta)) {
+            if (!_.isEmpty(result.meta)) {
                 responseEntity.meta = result.meta;
             }
         }
@@ -62,7 +55,7 @@ let RpcClient = {
             },
         };
         let axiosPromise = axios.post(this.url, body, options);
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             axiosPromise
                 .then(function (response) {
                     let responseEntity = RpcClient.decodeResponse(response.data);

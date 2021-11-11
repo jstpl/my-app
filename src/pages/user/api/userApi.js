@@ -9,19 +9,15 @@ import RpcClient from '../../../app/components/RpcClient.js';
  */
 export function getUsers() {
 
-    const promise = RpcClient.send('authentication.getTokenByPassword', {
+    /*const body = {
         login: 'admin',
         password: 'Wwwqqq111',
-    });
+    };
+    const promise = RpcClient.send('authentication.getTokenByPassword', body);
 
-    promise
-        .then(function (responseEntity) {
-            console.log(responseEntity);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-
+    promise.then(function (responseEntity) {
+        console.log(responseEntity);
+    });*/
 
     return axios.get(config.apiUrl + '/users.json')
         .then(response => {

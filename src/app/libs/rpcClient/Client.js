@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import PermanentStorage from "../../../libs/PermanentStorage";
+import TokenRepository from "../../../pages/auth/repositories/storage/tokenRepository";
 
 /*let __Client = {
     send: function (method, body, meta, version) {
@@ -19,18 +19,15 @@ class Client {
     #requestEncoder;
     #responseEncoder;
 
-    constructor(transport, requestEncoder, responseEncoder) {
+    constructor(transport, requestEncoder, responseEncoder, tokenRepository) {
         this.transport = transport;
         this.requestEncoder = requestEncoder;
         this.responseEncoder = responseEncoder;
+        this.tokenRepository= tokenRepository;
     }
 
     sendRequest(requestEntity) {
-
-        let token = PermanentStorage.get('authToken');
-        if(!_.isEmpty(token)) {
-            _.set(requestEntity, 'meta.Authorization', token);
-        }
+        this.prepareRequest(requestEntity);
         let body = this.requestEncoder.encode(requestEntity);
         let axiosPromise = this.transport.send(body);
         let that = this;
@@ -49,6 +46,13 @@ class Client {
                 throw responseEntity;
             });
         // return this.createRpcPromise(axiosPromise);
+    }
+
+    prepareRequest(requestEntity) {
+        let token = this.tokenRepository.get();
+        if (!_.isEmpty(token)) {
+            _.set(requestEntity, 'meta.Authorization', token);
+        }
     }
 
     /*createRpcPromise(axiosPromise) {

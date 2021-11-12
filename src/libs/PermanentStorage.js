@@ -1,8 +1,8 @@
 import _ from 'lodash';
 
-let PermanentStorage = {
+class PermanentStorage {
 
-    get: function (key, defaultValue) {
+    get(key, defaultValue) {
         var data = null;
         var dataJson = localStorage.getItem(key);
         if (!_.isEmpty(dataJson)) {
@@ -10,17 +10,16 @@ let PermanentStorage = {
         }
         data = _.defaultTo(data, defaultValue);
         return data;
-    },
+    }
 
-    set: function (key, data) {
+    set(key, data) {
         var dataJson = JSON.stringify(data);
         localStorage.setItem(key, dataJson);
-    },
+    }
 
-    remove: function (key) {
+    remove(key) {
         localStorage.removeItem(key);
-    },
-
-};
+    }
+}
 
 export default PermanentStorage;

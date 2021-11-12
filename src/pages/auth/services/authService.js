@@ -3,19 +3,19 @@ import * as authAction from '../actions/authActions';
 import AuthRepository from '../repositories/rpc/AuthRepository';
 import eventEmitter from '../../../app/libs/eventEmitter';
 import authEventEnum from "../enums/authEventEnum";
-import PermanentStorage from "../../../libs/PermanentStorage";
+import TokenRepository from "../repositories/storage/tokenRepository";
 
 class AuthService {
 
     constructor(authRepository) {
         this.authRepository = authRepository;
+        this.tokenRepository = new TokenRepository();
     }
 
     async authByForm(form) {
-        //let token1 = PermanentStorage.get('authToken');
-        //console.log(token1);
         let token = await this.authRepository.getTokenByForm(form);
-        PermanentStorage.set('authToken', token);
+        // PermanentStorage.set('authToken', token);
+        this.tokenRepository.set(token);
 
         eventEmitter.emit(authEventEnum.AUTHORIZATION, token);
         let identityEntity = {

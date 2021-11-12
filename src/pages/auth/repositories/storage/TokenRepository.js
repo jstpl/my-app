@@ -1,4 +1,4 @@
-import BasePermanentStorageRepository from "../../../../libs/permanentStorage/BasePermanentStorageRepository";
+import BasePermanentStorageRepository from "../../../../packages/permanentStorage/BasePermanentStorageRepository";
 
 class TokenRepository extends BasePermanentStorageRepository {
 

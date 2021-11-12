@@ -19,7 +19,11 @@ let authService = {
                 store.dispatch(authAction.authorizationSuccess(identityEntity));
             })
             .catch(function (error) {
-                toast.error(JSON.stringify(error));
+                let message = error.message;
+                if(error.data !== undefined) {
+                    message = message + JSON.stringify(error.data);
+                }
+                toast.error(message);
             });
     },
 };

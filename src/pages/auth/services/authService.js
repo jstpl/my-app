@@ -4,7 +4,7 @@ import * as authAction from '../actions/authActions';
 import authRepository from '../repositories/rpc/authRepository';
 import {toast} from 'react-toastify';
 import eventEmitter from '../../../app/libs/eventEmitter';
-import * as authEventEnum from '../../auth/enums/authEventEnum';
+import authEventEnum from "../enums/authEventEnum";
 
 let authService = {
     authByForm: function (form) {

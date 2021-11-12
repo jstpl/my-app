@@ -1,2 +1,5 @@
 
-export const AUTHORIZATION = 'AUTHORIZATION';
+export default {
+
+    AUTHORIZATION: 'AUTHORIZATION',
+}

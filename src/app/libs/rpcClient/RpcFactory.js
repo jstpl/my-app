@@ -7,7 +7,7 @@ import RequestEncoder from "./encoders/requestEncoder";
 class RpcFactory {
 
     createClient() {
-        return new RpcClient(new RpcTransport(), RequestEncoder, ResponseEncoder);
+        return new RpcClient(new RpcTransport(), new RequestEncoder(), new ResponseEncoder());
     }
 }
 

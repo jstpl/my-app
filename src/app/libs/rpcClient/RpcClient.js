@@ -1,6 +1,9 @@
-import responseEncoder from './encoders/responseEncoder';
-import requestEncoder from './encoders/requestEncoder';
+import ResponseEncoder from './encoders/responseEncoder';
+// import RequestEncoder from './encoders/requestEncoder';
 import _ from 'lodash';
+
+let responseEncoder = new ResponseEncoder();
+// let requestEncoder = new RequestEncoder();
 
 /*let __RpcClient = {
     send: function (method, body, meta, version) {
@@ -16,23 +19,30 @@ import _ from 'lodash';
 
 class RpcClient {
 
-    constructor(rpcTransport/*, requestEncoder, responseEncoder*/) {
+    #transport;
+    #requestEncoder;
+    #responseEncoder;
+
+    constructor(rpcTransport, requestEncoder, responseEncoder) {
         this.transport = rpcTransport;
         this.requestEncoder = requestEncoder;
         this.responseEncoder = responseEncoder;
     }
 
     sendRequest(requestEntity) {
-        let body = requestEncoder.encode(requestEntity);
+        let body = this.requestEncoder.encode(requestEntity);
         let axiosPromise = this.transport.send(body);
         return this.createRpcPromise(axiosPromise);
     }
 
     createRpcPromise(axiosPromise) {
+        let that = this;
+        // console.log(that.responseEncoder);
         return new Promise(function (resolve, reject) {
             axiosPromise
                 .then(function (response) {
-                    let responseEntity = responseEncoder.decode(response);
+                    let responseEntity = that.responseEncoder.decode(response);
+                    // let responseEntity = responseEncoder.decode(response);
                     if (_.isEmpty(responseEntity.error)) {
                         resolve(responseEntity);
                     } else {

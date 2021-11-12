@@ -25,4 +25,4 @@ class ResponseEncoder {
     }
 }
 
-export default new ResponseEncoder();
+export default ResponseEncoder;

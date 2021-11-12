@@ -25,4 +25,4 @@ class RequestEncoder {
     }
 }
 
-export default new RequestEncoder();
+export default RequestEncoder;

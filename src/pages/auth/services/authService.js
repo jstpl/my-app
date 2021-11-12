@@ -3,6 +3,7 @@ import * as authAction from '../actions/authActions';
 import AuthRepository from '../repositories/rpc/AuthRepository';
 import eventEmitter from '../../../app/libs/eventEmitter';
 import authEventEnum from "../enums/authEventEnum";
+import PermanentStorage from "../../../libs/PermanentStorage";
 
 class AuthService {
 
@@ -11,7 +12,11 @@ class AuthService {
     }
 
     async authByForm(form) {
+        //let token1 = PermanentStorage.get('authToken');
+        //console.log(token1);
         let token = await this.authRepository.getTokenByForm(form);
+        PermanentStorage.set('authToken', token);
+
         eventEmitter.emit(authEventEnum.AUTHORIZATION, token);
         let identityEntity = {
             id: 1234,

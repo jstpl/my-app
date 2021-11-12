@@ -1,9 +1,4 @@
-import ResponseEncoder from './encoders/responseEncoder';
-// import RequestEncoder from './encoders/requestEncoder';
 import _ from 'lodash';
-
-let responseEncoder = new ResponseEncoder();
-// let requestEncoder = new RequestEncoder();
 
 /*let __RpcClient = {
     send: function (method, body, meta, version) {
@@ -37,12 +32,10 @@ class RpcClient {
 
     createRpcPromise(axiosPromise) {
         let that = this;
-        // console.log(that.responseEncoder);
         return new Promise(function (resolve, reject) {
             axiosPromise
                 .then(function (response) {
                     let responseEntity = that.responseEncoder.decode(response);
-                    // let responseEntity = responseEncoder.decode(response);
                     if (_.isEmpty(responseEntity.error)) {
                         resolve(responseEntity);
                     } else {

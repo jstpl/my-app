@@ -26,7 +26,7 @@ let RpcTransport = {
                         reject("Transport error. Content type invalid.");
                     }
                 })
-                .catch(function (response) {
+                .catch(function (error) {
                     reject("Transport error.");
                 });
         });

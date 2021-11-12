@@ -1,6 +1,6 @@
 import _ from "lodash";
 
-class ResponseEncoder {
+export default class ResponseEncoder {
 
     encode() {
 
@@ -24,5 +24,3 @@ class ResponseEncoder {
         return responseEntity;
     }
 }
-
-export default ResponseEncoder;

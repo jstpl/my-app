@@ -17,7 +17,7 @@ function createRpcPromise(axiosPromise) {
     });
 }*/
 
-class AuthRepository extends BaseRpcRepository {
+export default class AuthRepository extends BaseRpcRepository {
     async getTokenByForm(body) {
         let requestEntity = {
             method: 'authentication.getTokenByPassword',
@@ -51,5 +51,3 @@ class AuthRepository extends BaseRpcRepository {
         // return createRpcPromise(clientPromise);
     }
 }
-
-export default AuthRepository;

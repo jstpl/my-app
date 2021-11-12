@@ -1,6 +1,6 @@
 import _ from "lodash";
 
-class RequestEncoder {
+export default class RequestEncoder {
 
     encode(requestEntity) {
         requestEntity.meta = typeof requestEntity.meta === 'object' ? requestEntity.meta : {};
@@ -24,5 +24,3 @@ class RequestEncoder {
 
     }
 }
-
-export default RequestEncoder;

@@ -1,6 +1,6 @@
 import PermanentStorage from "./PermanentStorage";
 
-class BasePermanentStorageRepository {
+export default class BasePermanentStorageRepository {
 
     #permanentStorage;
 
@@ -24,5 +24,3 @@ class BasePermanentStorageRepository {
         this.permanentStorage.remove(this.key());
     }
 }
-
-export default BasePermanentStorageRepository;

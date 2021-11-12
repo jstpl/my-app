@@ -12,7 +12,7 @@ import _ from 'lodash';
     },
 };*/
 
-class Client {
+export default class Client {
 
     #transport;
     #requestEncoder;
@@ -80,5 +80,3 @@ class Client {
         });
     }*/
 }
-
-export default Client;

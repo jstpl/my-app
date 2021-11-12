@@ -1,10 +1,8 @@
 import rpcClient from "./client";
 
-class BaseRpcRepository {
+export default class BaseRpcRepository {
 
     sendRequest(requestEntity) {
         return rpcClient.sendRequest(requestEntity);
     }
 }
-
-export default BaseRpcRepository;

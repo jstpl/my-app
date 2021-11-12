@@ -1,7 +1,7 @@
 import axios from 'axios';
 import config from '../../../app/config'
 
-class Transport {
+export default class Transport {
 
     send(body) {
         let options = {
@@ -53,5 +53,3 @@ class Transport {
         });
     }
 }
-
-export default Transport;

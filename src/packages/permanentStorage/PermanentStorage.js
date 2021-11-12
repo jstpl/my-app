@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-class PermanentStorage {
+export default class PermanentStorage {
 
     get(key, defaultValue) {
         var data = null;
@@ -21,5 +21,3 @@ class PermanentStorage {
         localStorage.removeItem(key);
     }
 }
-
-export default PermanentStorage;

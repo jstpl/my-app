@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import authService from "../services/authService";
+import {authService} from "../index";
 import {Button, Form} from "bootstrap-4-react";
 import {toast} from "react-toastify";
 // import {toast} from "react-toastify";

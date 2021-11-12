@@ -1,7 +1,7 @@
 import store from '../../../app/store';
 import * as authAction from '../actions/authActions';
 import AuthRepository from '../repositories/rpc/AuthRepository';
-import eventEmitter from '../../../app/libs/eventEmitter';
+import eventEmitter from '../../../app/singletones/eventEmitter';
 import authEventEnum from "../enums/authEventEnum";
 import TokenRepository from "../repositories/storage/TokenRepository";
 
@@ -14,9 +14,7 @@ class AuthService {
 
     async authByForm(form) {
         let token = await this.authRepository.getTokenByForm(form);
-        // PermanentStorage.set('authToken', token);
         this.tokenRepository.set(token);
-
         eventEmitter.emit(authEventEnum.AUTHORIZATION, token);
         let identityEntity = {
             id: 1234,
@@ -49,4 +47,4 @@ class AuthService {
     }*/
 }
 
-export default new AuthService(new AuthRepository());
+export default AuthService;

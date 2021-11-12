@@ -1,6 +1,4 @@
-
-import eventEmitter from "./libs/eventEmitter";
-import {toast} from "react-toastify";
+import eventEmitter from "./singletones/eventEmitter";
 import authEventEnum from "../pages/auth/enums/authEventEnum";
 
 class EventConfig {

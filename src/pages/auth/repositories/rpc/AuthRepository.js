@@ -1,5 +1,6 @@
 import BaseRpcRepository from "../../../../libs/BaseRpcRepository";
-import eventEmitter from "../../../../app/libs/eventEmitter";
+
+/*import eventEmitter from "../../../../app/libs/eventEmitter";
 import authEventEnum from "../../enums/authEventEnum";
 import store from "../../../../app/store";
 import * as authAction from "../../actions/authActions";
@@ -14,16 +15,27 @@ function createRpcPromise(axiosPromise) {
                 reject(responseEntity.error);
             });
     });
-}
+}*/
 
 class AuthRepository extends BaseRpcRepository {
-
     async getTokenByForm(body) {
+        let requestEntity = {
+            method: 'authentication.getTokenByPassword',
+            body: body,
+        };
+
+        try {
+            let responseEntity = await this.sendRequest(requestEntity);
+            return responseEntity.body.token;
+        } catch (responseEntity) {
+            throw responseEntity.error;
+        }
+
         /*const body = {
             login: 'admin',
             password: 'Wwwqqq111',
         };*/
-        let requestEntity = {
+        /*let requestEntity = {
             method: 'authentication.getTokenByPassword',
             body: body,
         };
@@ -34,7 +46,7 @@ class AuthRepository extends BaseRpcRepository {
             })
             .catch(function (responseEntity) {
                 throw responseEntity.error;
-            });
+            });*/
 
         // return createRpcPromise(clientPromise);
     }

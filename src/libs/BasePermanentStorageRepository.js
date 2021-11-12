@@ -1,6 +1,6 @@
 import PermanentStorage from "./PermanentStorage";
 
-class BasePermanentStorage {
+class BasePermanentStorageRepository {
 
     #permanentStorage;
 
@@ -25,4 +25,4 @@ class BasePermanentStorage {
     }
 }
 
-export default BasePermanentStorage;
+export default BasePermanentStorageRepository;

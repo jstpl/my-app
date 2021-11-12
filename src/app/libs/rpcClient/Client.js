@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import TokenRepository from "../../../pages/auth/repositories/storage/tokenRepository";
 
 /*let __Client = {
     send: function (method, body, meta, version) {

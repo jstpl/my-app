@@ -3,7 +3,7 @@ import * as authAction from '../actions/authActions';
 import AuthRepository from '../repositories/rpc/AuthRepository';
 import eventEmitter from '../../../app/libs/eventEmitter';
 import authEventEnum from "../enums/authEventEnum";
-import TokenRepository from "../repositories/storage/tokenRepository";
+import TokenRepository from "../repositories/storage/TokenRepository";
 
 class AuthService {
 

@@ -27,7 +27,22 @@ class RpcClient {
     sendRequest(requestEntity) {
         let body = this.requestEncoder.encode(requestEntity);
         let axiosPromise = this.transport.send(body);
-        return this.createRpcPromise(axiosPromise);
+        let that = this;
+        return axiosPromise
+            .then(function (response) {
+                let responseEntity = that.responseEncoder.decode(response);
+                if (_.isEmpty(responseEntity.error)) {
+                    return responseEntity;
+                } else {
+                    throw responseEntity;
+                }
+            })
+            .catch(function (response) {
+                let responseEntity = that.responseEncoder.decode(response);
+                console.log(responseEntity);
+                throw responseEntity;
+            });
+        // return this.createRpcPromise(axiosPromise);
     }
 
     createRpcPromise(axiosPromise) {

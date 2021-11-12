@@ -11,7 +11,28 @@ class RpcTransport {
         };
 
         let axiosPromise = axios.post(config.rpcUrl, body, options);
-        return this.createPromise(axiosPromise);
+        return axiosPromise
+            .then(function (response) {
+                if(response.headers['content-type'] === 'application/json') {
+                    if(typeof response.data === 'object') {
+                        return response.data;
+                        //resolve(response.data);
+                    } else {
+                        throw new Error("Transport error. Parse error.");
+                        // reject("Transport error. Parse error.");
+                    }
+                } else {
+                    //alert(45645);
+
+                    throw new Error("Transport error. Content type invalid.");
+                    //reject("Transport error. Content type invalid.");
+                }
+            })
+            .catch(function (error) {
+                throw "Transport error.";
+               // reject("Transport error.");
+            });
+        // return this.createPromise(axiosPromise);
     }
 
     createPromise(axiosPromise) {

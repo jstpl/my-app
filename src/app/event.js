@@ -7,7 +7,7 @@ class EventConfig {
     init() {
         eventEmitter.on(authEventEnum.AUTHORIZATION, function (token) {
             console.log(token);
-            toast.success("Success!" + token);
+
         });
     }
 }

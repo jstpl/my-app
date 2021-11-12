@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import authService from "../services/authService";
 import {Button, Form} from "bootstrap-4-react";
 import {toast} from "react-toastify";
-
+// import {toast} from "react-toastify";
 // import AuthView from "../views/auth";
 
 class Auth extends Component {
@@ -30,7 +30,20 @@ class Auth extends Component {
     }
 
     handleSubmit(event) {
-        authService.authByForm(this.state);
+        authService.authByForm(this.state)
+            .then(function (token) {
+            toast.success("Success!" + token);
+        }).catch(function (error) {
+            //let error = err.message.error;
+            let message = error.message;
+            if(error.data !== undefined) {
+                message = message + JSON.stringify(error.data);
+            }
+            //console.log(error.message);
+            toast.error(message);
+            // toast.success("Success!" + token);
+        });
+
             /*.then(function (data) {
                  console.log(data)
             })

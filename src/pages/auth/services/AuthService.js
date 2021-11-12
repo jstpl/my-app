@@ -1,6 +1,6 @@
 import store from '../../../app/store';
 import * as authAction from '../actions/authActions';
-import eventEmitter from '../../../app/singletones/eventEmitter';
+import eventEmitter from '../../../app/singletons/eventEmitter';
 import authEventEnum from "../enums/authEventEnum";
 import TokenRepository from "../repositories/storage/TokenRepository";
 

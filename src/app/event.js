@@ -1,4 +1,4 @@
-import eventEmitter from "./singletones/eventEmitter";
+import eventEmitter from "./singletons/eventEmitter";
 import authEventEnum from "../pages/auth/enums/authEventEnum";
 import {toast} from "react-toastify";
 

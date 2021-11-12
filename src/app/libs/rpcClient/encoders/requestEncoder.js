@@ -1,7 +1,8 @@
 import _ from "lodash";
 
-let requestEncoder = {
-    encode: function (requestEntity) {
+class RequestEncoder {
+
+    encode(requestEntity) {
         requestEntity.meta = typeof requestEntity.meta === 'object' ? requestEntity.meta : {};
         requestEntity.meta.version = !_.isEmpty(requestEntity.version) ? requestEntity.version : 1;
         let request = {
@@ -17,10 +18,11 @@ let requestEncoder = {
             request.params.meta = requestEntity.meta;
         }
         return request;
-    },
-    decode: function () {
+    }
 
-    },
-};
+    decode() {
 
-export default requestEncoder;
+    }
+}
+
+export default new RequestEncoder();

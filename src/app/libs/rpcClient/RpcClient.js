@@ -1,10 +1,9 @@
-import RpcTransport from './RpcTransport';
 import responseEncoder from './encoders/responseEncoder';
 import requestEncoder from './encoders/requestEncoder';
 import _ from 'lodash';
 
-let RpcClient = {
-    /*send: function (method, body, meta, version) {
+/*let __RpcClient = {
+    send: function (method, body, meta, version) {
         let requestEntity = {
             method: method,
             body: body,
@@ -12,13 +11,24 @@ let RpcClient = {
             version: version,
         };
         return this.sendRequest(requestEntity);
-    },*/
-    sendRequest: function (requestEntity) {
-        let body = requestEncoder.encode(requestEntity);
-        let axiosPromise = RpcTransport.send(body);
-        return this.createRpcPromise(axiosPromise);
     },
-    createRpcPromise: function (axiosPromise) {
+};*/
+
+class RpcClient {
+
+    constructor(rpcTransport/*, requestEncoder, responseEncoder*/) {
+        this.transport = rpcTransport;
+        this.requestEncoder = requestEncoder;
+        this.responseEncoder = responseEncoder;
+    }
+
+    sendRequest(requestEntity) {
+        let body = requestEncoder.encode(requestEntity);
+        let axiosPromise = this.transport.send(body);
+        return this.createRpcPromise(axiosPromise);
+    }
+
+    createRpcPromise(axiosPromise) {
         return new Promise(function (resolve, reject) {
             axiosPromise
                 .then(function (response) {
@@ -41,7 +51,7 @@ let RpcClient = {
                     reject(responseEntity);
                 });
         });
-    },
-};
+    }
+}
 
 export default RpcClient;

@@ -1,8 +1,9 @@
 import axios from 'axios';
 import config from '../../config'
 
-let RpcTransport = {
-    send: function (body) {
+class RpcTransport {
+
+    send(body) {
         let options = {
             headers: {
                 'Content-Type': 'application/json',
@@ -11,8 +12,9 @@ let RpcTransport = {
 
         let axiosPromise = axios.post(config.rpcUrl, body, options);
         return this.createPromise(axiosPromise);
-    },
-    createPromise: function (axiosPromise) {
+    }
+
+    createPromise(axiosPromise) {
         return new Promise(function (resolve, reject) {
             axiosPromise
                 .then(function (response) {
@@ -30,7 +32,7 @@ let RpcTransport = {
                     reject("Transport error.");
                 });
         });
-    },
-};
+    }
+}
 
 export default RpcTransport;

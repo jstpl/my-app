@@ -1,10 +1,12 @@
 import _ from "lodash";
 
-let responseEncoder = {
-    encode: function () {
+class ResponseEncoder {
 
-    },
-    decode: function (data) {
+    encode() {
+
+    }
+
+    decode(data) {
         let responseEntity = {};
         if (!_.isEmpty(data.result)) {
             let result = data.result;
@@ -20,7 +22,7 @@ let responseEncoder = {
         }
         responseEntity.id = !_.isEmpty(responseEntity.id) ? responseEntity.id : +new Date();
         return responseEntity;
-    },
-};
+    }
+}
 
-export default responseEncoder;
+export default new ResponseEncoder();

@@ -1,10 +1,6 @@
+import BaseRpcRepository from "../../../../libs/BaseRpcRepository";
 
-// import RpcClient from '../../../../app/libs/rpcClient/RpcClient.js';
-import RpcFactory from "../../../../app/libs/rpcClient/RpcFactory";
-
-let rpcClient = RpcFactory.createClient();
-
-class AuthRepository {
+class AuthRepository extends BaseRpcRepository {
 
     getTokenByForm(body) {
         /*const body = {
@@ -15,7 +11,7 @@ class AuthRepository {
             method: 'authentication.getTokenByPassword',
             body: body,
         };
-        let clientPromise = rpcClient.sendRequest(requestEntity);
+        let clientPromise = this.sendRequest(requestEntity);
         return this.createRpcPromise(clientPromise);
     }
 

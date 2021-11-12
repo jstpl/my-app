@@ -12,7 +12,7 @@ export default function (state = initialState, action) {
             return Object.assign({}, state, {users: action.users});
         case userActionEnum.DELETE_USER_SUCCESS:
             // Use lodash to create a new user array without the user we want to remove
-            const newUsers = _.filter(state.users, user => user.id !== action.userId);
+            const newUsers = _.filter(state.users, user => user.id !== action.userProfile.id);
             return Object.assign({}, state, {users: newUsers});
         case userActionEnum.USER_PROFILE_SUCCESS:
             return Object.assign({}, state, {userProfile: action.userProfile});

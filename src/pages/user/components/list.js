@@ -9,8 +9,8 @@ class List extends Component {
         userApi.getUsers();
     }
 
-    deleteUser(id) {
-        userApi.deleteUser(id)
+    deleteUser(user) {
+        userApi.deleteUser(user)
     }
 
     render() {

@@ -28,11 +28,12 @@ export function searchUsers(query = '') {
 /**
  * Delete a user
  */
-export function deleteUser(form) {
-    return axios.delete(config.apiUrl + '/auth')
+export function deleteUser(user) {
+    return axios.get(config.apiUrl + '/users/' + user.id + '.json')
         .then(response => {
-            store.dispatch(userAction.deleteUserSuccess(form));
-            return response;
+            // let user = response.data;
+            // console.log(user);
+            store.dispatch(userAction.deleteUserSuccess(user));
         });
 }
 

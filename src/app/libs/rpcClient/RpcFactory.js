@@ -1,13 +1,13 @@
 
-import RpcClient from "./RpcClient";
-import RpcTransport from "./RpcTransport";
+import Client from "./Client";
+import Transport from "./Transport";
 import ResponseEncoder from "./encoders/responseEncoder";
 import RequestEncoder from "./encoders/requestEncoder";
 
 class RpcFactory {
 
     createClient() {
-        return new RpcClient(new RpcTransport(), new RequestEncoder(), new ResponseEncoder());
+        return new Client(new Transport(), new RequestEncoder(), new ResponseEncoder());
     }
 }
 

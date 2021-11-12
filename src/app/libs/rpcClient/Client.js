@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-/*let __RpcClient = {
+/*let __Client = {
     send: function (method, body, meta, version) {
         let requestEntity = {
             method: method,
@@ -12,14 +12,14 @@ import _ from 'lodash';
     },
 };*/
 
-class RpcClient {
+class Client {
 
     #transport;
     #requestEncoder;
     #responseEncoder;
 
-    constructor(rpcTransport, requestEncoder, responseEncoder) {
-        this.transport = rpcTransport;
+    constructor(transport, requestEncoder, responseEncoder) {
+        this.transport = transport;
         this.requestEncoder = requestEncoder;
         this.responseEncoder = responseEncoder;
     }
@@ -72,4 +72,4 @@ class RpcClient {
     }
 }
 
-export default RpcClient;
+export default Client;

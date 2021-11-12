@@ -1,6 +1,4 @@
-import RpcFactory from "../app/libs/rpcClient/RpcFactory";
-
-let rpcClient = RpcFactory.createClient();
+import rpcClient from "../app/libs/rpcClient";
 
 class BaseRpcRepository {
 

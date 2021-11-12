@@ -1,7 +1,7 @@
 import axios from 'axios';
 import config from '../../config'
 
-class RpcTransport {
+class Transport {
 
     send(body) {
         let options = {
@@ -22,8 +22,6 @@ class RpcTransport {
                         // reject("Transport error. Parse error.");
                     }
                 } else {
-                    //alert(45645);
-
                     throw new Error("Transport error. Content type invalid.");
                     //reject("Transport error. Content type invalid.");
                 }
@@ -56,4 +54,4 @@ class RpcTransport {
     }
 }
 
-export default RpcTransport;
+export default Transport;

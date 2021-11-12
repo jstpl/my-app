@@ -40,11 +40,8 @@ export default class Client {
                 }
             })
             .catch(function (response) {
-                let responseEntity = that.responseEncoder.decode(response);
-                //console.log(responseEntity);
-                throw responseEntity;
+                throw that.responseEncoder.decode(response);
             });
-        // return this.createRpcPromise(axiosPromise);
     }
 
     prepareRequest(requestEntity) {
@@ -53,30 +50,4 @@ export default class Client {
             _.set(requestEntity, 'meta.Authorization', token);
         }
     }
-
-    /*createRpcPromise(axiosPromise) {
-        let that = this;
-        return new Promise(function (resolve, reject) {
-            axiosPromise
-                .then(function (response) {
-                    let responseEntity = that.responseEncoder.decode(response);
-                    if (_.isEmpty(responseEntity.error)) {
-                        resolve(responseEntity);
-                    } else {
-                        reject(responseEntity);
-                    }
-                })
-                .catch(function (error) {
-                    let responseEntity = {
-                        "jsonrpc": "2.0",
-                        "error": {
-                            "code": -32300,
-                            "message": error,
-                            //"data": error,
-                        },
-                    };
-                    reject(responseEntity);
-                });
-        });
-    }*/
 }

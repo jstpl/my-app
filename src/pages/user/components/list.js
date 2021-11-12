@@ -9,9 +9,13 @@ class List extends Component {
         userApi.getUsers();
     }
 
+    deleteUser(id) {
+        userApi.deleteUser(id)
+    }
+
     render() {
         return (
-            <UserListView users={this.props.users} deleteUser={userApi.deleteUser}/>
+            <UserListView users={this.props.users} deleteUser={this.deleteUser}/>
         );
     }
 }

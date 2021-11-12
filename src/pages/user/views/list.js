@@ -11,6 +11,7 @@ export default function (props) {
                     return (
                         <li key={user.id}>
                             <Link to={'/users/' + user.id}>{user.name}</Link>
+                            <button className="btn btn-primary" onClick={props.deleteUser.bind(this, user.id)}>del</button>
                         </li>
                     );
                 })}

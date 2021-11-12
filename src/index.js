@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import store from './app/store';
 import router from './app/router';
-import event from './app/event';
+import event from './app/config/event';
 
 event.init();
 

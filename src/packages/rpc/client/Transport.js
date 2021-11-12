@@ -26,14 +26,14 @@ export default class Transport {
                     //reject("Transport error. Content type invalid.");
                 }
             })
-            .catch(function (error) {
-                throw "Transport error.";
+            .catch(function () {
+                throw new Error("Transport error.");
                // reject("Transport error.");
             });
         // return this.createPromise(axiosPromise);
     }
 
-    createPromise(axiosPromise) {
+    /*createPromise(axiosPromise) {
         return new Promise(function (resolve, reject) {
             axiosPromise
                 .then(function (response) {
@@ -51,5 +51,5 @@ export default class Transport {
                     reject("Transport error.");
                 });
         });
-    }
+    }*/
 }

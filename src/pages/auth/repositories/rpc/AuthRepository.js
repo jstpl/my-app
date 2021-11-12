@@ -1,4 +1,4 @@
-import BaseRpcRepository from "../../../../libs/BaseRpcRepository";
+import BaseRpcRepository from "../../../../libs/rpc/BaseRpcRepository";
 
 /*import eventEmitter from "../../../../app/libs/eventEmitter";
 import authEventEnum from "../../enums/authEventEnum";

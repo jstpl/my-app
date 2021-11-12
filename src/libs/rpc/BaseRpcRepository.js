@@ -1,4 +1,4 @@
-import rpcClient from "../app/libs/rpcClient";
+import rpcClient from "./rpcClient";
 
 class BaseRpcRepository {
 

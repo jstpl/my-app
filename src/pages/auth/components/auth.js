@@ -36,7 +36,7 @@ class Auth extends Component {
             }).catch(function (error) {
                 let message = error.message;
                 if (error.data !== undefined) {
-                    message = message + JSON.stringify(error.data);
+                    message += JSON.stringify(error.data);
                 }
                 toast.error(message);
                 // toast.success("Success!" + token);

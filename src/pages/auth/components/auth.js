@@ -2,18 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {authService} from "../index";
 import {Button, Form} from "bootstrap-4-react";
-
-import { Route, Redirect } from 'react-router';
-
-// import { Route, Redirect } from 'react-router';
-// import {HashRouter, Route, Navigate} from 'react-router-dom';
-// import Navigate from 'ReactRouterDOM.Navigate';
-
-import {toast} from "react-toastify";
 import UnprocessableEntityError from "../../../packages/contract/errors/UnprocessableEntityError";
 import ErrorHelper from "../../../packages/rpc/libs/ErrorHelper";
-// import {toast} from "react-toastify";
-// import AuthView from "../views/auth";
 
 class Auth extends Component {
 
@@ -46,10 +36,10 @@ class Auth extends Component {
             console.log(token);
             window.location.href = '#/';
         } catch (error) {
-
-            let errorHelper = new ErrorHelper();
-            this.state.errors = errorHelper.unprocessableEntityErrorToAssoc(error);
-            // console.log(JSON.stringify(this.state.errors));
+            if (error instanceof UnprocessableEntityError) {
+                let errorHelper = new ErrorHelper();
+                this.state.errors = errorHelper.unprocessableEntityErrorToAssoc(error);
+            }
         }
     }
 

@@ -2,8 +2,6 @@ import store from '../../../app/config/store';
 import * as authAction from '../actions/authActions';
 import eventEmitter from '../../../app/singletons/eventEmitter';
 import authEventEnum from "../enums/authEventEnum";
-import {toast} from "react-toastify";
-
 
 export default class AuthService {
 
@@ -24,18 +22,7 @@ export default class AuthService {
             store.dispatch(authAction.authorizationSuccess(identityEntity));
             return token;
         } catch (error) {
-
             throw error;
-
-            toast.error(error.message);
-
-            if(error.name === 'UnprocessableEntityError') {
-                toast.error(11111);
-            } else {
-                //toast.error(error.message);
-            }
-
-            //console.log(error);
         }
     }
 }

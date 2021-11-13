@@ -42,10 +42,10 @@ export default class Client {
                     if(responseEntity.error.code === -32602) {
                         let error = new UnprocessableEntityError(responseEntity.error.message);
                         error.setErrors(responseEntity.error.data);
-
                         throw error;
+                    } else {
+                        throw new Error(responseEntity.error.message);
                     }
-                    throw responseEntity;
                 }
             })
             .catch(function (error) {

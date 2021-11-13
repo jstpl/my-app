@@ -2,6 +2,8 @@ import eventEmitter from "../singletons/eventEmitter";
 import authEventEnum from "../../pages/auth/enums/authEventEnum";
 import {toast} from "react-toastify";
 import rpcEventEnum from "../../packages/rpc/enums/rpcEventEnum";
+import UnprocessableEntityError from "../../packages/contract/errors/UnprocessableEntityError";
+import ErrorHelper from "../../packages/rpc/libs/ErrorHelper";
 
 export default {
 
@@ -11,11 +13,11 @@ export default {
             toast.success("Success!" + token);
         });
         eventEmitter.on(rpcEventEnum.CLIENT_ERROR, function (error) {
-            //console.log(token);
-            if(error.name === 'UnprocessableEntityError') {
-                toast.error(11111);
+            if (error instanceof UnprocessableEntityError) {
+                let errorHelper = new ErrorHelper();
+                toast.error(errorHelper.unprocessableEntityErrorToString(error));
             } else {
-                //toast.error(error.message);
+                toast.error(error.message);
             }
         });
     }

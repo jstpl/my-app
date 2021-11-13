@@ -2,6 +2,13 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {authService} from "../index";
 import {Button, Form} from "bootstrap-4-react";
+
+import { Route, Redirect } from 'react-router';
+
+// import { Route, Redirect } from 'react-router';
+// import {HashRouter, Route, Navigate} from 'react-router-dom';
+// import Navigate from 'ReactRouterDOM.Navigate';
+
 import {toast} from "react-toastify";
 import UnprocessableEntityError from "../../../packages/contract/errors/UnprocessableEntityError";
 import ErrorHelper from "../../../packages/rpc/libs/ErrorHelper";
@@ -32,19 +39,25 @@ class Auth extends Component {
     }
 
     handleSubmit(event) {
+        event.preventDefault();
         authService.authByForm(this.state)
             .then(function (token) {
-                // toast.success("Success!" + token);
+                //window.location.href = '/';
+                //return <Redirect to="/users"/>;
+
+                //this.props.history.push('/users');
+
+                // const { history } = this.props;
+                // history.push("/");
+
+                //console.log(event);
+                 // toast.success("Success!");
+                //Redirect.to("/");
+                //return <Redirect to="/" />;
             })
             .catch(function (error) {
-                if (error instanceof UnprocessableEntityError) {
-                    let errorHelper = new ErrorHelper();
-                    toast.error(errorHelper.unprocessableEntityErrorToString(error));
-                } else {
-                    toast.error(error.message);
-                }
+
             });
-        event.preventDefault();
     }
 
     render() {

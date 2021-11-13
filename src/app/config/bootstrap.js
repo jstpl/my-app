@@ -1,6 +1,7 @@
 import configManager from "../singletons/configManager";
 import config from "./config";
-import event from "./event";
+import "./event";
+// import event from "./event";
 
 /*export default class Bootstrap {
 
@@ -9,4 +10,4 @@ import event from "./event";
 }*/
 
 configManager.load(config);
-event.init();
+// event.init();

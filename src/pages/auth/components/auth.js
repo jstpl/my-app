@@ -59,12 +59,12 @@ class Auth extends BaseComponent {
                     <Form.Input value={this.state.password} onChange={this.handleChange} name="password" type="password"
                                 id="exampleInputPassword1" placeholder="Password"/>
                 </Form.Group>
-                {/*<Form.Group>*/}
-                {/*    <Form.Check>*/}
-                {/*        <Form.CheckInput type="checkbox" id="exampleCheck1" />*/}
-                {/*        <Form.CheckLabel htmlFor="exampleCheck1">Check me out</Form.CheckLabel>*/}
-                {/*    </Form.Check>*/}
-                {/*</Form.Group>*/}
+                <Form.Group>
+                    <Form.Check>
+                        <Form.CheckInput type="checkbox" id="exampleCheck1" />
+                        <Form.CheckLabel htmlFor="exampleCheck1">Check me out</Form.CheckLabel>
+                    </Form.Check>
+                </Form.Group>
                 <Button primary type="submit">Submit</Button>
             </Form>
             // <AuthView identity={this.props.identity} authorization={}/>

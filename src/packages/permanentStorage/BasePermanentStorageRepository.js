@@ -2,7 +2,7 @@ import PermanentStorage from "./PermanentStorage";
 
 export default class BasePermanentStorageRepository {
 
-    #permanentStorage;
+    permanentStorage;
 
     constructor() {
         this.permanentStorage = new PermanentStorage();

@@ -12,14 +12,6 @@ export default class Navigator extends Component {
                 <Navbar.Collapse id="navbarsExampleDefault">
                     <Navbar.Nav mr="auto">
 
-                        <Nav.Item>
-                            <Link activeclassname="active" className="nav-link" to="/">Home</Link>
-                        </Nav.Item>
-
-                        <Nav.Item>
-                            <Link activeclassname="active" className="nav-link" to="/post">Posts</Link>
-                        </Nav.Item>
-
                         <Nav.Item activeclassname="active">
                             <Link className="nav-link" to="/users">Users</Link>
                         </Nav.Item>

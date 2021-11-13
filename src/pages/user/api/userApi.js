@@ -34,8 +34,7 @@ export function deleteUser(user) {
     let apiUrl = configManager.get('apiUrl');
     return axios.get(apiUrl + '/users/' + user.id + '.json')
         .then(response => {
-            // let user = response.data;
-            // console.log(user);
+            let user = response.data;
             store.dispatch(userAction.deleteUserSuccess(user));
         });
 }

@@ -32,24 +32,14 @@ class Auth extends Component {
     handleSubmit(event) {
         authService.authByForm(this.state)
             .then(function (token) {
-
+                // toast.success("Success!" + token);
             }).catch(function (error) {
                 let message = error.message;
                 if (error.data !== undefined) {
                     message += JSON.stringify(error.data);
                 }
                 toast.error(message);
-                // toast.success("Success!" + token);
             });
-
-        /*.then(function (data) {
-             console.log(data)
-        })
-        .catch(function (error) {
-            //console.log(error)
-            //toast.error(JSON.stringify(error));
-        });*/
-        //alert('A name was submitted: ' + this.state.login + ' - ' + this.state.password);
         event.preventDefault();
     }
 

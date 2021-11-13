@@ -5,18 +5,20 @@ import configManager from "../../../app/singletons/configManager";
 // import {getUsersSuccess} from "../../user/actions/user-actions";
 
 export default {
-    all: function () {
+    all: async function () {
         let apiUrl = configManager.get('apiUrl');
         axios.get(apiUrl + '/post.json').then(function (response) {
-            console.log(response);
+             console.log(response.data);
         });
         return collection;
     },
     oneById: function (id) {
         for (let k in collection) {
-            let entity = collection[k];
-            if(entity.id === id) {
-                return entity;
+            if(collection.hasOwnProperty(k)) {
+                let entity = collection[k];
+                if(entity.id === id) {
+                    return entity;
+                }
             }
         }
     }

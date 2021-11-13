@@ -11,7 +11,6 @@ class Profile extends Component {
     }
 
     render() {
-        // console.log(this.props.profile);
         return (
             <UserProfileView user={this.props.profile}/>
         );

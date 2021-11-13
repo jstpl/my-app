@@ -6,7 +6,7 @@ export default {
 
     init: function() {
         eventEmitter.on(authEventEnum.AUTHORIZATION, function (token) {
-            console.log(token);
+            //console.log(token);
             toast.success("Success!" + token);
         });
     }

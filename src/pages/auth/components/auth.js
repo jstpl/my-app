@@ -4,8 +4,9 @@ import {authService} from "../index";
 import {Button, Form} from "bootstrap-4-react";
 import UnprocessableEntityError from "../../../packages/contract/errors/UnprocessableEntityError";
 import ErrorHelper from "../../../packages/rpc/libs/ErrorHelper";
+import BaseComponent from "../../../packages/component/BaseComponent";
 
-class Auth extends Component {
+class Auth extends BaseComponent {
 
     /*componentDidMount() {
         userApi.getUsers();
@@ -32,11 +33,9 @@ class Auth extends Component {
     async handleSubmit(event) {
         event.preventDefault();
         try {
-            let token = await authService.authByForm(this.state);
-            console.log(token);
-            // window.location.href = '#/';
-            const { history } = this.props;
-            history.push("/");
+            await authService.authByForm(this.state);
+            // console.log(token);
+            this.redirect('/');
         } catch (error) {
             if (error instanceof UnprocessableEntityError) {
                 let errorHelper = new ErrorHelper();

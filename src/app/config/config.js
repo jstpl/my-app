@@ -6,4 +6,5 @@ let apiOrigin1 = UrlHelper.getOrigin(window.location);
 export default {
     apiUrl: apiOrigin1 + "/api",
     rpcUrl: apiOrigin + "/json-rpc",
+    // rpcUrl: apiOrigin + "/json-rpc/view/index",
 };

@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {authService} from "../index";
 import {Button, Form} from "bootstrap-4-react";
 import {toast} from "react-toastify";
+import UnprocessableEntityError from "../../../packages/contract/errors/UnprocessableEntityError";
+import ErrorHelper from "../../../packages/rpc/libs/ErrorHelper";
 // import {toast} from "react-toastify";
 // import AuthView from "../views/auth";
 
@@ -33,12 +35,14 @@ class Auth extends Component {
         authService.authByForm(this.state)
             .then(function (token) {
                 // toast.success("Success!" + token);
-            }).catch(function (error) {
-                let message = error.message;
-                if (error.data !== undefined) {
-                    message += JSON.stringify(error.data);
+            })
+            .catch(function (error) {
+                if (error instanceof UnprocessableEntityError) {
+                    let errorHelper = new ErrorHelper();
+                    toast.error(errorHelper.unprocessableEntityErrorToString(error));
+                } else {
+                    toast.error(error.message);
                 }
-                toast.error(message);
             });
         event.preventDefault();
     }

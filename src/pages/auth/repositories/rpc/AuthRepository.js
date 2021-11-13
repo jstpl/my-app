@@ -27,8 +27,9 @@ export default class AuthRepository extends BaseRpcRepository {
         try {
             let responseEntity = await this.sendRequest(requestEntity);
             return responseEntity.body.token;
-        } catch (responseEntity) {
-            throw responseEntity.error;
+        } catch (error) {
+             // console.log(error);
+            throw error;
         }
 
         /*const body = {

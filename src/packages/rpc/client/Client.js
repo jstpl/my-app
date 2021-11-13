@@ -1,4 +1,7 @@
 import _ from 'lodash';
+import eventEmitter from "../../../app/singletons/eventEmitter";
+import rpcEventEnum from "../enums/rpcEventEnum";
+import UnprocessableEntityError from "../../contract/errors/UnprocessableEntityError";
 
 /*let __Client = {
     send: function (method, body, meta, version) {
@@ -36,11 +39,19 @@ export default class Client {
                 if (_.isEmpty(responseEntity.error)) {
                     return responseEntity;
                 } else {
+                    if(responseEntity.error.code === -32602) {
+                        let error = new UnprocessableEntityError(responseEntity.error.message);
+                        error.setErrors(responseEntity.error.data);
+
+                        throw error;
+                    }
                     throw responseEntity;
                 }
             })
-            .catch(function (response) {
-                throw that.responseEncoder.decode(response);
+            .catch(function (error) {
+                // console.log(error.message);
+                eventEmitter.emit(rpcEventEnum.CLIENT_ERROR, error);
+                throw error;
             });
     }
 

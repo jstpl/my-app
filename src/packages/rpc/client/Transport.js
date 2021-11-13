@@ -1,5 +1,5 @@
 import axios from 'axios';
-import config from '../../../app/config/config'
+import configManager from "../../../app/singletons/configManager";
 
 export default class Transport {
 
@@ -10,7 +10,7 @@ export default class Transport {
             },
         };
 
-        let axiosPromise = axios.post(config.rpcUrl, body, options);
+        let axiosPromise = axios.post(configManager.get('rpcUrl'), body, options);
         return axiosPromise
             .then(function (response) {
                 if(response.headers['content-type'] === 'application/json') {

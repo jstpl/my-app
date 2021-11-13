@@ -1,11 +1,13 @@
 import axios from 'axios';
 import collection from "../data/collection";
+import configManager from "../../../app/singletons/configManager";
 // import store from "../../../app/store";
 // import {getUsersSuccess} from "../../user/actions/user-actions";
 
 export default {
     all: function () {
-        axios.get('http://localhost:3000/api/post.json').then(function (response) {
+        let apiUrl = configManager.get('apiUrl');
+        axios.get(apiUrl + '/post.json').then(function (response) {
             console.log(response);
         });
         return collection;

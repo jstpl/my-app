@@ -1,4 +1,3 @@
-
 import UrlHelper from "../helpers/urlHelper"
 
 let apiOrigin = 'http://tournament.casino';

@@ -1,13 +1,14 @@
 import axios from 'axios';
 import store from '../../../app/config/store';
-import config from '../../../app/config/config'
 import * as userAction from '../actions/userActions';
+import configManager from "../../../app/singletons/configManager";
 
 /**
  * Get all users
  */
 export function getUsers() {
-    return axios.get(config.apiUrl + '/users.json')
+    let apiUrl = configManager.get('apiUrl');
+    return axios.get(apiUrl + '/users.json')
         .then(response => {
             store.dispatch(userAction.getUsersSuccess(response.data));
             return response;
@@ -18,7 +19,8 @@ export function getUsers() {
  * Search users
  */
 export function searchUsers(query = '') {
-    return axios.get(config.apiUrl + '/users?q=' + query)
+    let apiUrl = configManager.get('apiUrl');
+    return axios.get(apiUrl + '/users?q=' + query)
         .then(response => {
             store.dispatch(userAction.getUsersSuccess(response.data));
             return response;
@@ -29,7 +31,8 @@ export function searchUsers(query = '') {
  * Delete a user
  */
 export function deleteUser(user) {
-    return axios.get(config.apiUrl + '/users/' + user.id + '.json')
+    let apiUrl = configManager.get('apiUrl');
+    return axios.get(apiUrl + '/users/' + user.id + '.json')
         .then(response => {
             // let user = response.data;
             // console.log(user);
@@ -43,8 +46,8 @@ export function deleteUser(user) {
  */
 export function getProfile(userId) {
     store.dispatch(userAction.userProfileSuccess({}));
-
-    return axios.get(config.apiUrl + '/users/' + userId + '.json')
+    let apiUrl = configManager.get('apiUrl');
+    return axios.get(apiUrl + '/users/' + userId + '.json')
         .then(response => {
             let user = response.data;
             store.dispatch(userAction.userProfileSuccess(user));

@@ -1,4 +1,4 @@
-import store from '../../../app/store';
+import store from '../../../app/config/store';
 import * as authAction from '../actions/authActions';
 import eventEmitter from '../../../app/singletons/eventEmitter';
 import authEventEnum from "../enums/authEventEnum";

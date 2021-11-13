@@ -8,7 +8,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import './MainLayout.css';
-import '../adminlte/css/adminlte.min.css';
+import '../../packages/adminlte/css/adminlte.min.css';
 
 import {Container} from "bootstrap-4-react";
 

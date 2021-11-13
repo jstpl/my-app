@@ -1,5 +1,5 @@
 import axios from 'axios';
-import store from '../../../app/store';
+import store from '../../../app/config/store';
 import config from '../../../app/config/config'
 import * as userAction from '../actions/userActions';
 

@@ -34,7 +34,9 @@ class Auth extends Component {
         try {
             let token = await authService.authByForm(this.state);
             console.log(token);
-            window.location.href = '#/';
+            // window.location.href = '#/';
+            const { history } = this.props;
+            history.push("/");
         } catch (error) {
             if (error instanceof UnprocessableEntityError) {
                 let errorHelper = new ErrorHelper();

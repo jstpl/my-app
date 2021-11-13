@@ -14,9 +14,9 @@ import _ from 'lodash';
 
 export default class Client {
 
-    #transport;
-    #requestEncoder;
-    #responseEncoder;
+    transport;
+    requestEncoder;
+    responseEncoder;
 
     constructor(transport, requestEncoder, responseEncoder, tokenRepository) {
         this.transport = transport;

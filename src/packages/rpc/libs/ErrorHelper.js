@@ -9,7 +9,7 @@ export default class ErrorHelper {
                 if(errorCollection.hasOwnProperty(k)) {
                     let item = errorCollection[k];
                     message += " \n " + item.message;
-                    console.log(item);
+                    //console.log(item);
                 }
             }
         } else {

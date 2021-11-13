@@ -25,7 +25,8 @@ class Auth extends Component {
         super(props);
         this.state = {
             login: '',
-            password: ''
+            password: '',
+            errors: {},
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -38,26 +39,16 @@ class Auth extends Component {
         this.setState(state);
     }
 
-    handleSubmit(event) {
+    async handleSubmit(event) {
         event.preventDefault();
-        authService.authByForm(this.state)
-            .then(function (token) {
-                //window.location.href = '/';
-                //return <Redirect to="/users"/>;
+        try {
+            let token = await authService.authByForm(this.state);
+            console.log(token);
+            window.location.href = '#/';
+        } catch (error) {
 
-                //this.props.history.push('/users');
-
-                // const { history } = this.props;
-                // history.push("/");
-
-                //console.log(event);
-                 // toast.success("Success!");
-                //Redirect.to("/");
-                //return <Redirect to="/" />;
-            })
-            .catch(function (error) {
-
-            });
+            this.state.errors = error.getErrors();
+        }
     }
 
     render() {

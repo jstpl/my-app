@@ -47,7 +47,9 @@ class Auth extends Component {
             window.location.href = '#/';
         } catch (error) {
 
-            this.state.errors = error.getErrors();
+            let errorHelper = new ErrorHelper();
+            this.state.errors = errorHelper.unprocessableEntityErrorToAssoc(error);
+            // console.log(JSON.stringify(this.state.errors));
         }
     }
 

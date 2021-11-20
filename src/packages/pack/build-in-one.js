@@ -17,8 +17,6 @@ for(let i in linkElems) {
     if(elem.rel === 'stylesheet') {
         let filePath = basePath + '/' + elem.href;
         let fileData = fs.readFileSync(filePath, {encoding: 'utf-8'});
-        //console.log(fileData);
-        // console.log(elem.outerHTML);
         data = data.replace(elem.outerHTML, '<style>' + fileData + '</style>');
     }
 }
@@ -28,23 +26,12 @@ for(let i in scriptElems) {
     let elem = scriptElems[i];
 
     if(typeof elem.src !== 'undefined' && elem.innerHTML === '') {
-        //console.log(elem.src);
         let filePath = basePath + '/' + elem.src;
         let fileData = fs.readFileSync(filePath, {encoding: 'utf-8'});
         let tagCode = elem.outerHTML;
         elem.src = 'data:text/javascript;base64,' + Buffer.from(fileData).toString('base64');
-        //elem.innerHTML = fileData;
-        //elem.removeAttribute('src');
-
-        // const el = dom.window.document.createElement('script');
-        // el. = fileData;
-
-         //console.log(elem.outerHTML);
-        // data = data.replace(elem.outerHTML, "<script>\n" + fileData + "</script>\n");
         data = data.replace(tagCode, elem.outerHTML);
     }
 }
 
 fs.writeFileSync(basePath + '/one.html', data);
-
-// console.log(data);

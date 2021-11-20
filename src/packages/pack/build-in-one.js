@@ -4,8 +4,7 @@ var fs = require('fs'),
     path = require('path');
 // const zlib = require('zlib');
 const jsdom = require("jsdom");
-const basePath = '/home/vitaliy/common/var/www/tpl/my-app/build';
-
+const basePath = fs.realpathSync(__dirname + '/../../../build');
 let data = fs.readFileSync(basePath + '/index.html', {encoding: 'utf-8'});
 
 const dom = new jsdom.JSDOM(data);
@@ -18,7 +17,7 @@ for(let i in linkElems) {
         let fileData = fs.readFileSync(filePath, {encoding: 'utf-8'});
         data = data.replace(elem.outerHTML, '<style>' + fileData + '</style>');
     }
-    if(elem.rel === 'shortcut icon') {
+    /*if(elem.rel === 'shortcut icon') {
         let filePath = basePath + '/' + elem.href;
         let fileData = fs.readFileSync(filePath);
         let tagCode = elem.outerHTML;
@@ -31,7 +30,7 @@ for(let i in linkElems) {
         let tagCode = elem.outerHTML;
         elem.href = 'data:text/cache-manifest;base64,' + Buffer.from(fileData).toString('base64');
         data = data.replace(tagCode, elem.outerHTML);
-    }
+    }*/
 }
 
 let scriptElems = dom.window.document.querySelectorAll("script");
@@ -43,9 +42,11 @@ for(let i in scriptElems) {
         let tagCode = elem.outerHTML;
 
         //let buffer = zlib.gzipSync( fileData );
+        let base64 = Buffer.from(fileData).toString('base64');
 
-        elem.src = 'data:text/javascript;base64,' + Buffer.from(fileData).toString('base64');
-        data = data.replace(tagCode, elem.outerHTML);
+        elem.src = 'data:text/javascript;base64,' + base64;
+        let code = elem.outerHTML;
+        data = data.replace(tagCode, code);
 
     }
 }

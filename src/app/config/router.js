@@ -9,6 +9,7 @@ import UserModule from "../../pages/user/module";
 import AuthModule from "../../pages/auth/module";
 import SiteModule from "../../pages/site/module";
 import UiModule from "../../pages/ui/module";
+import CryptoModule from "../../pages/crypto/module";
 
 export default (
     <BrowserRouter>
@@ -16,6 +17,7 @@ export default (
             <MainLayout>
                 <Route exact path="/" component={SiteModule}/>
                 <Route path="/users" component={UserModule}/>
+                <Route path="/crypto" component={CryptoModule}/>
                 <Route component={AuthModule}/>
                 <Route component={UiModule}/>
             </MainLayout>

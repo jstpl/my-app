@@ -10,6 +10,7 @@
     "bootstrap-4-react": "0.0.59",
     "events": "^3.3.0",
     "lodash": "^4.6.1",
+    "node-gost-crypto": "^1.0.2",
     "query-string": "^6.13.6",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",

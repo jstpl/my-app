@@ -17,6 +17,10 @@ export default class Navigator extends Component {
                         </Nav.Item>
 
                         <Nav.Item activeclassname="active">
+                            <Link className="nav-link" to="/crypto">Crypto</Link>
+                        </Nav.Item>
+
+                        <Nav.Item activeclassname="active">
                             <Link className="nav-link" to="/ui">UI</Link>
                         </Nav.Item>
 

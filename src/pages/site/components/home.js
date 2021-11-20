@@ -15,7 +15,7 @@ class Home extends Component {
                 <hr className="my-4" />
                 <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
                 <Button primary lg>Learn more</Button>
-                <br/>
+                &nbsp;
                 <button className="btn btn-primary" onClick={this.fullscreen.bind(this)}>Full screen</button>
             </Jumbotron>
         );

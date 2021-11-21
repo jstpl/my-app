@@ -7,6 +7,7 @@ export default {
         return urlObject;*/
     },
     getOrigin: function (url) {
+        url = url ?? window.location;
         return this.getLocation(url).origin;
     }
 };

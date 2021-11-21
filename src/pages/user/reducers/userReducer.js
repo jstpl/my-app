@@ -17,7 +17,6 @@ export default function (state = initialState, action) {
         case userActionEnum.USER_PROFILE_SUCCESS:
             return Object.assign({}, state, {userProfile: action.userProfile});
         default:
-            return Object.assign({}, state, {userProfile: []});
+            return state;
     }
-    return state;
 };

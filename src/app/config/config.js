@@ -1,8 +1,8 @@
-import UrlHelper from "../helpers/urlHelper"
+import urlHelper from "../../packages/helpers/urlHelper";
 
 let apiOrigin = 'http://tournament.casino';
 
 export default {
-    apiUrl: UrlHelper.getOrigin() + "/api",
+    apiUrl: urlHelper.getOrigin() + "/api",
     rpcUrl: apiOrigin + "/json-rpc",
 };

@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-var fs = require('fs'),
+let fs = require('fs'),
     path = require('path');
+let JavaScriptObfuscator = require('javascript-obfuscator');
 // const zlib = require('zlib');
 const jsdom = require("jsdom");
 const basePath = fs.realpathSync(__dirname + '/../../../build');
@@ -42,8 +43,24 @@ for(let i in scriptElems) {
         let tagCode = elem.outerHTML;
 
         //let buffer = zlib.gzipSync( fileData );
-        let base64 = Buffer.from(fileData).toString('base64');
 
+        if(1 === 0) {
+            let obfuscationResult = JavaScriptObfuscator.obfuscate(fileData,
+                {
+                    compact: true,
+                    controlFlowFlattening: true,
+                    controlFlowFlatteningThreshold: 1,
+                    numbersToExpressions: true,
+                    simplify: true,
+                    stringArrayShuffle: true,
+                    splitStrings: true,
+                    stringArrayThreshold: 1
+                }
+            );
+            fileData = obfuscationResult.getObfuscatedCode();
+        }
+
+        let base64 = Buffer.from(fileData).toString('base64');
         elem.src = 'data:text/javascript;base64,' + base64;
         let code = elem.outerHTML;
         data = data.replace(tagCode, code);

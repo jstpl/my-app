@@ -16,10 +16,14 @@ class ChatList extends Component {
     }
 }
 
-const mapStateToProps = function (store) {
+/*const mapStateToProps = function (store) {
     return {
         dataProvider: store.chatState.dataProvider
     };
+};*/
+
+const mapStateToProps = function (store) {
+    return store.chatState;
 };
 
 export default connect(mapStateToProps)(ChatList);

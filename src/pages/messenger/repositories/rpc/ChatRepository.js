@@ -3,9 +3,13 @@ import DataProvider from "../../../../packages/domain/DataProvider";
 
 export default class ChatRepository extends BaseRpcRepository {
 
+    endpoint() {
+        return 'messenger-chat';
+    }
+
     async all() {
         let requestEntity = {
-            method: 'messenger-chat.all',
+            method: this.endpoint() + '.all',
            // body: body,
         };
 

@@ -1,4 +1,5 @@
 import store from '../../../app/config/store';
+import DataProvider from "../../../packages/domain/DataProvider";
 // import * as authAction from '../actions/authActions';
 // import eventEmitter from '../../../app/singletons/eventEmitter';
 // import authEventEnum from "../enums/authEventEnum";
@@ -13,10 +14,9 @@ export default class ChatService {
     async all() {
         try {
             let responseEntity = await this.authRepository.all();
-            let dataProvider = {
-                collection: responseEntity.body,
-                paginator: responseEntity.meta,
-            };
+            let dataProvider = new DataProvider();
+            dataProvider.collection = responseEntity.body;
+            dataProvider.paginator = responseEntity.meta;
 
             //this.tokenRepository.set(token);
             /*eventEmitter.emit(authEventEnum.AUTHORIZATION, token);

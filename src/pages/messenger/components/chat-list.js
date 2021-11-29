@@ -1,17 +1,15 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
+// import {connect} from 'react-redux';
 import ChatListView from "../views/chat-list";
 import {chatService} from "../index";
+import DataProvider from "../../../packages/domain/DataProvider";
 
 class ChatList extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            dataProvider: {
-                collection: [],
-                paginator: {},
-            },
+            dataProvider: new DataProvider(),
         };
         // this.handleChange = this.handleChange.bind(this);
         // this.handleSubmit = this.handleSubmit.bind(this);

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import ChatListView from "../views/list";
+import ChatListView from "../views/chat-list";
 import {chatService} from "../index";
 
 class ChatList extends Component {

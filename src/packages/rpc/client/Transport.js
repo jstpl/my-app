@@ -1,5 +1,8 @@
 import axios from 'axios';
 import configManager from "../../../app/singletons/configManager";
+// import eventEmitter from "../../../app/singletons/eventEmitter";
+// import authEventEnum from "../../../pages/auth/enums/authEventEnum";
+// import rpcEventEnum from "../enums/rpcEventEnum";
 
 export default class Transport {
 
@@ -35,4 +38,24 @@ export default class Transport {
             });
         // return this.createPromise(axiosPromise);
     }
+
+    /*createPromise(axiosPromise) {
+        return new Promise(function (resolve, reject) {
+            axiosPromise
+                .then(function (response) {
+                    if(response.headers['content-type'] === 'application/json') {
+                        if(typeof response.data === 'object') {
+                            resolve(response.data);
+                        } else {
+                            reject("Transport error. Parse error.");
+                        }
+                    } else {
+                        reject("Transport error. Content type invalid.");
+                    }
+                })
+                .catch(function (error) {
+                    reject("Transport error.");
+                });
+        });
+    }*/
 }

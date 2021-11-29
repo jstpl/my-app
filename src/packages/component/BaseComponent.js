@@ -6,4 +6,8 @@ export default class BaseComponent extends Component {
         const { history } = this.props;
         history.push(uri);
     }
+
+    redirectToHome() {
+        this.redirect('/');
+    }
 }

@@ -1,5 +1,6 @@
 import store from '../../../app/config/store';
 import DataProvider from "../../../packages/domain/DataProvider";
+import * as chatActions from "../actions/chatActions";
 // import * as authAction from '../actions/authActions';
 // import eventEmitter from '../../../app/singletons/eventEmitter';
 // import authEventEnum from "../enums/authEventEnum";
@@ -25,7 +26,9 @@ export default class ChatService {
                 name: 'Jasy'
             };*/
             //store.dispatch(authAction.authorizationSuccess(identityEntity));
-            return dataProvider;
+
+            store.dispatch(chatActions.getCollectionSuccess(dataProvider));
+            //return dataProvider;
         } catch (error) {
             throw error;
         }

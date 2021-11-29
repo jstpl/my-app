@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-// import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 import ChatListView from "../views/chat-list";
 import {chatService} from "../index";
 import DataProvider from "../../../packages/domain/DataProvider";
+// import chatReducer from '../reducers/chatReducer';
 
 class ChatList extends Component {
 
@@ -15,10 +16,8 @@ class ChatList extends Component {
         // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    async componentDidMount() {
-        let state = {};
-        state.dataProvider = await chatService.all(this.state);
-        this.setState(state);
+    componentDidMount() {
+        chatService.all(this.state);
     }
 
     /*deleteUser(user) {
@@ -28,17 +27,17 @@ class ChatList extends Component {
     render() {
         // console.log(this.state.dataProvider);
         return (
-            <ChatListView dataProvider={this.state.dataProvider} />
+            <ChatListView dataProvider={this.props.dataProvider} />
         );
     }
 }
 
-export default ChatList;
+// export default ChatList;
 
-/*const mapStateToProps = function (store) {
+const mapStateToProps = function (store) {
     return {
-        users: store.userState.users
+        dataProvider: store.chatState.dataProvider
     };
 };
 
-export default connect(mapStateToProps)(List);*/
+export default connect(mapStateToProps)(ChatList);

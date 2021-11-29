@@ -7,11 +7,11 @@ export default function (props) {
         <div className="data-list">
             <h1>Chat list</h1>
             <ul>
-                {props.dataProvider.collection.map(function (user) {
+                {props.dataProvider.collection.map(function (chatEntity) {
                     return (
-                        <li key={user.id}>
-                            <Link to={'/messenger/' + user.id}>{user.title}</Link>
-                            {/*<button className="btn btn-primary" onClick={props.deleteUser.bind(this, user)}>del</button>*/}
+                        <li key={chatEntity.id}>
+                            <Link to={'/messenger/' + chatEntity.id}>{chatEntity.title}</Link>
+                            {/*<button className="btn btn-primary" onClick={props.deleteUser.bind(this, chatEntity)}>del</button>*/}
                         </li>
                     );
                 })}

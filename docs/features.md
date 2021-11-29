@@ -17,9 +17,9 @@
     W3C Validated Code
     Box Icons
     Chat, E-Commerce Product, Orders, Customers, Cart, Checkout, Shops Pages
-    Projects Grid, ChatList, Overview Pages
-    Tasks ChatList, Kanban Board Pages
-    Invoices ChatList and Details pages
+    Projects Grid, List, Overview Pages
+    Tasks List, Kanban Board Pages
+    Invoices List and Details pages
     Contacts and Profile page
     Data tables
     Google Font

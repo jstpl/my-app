@@ -7,15 +7,6 @@ import DataProvider from "../../../packages/domain/DataProvider";
 
 class ChatList extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            dataProvider: new DataProvider(),
-        };
-        // this.handleChange = this.handleChange.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
     componentDidMount() {
         chatService.all(this.state);
     }
@@ -25,14 +16,11 @@ class ChatList extends Component {
     }*/
 
     render() {
-        // console.log(this.state.dataProvider);
         return (
             <ChatListView dataProvider={this.props.dataProvider} />
         );
     }
 }
-
-// export default ChatList;
 
 const mapStateToProps = function (store) {
     return {

@@ -5,13 +5,13 @@ import {Link} from 'react-router-dom';
 export default function (props) {
     return (
         <div className="data-list">
-            <h1>Users</h1>
+            <h1>Chat list</h1>
             <ul>
-                {props.users.map(function (user) {
+                {props.dataProvider.collection.map(function (user) {
                     return (
                         <li key={user.id}>
-                            <Link to={'/users/' + user.id}>{user.title}</Link>
-                            <button className="btn btn-primary" onClick={props.deleteUser.bind(this, user)}>del</button>
+                            <Link to={'/messenger/' + user.id}>{user.title}</Link>
+                            {/*<button className="btn btn-primary" onClick={props.deleteUser.bind(this, user)}>del</button>*/}
                         </li>
                     );
                 })}

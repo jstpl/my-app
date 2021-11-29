@@ -13,6 +13,11 @@ export default class ChatService {
     async all() {
         try {
             let responseEntity = await this.authRepository.all();
+            let dataProvider = {
+                collection: responseEntity.body,
+                paginator: responseEntity.meta,
+            };
+
             //this.tokenRepository.set(token);
             /*eventEmitter.emit(authEventEnum.AUTHORIZATION, token);
             let identityEntity = {
@@ -20,7 +25,7 @@ export default class ChatService {
                 name: 'Jasy'
             };*/
             //store.dispatch(authAction.authorizationSuccess(identityEntity));
-            return responseEntity;
+            return dataProvider;
         } catch (error) {
             throw error;
         }

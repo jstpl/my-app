@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import UserProfileView from '../views/profile'
+import MessageListView from '../views/message-list'
 // import * as userApi from "../api/userApi";
 import {connect} from "react-redux";
 
-class Profile extends Component {
+class MessageList extends Component {
 
     componentDidMount() {
         let userId = this.props.match.params.id;
@@ -12,7 +12,7 @@ class Profile extends Component {
 
     render() {
         return (
-            <UserProfileView user={this.props.profile}/>
+            <MessageListView user={this.props.profile}/>
         );
     }
 }
@@ -25,4 +25,4 @@ const mapStateToProps = function (store) {
     };
 };
 
-export default connect(mapStateToProps)(Profile);
+export default connect(mapStateToProps)(MessageList);

@@ -2,10 +2,12 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as userApi from "../api/userApi";
 import UserListView from "../views/list";
+import {chatService} from "../index";
 
 class List extends Component {
 
-    componentDidMount() {
+    async componentDidMount() {
+        await chatService.all(this.state);
         userApi.getUsers();
     }
 

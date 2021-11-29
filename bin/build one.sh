@@ -3,5 +3,5 @@
 cd ..
 npm run build
 
-cd src/packages/pack
+cd src/console
 node build-in-one.js

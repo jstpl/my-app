@@ -6,9 +6,22 @@ import {chatService} from "../index";
 
 class List extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            collection: [],
+        };
+        // this.handleChange = this.handleChange.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
     async componentDidMount() {
-        await chatService.all(this.state);
-        userApi.getUsers();
+        let state = {};
+        let dataProvider = await chatService.all(this.state);
+        state.collection = dataProvider.body;
+        this.setState(state);
+        //console.log(chatDP);
+        //userApi.getUsers();
     }
 
     deleteUser(user) {
@@ -16,8 +29,9 @@ class List extends Component {
     }
 
     render() {
+        console.log(this.state.collection);
         return (
-            <UserListView users={this.props.users} deleteUser={this.deleteUser}/>
+            <UserListView users={this.state.collection} deleteUser={this.deleteUser}/>
         );
     }
 }

@@ -3,8 +3,8 @@ import DataProvider from "../../../packages/domain/DataProvider";
 
 export default class ChatService {
 
-    constructor(chatRepository) {
-        this.repository = chatRepository;
+    constructor(repository) {
+        this.repository = repository;
     }
 
     async all() {

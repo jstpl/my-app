@@ -1,5 +1,4 @@
 import store from '../../../app/config/store';
-import DataProvider from "../../../packages/domain/DataProvider";
 
 export default class ChatService {
 
@@ -9,10 +8,7 @@ export default class ChatService {
 
     async all() {
         try {
-            let responseEntity = await this.repository.all();
-            let dataProvider = new DataProvider();
-            dataProvider.collection = responseEntity.body;
-            dataProvider.paginator = responseEntity.meta;
+            let dataProvider = await this.repository.all();
             store.dispatch({
                 type: 'GET_COLLECTION_SUCCESS',
                 dataProvider

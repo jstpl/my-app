@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Switch} from "react-router-dom";
-import MessageList from "./components/message-list";
-import ChatList from "./components/chat-list";
+import MessageList from "./components/messageList";
+import ChatList from "./components/chatList";
 
 export default function () {
     return (

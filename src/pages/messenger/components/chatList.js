@@ -1,19 +1,13 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import ChatListView from "../views/chat-list";
+import ChatListView from "../views/chatList";
 import {chatService} from "../index";
-import DataProvider from "../../../packages/domain/DataProvider";
-// import chatReducer from '../reducers/chatReducer';
 
 class ChatList extends Component {
 
     componentDidMount() {
         chatService.all(this.state);
     }
-
-    /*deleteUser(user) {
-        userApi.deleteUser(user)
-    }*/
 
     render() {
         return (

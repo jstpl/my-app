@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import MessageListView from '../views/message-list'
-// import * as userApi from "../api/userApi";
+import MessageListView from '../views/messageList'
 import {connect} from "react-redux";
 
 class MessageList extends Component {
@@ -16,8 +15,6 @@ class MessageList extends Component {
         );
     }
 }
-
-// export default Profile;
 
 const mapStateToProps = function (store) {
     return {

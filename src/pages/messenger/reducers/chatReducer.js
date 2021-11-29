@@ -2,6 +2,7 @@
 // import _ from 'lodash';
 
 import DataProvider from "../../../packages/domain/DataProvider";
+import crudAction from "../../../packages/domain/enums/crudAction";
 
 const initialState = {
     dataProvider: new DataProvider(),
@@ -10,7 +11,7 @@ const initialState = {
 
 export default function (state = initialState, action) {
     switch (action.type) {
-        case 'GET_COLLECTION_SUCCESS':
+        case crudAction.ALL:
             return Object.assign({}, state, {dataProvider: action.dataProvider});
         default:
             return state;

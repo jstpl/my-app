@@ -1,4 +1,5 @@
 import store from '../../../app/config/store';
+import crudAction from "../../../packages/domain/enums/crudAction";
 
 export default class ChatService {
 
@@ -10,7 +11,7 @@ export default class ChatService {
         try {
             let dataProvider = await this.repository.all();
             store.dispatch({
-                type: 'GET_COLLECTION_SUCCESS',
+                type: crudAction.ALL,
                 dataProvider
             });
         } catch (error) {

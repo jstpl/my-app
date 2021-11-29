@@ -1,22 +1,10 @@
 // import * as userActionEnum from '../enums/userActionEnum';
+import crudAction from "../../../packages/domain/enums/crudAction";
 
+throw new Error('deprecated');
 export function getCollectionSuccess(dataProvider) {
     return {
-        type: 'GET_COLLECTION_SUCCESS',
+        type: crudAction.ALL,
         dataProvider
     };
 }
-
-/*export function deleteUserSuccess(userProfile) {
-    return {
-        type: userActionEnum.DELETE_USER_SUCCESS,
-        userProfile
-    };
-}
-
-export function userProfileSuccess(userProfile) {
-    return {
-        type: userActionEnum.USER_PROFILE_SUCCESS,
-        userProfile
-    };
-}*/

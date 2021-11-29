@@ -9,6 +9,7 @@ import UserModule from "../../pages/user/module";
 import AuthModule from "../../pages/auth/module";
 import SiteModule from "../../pages/site/module";
 import UiModule from "../../pages/ui/module";
+import MessengerModule from "../../pages/messenger/module";
 
 export default (
     <BrowserRouter>
@@ -18,6 +19,7 @@ export default (
                 <Route path="/users" component={UserModule}/>
                 <Route component={AuthModule}/>
                 <Route component={UiModule}/>
+                <Route component={MessengerModule}/>
             </MainLayout>
         </HashRouter>
     </BrowserRouter>

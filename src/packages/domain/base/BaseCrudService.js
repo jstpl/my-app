@@ -1,16 +1,23 @@
 import store from "../../../app/config/store";
 import crudAction from "../enums/crudAction";
+import BaseService from "./BaseService";
 
-export default class BaseCrudService {
+export default class BaseCrudService extends BaseService {
 
-    #_prefix;
+    #_prefix = null;
 
     set prefix(value) {
         this.#_prefix = value;
     }
 
     get prefix() {
-        return this.#_prefix;
+        let prefix;
+        if(this.#_prefix == null) {
+            prefix = this.reducer.prefix;
+        } else {
+            prefix = this.#_prefix;
+        }
+        return prefix;
     }
 
     actionName(name) {
@@ -18,6 +25,7 @@ export default class BaseCrudService {
     }
 
     constructor(repository) {
+        super();
         this.repository = repository;
     }
 

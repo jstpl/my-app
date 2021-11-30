@@ -1,4 +1,4 @@
-import BaseCrudDispatcher from "../base/BaseCrudDispatcher";
+import BaseCrudDispatcher from "./BaseCrudDispatcher";
 
 export default class CrudDispatcher extends BaseCrudDispatcher {
 

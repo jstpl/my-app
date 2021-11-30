@@ -1,7 +1,7 @@
 import ChatRepository from "./repositories/rpc/ChatRepository";
 import ChatService from "./services/ChatService";
 import CrudReducer from "../../packages/domain/reducers/CrudReducer";
-import CrudDispatcher from "../../packages/domain/reducers/CrudDispatcher";
+import CrudDispatcher from "../../packages/domain/dispatchers/CrudDispatcher";
 
 const actionPrefix = 'messengerChat';
 

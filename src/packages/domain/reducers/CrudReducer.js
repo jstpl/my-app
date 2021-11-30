@@ -1,5 +1,5 @@
-import BaseCrudReducer from "../base/BaseCrudReducer";
+import BaseCrudReducer from "./BaseCrudReducer";
 
-export default class Reducer extends BaseCrudReducer {
+export default class CrudReducer extends BaseCrudReducer {
 
 }

@@ -1,4 +1,4 @@
-import BaseCrudService from "../../../packages/domain/base/BaseCrudService";
+import BaseCrudService from "../../../packages/domain/services/BaseCrudService";
 
 export default class ChatService extends BaseCrudService {
 

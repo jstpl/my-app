@@ -1,5 +1,5 @@
 import BaseRpcRepository from "./BaseRpcRepository";
-import DataProvider from "../domain/DataProvider";
+import DataProvider from "../domain/libs/DataProvider";
 import crudRpcMethodEnum from "./enums/crudRpcMethodEnum";
 
 export default class BaseCrudRpcRepository extends BaseRpcRepository {

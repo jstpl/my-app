@@ -1,4 +1,4 @@
-import BaseCrudDispatcher from "../../../packages/domain/base/BaseCrudDispatcher";
+import BaseCrudDispatcher from "../../../packages/domain/dispatchers/BaseCrudDispatcher";
 
 export default class ChatDispatcher extends BaseCrudDispatcher {
 

@@ -6,7 +6,7 @@ import {chatService} from "../index";
 class ChatList extends Component {
 
     componentDidMount() {
-        chatService.all(this.state);
+        chatService.all(this.state).catch(function () {});
     }
 
     render() {

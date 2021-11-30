@@ -4,11 +4,11 @@ import CrudDispatcher from "../reducers/CrudDispatcher";
 
 export default class BaseService {
 
-    #_reducer = null;
+    // #_reducer = null;
     #_reducerPrefix = null;
     #_reducerDispatcher = null;
 
-    get reducer() {
+    /*get reducer() {
         if (!this.#_reducer) {
             this.#_reducer = this._createReducerInstance();
         }
@@ -17,7 +17,7 @@ export default class BaseService {
 
     set reducer(value) {
         this.#_reducer = value;
-    }
+    }*/
 
     set reducerPrefix(value) {
         this.#_reducerPrefix = value;
@@ -26,7 +26,7 @@ export default class BaseService {
     get reducerPrefix() {
         let prefix;
         if (this.#_reducerPrefix == null) {
-            prefix = this.reducer.prefix;
+            prefix = this.reducerDispatcher.reducerPrefix;
         } else {
             prefix = this.#_reducerPrefix;
         }

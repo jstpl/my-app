@@ -22,8 +22,9 @@ chatReducerInstance.initialState = {
 
 
 let chatService = new ChatService(new ChatRepository());
-chatService.reducer = new CrudReducer(actionPrefix);
+// chatService.reducer =
 chatService.reducerDispatcher = new CrudDispatcher(actionPrefix);
+let chatReducer = (new CrudReducer(actionPrefix)).getState();
 // chatService.reducerPrefix = actionPrefix;
 
 // let dispatcher = new ChatDispatcher();
@@ -33,4 +34,4 @@ chatService.reducerDispatcher = new CrudDispatcher(actionPrefix);
 // chatService.reducer = chatReducerInstance;
 
 
-export {chatService/*, chatReducer*/};
+export {chatService, chatReducer};

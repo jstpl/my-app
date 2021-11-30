@@ -13,19 +13,22 @@ export default class BaseDispatcher {
     }
 
     get reducerPrefix() {
-        let prefix;
+        /*let prefix;
         if (this.#_reducerPrefix == null) {
             prefix = this.reducer.prefix;
         } else {
             prefix = this.#_reducerPrefix;
-        }
-        return prefix;
+        }*/
+        return this.#_reducerPrefix;
     }
 
-    dispatch(action) {
-        let store = configManager.get('store');
-        store.dispatch(action);
+    get store() {
+        return configManager.get('store');
     }
+
+    /*dispatch(action) {
+        this.store.dispatch(action);
+    }*/
 
     reducerAction(name) {
         return this.reducerPrefix + name;

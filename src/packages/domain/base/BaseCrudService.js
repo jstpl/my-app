@@ -11,10 +11,6 @@ export default class BaseCrudService extends BaseService {
         try {
             let dataProvider = await this.repository.all();
             this.storeDispatcher.setDataProvider(dataProvider);
-            /*store.dispatch({
-                type: this.reducerAction(crudAction.ALL),
-                dataProvider
-            });*/
         } catch (error) {
             throw error;
         }

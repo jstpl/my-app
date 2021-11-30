@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 export default function (props) {
     return (
         <div className="data-list">
-            <h1>Chat list</h1>
+            {/*<h1>Chat list</h1>*/}
             <ul>
                 {props.dataProvider && props.dataProvider.collection ? (
                     props.dataProvider.collection.map(function (chatEntity) {

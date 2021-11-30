@@ -11,7 +11,11 @@ class MessageList extends Component {
 
     render() {
         return (
-            <MessageListView user={this.props.profile}/>
+            <>
+                aaa
+                {this.props.match.params.id}
+            </>
+            // <MessageListView user={this.props.profile}/>
         );
     }
 }

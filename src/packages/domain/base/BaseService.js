@@ -1,23 +1,12 @@
-import CrudReducer from "../reducers/CrudReducer";
-import DataProvider from "../DataProvider";
 import CrudDispatcher from "../reducers/CrudDispatcher";
 
 export default class BaseService {
 
-    // #_reducer = null;
     #_reducerPrefix = null;
     #_reducerDispatcher = null;
 
-    /*get reducer() {
-        if (!this.#_reducer) {
-            this.#_reducer = this._createReducerInstance();
-        }
-        return this.#_reducer;
+    constructor() {
     }
-
-    set reducer(value) {
-        this.#_reducer = value;
-    }*/
 
     set reducerPrefix(value) {
         this.#_reducerPrefix = value;
@@ -43,14 +32,5 @@ export default class BaseService {
 
     set reducerDispatcher(value) {
         this.#_reducerDispatcher = value;
-    }
-
-    _createReducerInstance() {
-        let chatReducerInstance = new CrudReducer();
-        chatReducerInstance.prefix = this.reducerPrefix;
-        chatReducerInstance.initialState = {
-            dataProvider: new DataProvider(),
-        };
-        return chatReducerInstance;
     }
 }

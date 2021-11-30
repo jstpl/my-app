@@ -1,7 +1,12 @@
+import configManager from "../../../app/singletons/configManager";
 
 export default class BaseDispatcher {
 
     #_reducerPrefix = null;
+
+    constructor(reducerPrefix) {
+        this.#_reducerPrefix = reducerPrefix;
+    }
 
     set reducerPrefix(value) {
         this.#_reducerPrefix = value;
@@ -15,6 +20,11 @@ export default class BaseDispatcher {
             prefix = this.#_reducerPrefix;
         }
         return prefix;
+    }
+
+    dispatch(action) {
+        let store = configManager.get('store');
+        store.dispatch(action);
     }
 
     reducerAction(name) {

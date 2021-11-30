@@ -1,7 +1,9 @@
 import ChatRepository from "./repositories/rpc/ChatRepository";
 import ChatService from "./services/ChatService";
 // import ChatDispatcher from "./dispatchers/ChatDispatcher";
-// import CrudReducer from "../../packages/domain/reducers/CrudReducer";
+import CrudReducer from "../../packages/domain/reducers/CrudReducer";
+import CrudDispatcher from "../../packages/domain/reducers/CrudDispatcher";
+// import store from "../../app/config/store";
 // import DataProvider from "../../packages/domain/DataProvider";
 
 const actionPrefix = 'messengerChat';
@@ -20,7 +22,9 @@ chatReducerInstance.initialState = {
 
 
 let chatService = new ChatService(new ChatRepository());
-chatService.reducerPrefix = actionPrefix;
+chatService.reducer = new CrudReducer(actionPrefix);
+chatService.reducerDispatcher = new CrudDispatcher(actionPrefix);
+// chatService.reducerPrefix = actionPrefix;
 
 // let dispatcher = new ChatDispatcher();
 // dispatcher.reducerPrefix = actionPrefix;

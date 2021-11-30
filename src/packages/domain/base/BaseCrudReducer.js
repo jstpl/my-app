@@ -5,9 +5,9 @@ export default class BaseCrudReducer {
     #_prefix;
     #_initialState = {};
 
-    /*constructor(prefix = null) {
+    constructor(prefix = null) {
         this.#_prefix = prefix;
-    }*/
+    }
 
     set prefix(value) {
         this.#_prefix = value;

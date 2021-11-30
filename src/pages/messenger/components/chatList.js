@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import ChatListView from "../views/chatList";
 import {chatService} from "../index";
+import {Route, Switch} from "react-router-dom";
+import MessageList from "./messageList";
 
 class ChatList extends Component {
 
@@ -11,7 +13,12 @@ class ChatList extends Component {
 
     render() {
         return (
-            <ChatListView dataProvider={this.props.dataProvider} />
+            <>
+                <ChatListView dataProvider={this.props.dataProvider} />
+                <Switch>
+                    <Route exact path='/messenger/:chatId' component={MessageList}/>
+                </Switch>
+            </>
         );
     }
 }

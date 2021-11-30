@@ -1,10 +1,5 @@
 import React from 'react';
-import {Link, Route, Switch} from "react-router-dom";
-import ChatList from "../components/chatList";
-import MessageList from "../components/messageList";
-// import {Link} from 'react-router-dom';
 
-// Using "Stateless Functional Components"
 export default function (props) {
     return (
         <div className="data-list">
@@ -17,8 +12,6 @@ export default function (props) {
 
                                 {chatEntity.author.username} -
                                 {chatEntity.text}
-                                {/*<Link to={'/messenger/' + chatEntity.id}>{chatEntity.title}</Link>*/}
-                                {/*<button className="btn btn-primary" onClick={props.deleteUser.bind(this, chatEntity)}>del</button>*/}
                             </li>
                         );
                     })

@@ -3,11 +3,13 @@ import ChatService from "./services/ChatService";
 import CrudReducer from "../../packages/domain/reducers/CrudReducer";
 import DataProvider from "../../packages/domain/DataProvider";
 
+const actionPrefix = 'messengerChat';
+
 let chatService = new ChatService(new ChatRepository());
-chatService.prefix = 'messengerChat';
+chatService.prefix = actionPrefix;
 
 let reducer = new CrudReducer();
-reducer.prefix = chatService.prefix;
+reducer.prefix = actionPrefix;
 reducer.initialState = {
     dataProvider: new DataProvider(),
 };

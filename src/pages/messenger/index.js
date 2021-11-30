@@ -5,8 +5,9 @@ import CrudDispatcher from "../../packages/domain/reducers/CrudDispatcher";
 
 const actionPrefix = 'messengerChat';
 
-let chatService = new ChatService(new ChatRepository());
-chatService.reducerDispatcher = new CrudDispatcher(actionPrefix);
+let storeDispatcher = new CrudDispatcher(actionPrefix);
+let chatService = new ChatService(storeDispatcher, new ChatRepository());
+
 let chatReducer = new CrudReducer(actionPrefix);
 let chatState = chatReducer.getState();
 

@@ -2,15 +2,15 @@ import BaseService from "./BaseService";
 
 export default class BaseCrudService extends BaseService {
 
-    constructor(repository) {
-        super();
+    constructor(storeDispatcher = null, repository) {
+        super(storeDispatcher);
         this.repository = repository;
     }
 
     async all() {
         try {
             let dataProvider = await this.repository.all();
-            this.reducerDispatcher.setDataProvider(dataProvider);
+            this.storeDispatcher.setDataProvider(dataProvider);
             /*store.dispatch({
                 type: this.reducerAction(crudAction.ALL),
                 dataProvider

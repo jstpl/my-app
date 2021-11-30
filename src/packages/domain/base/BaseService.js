@@ -1,36 +1,37 @@
-import CrudDispatcher from "../reducers/CrudDispatcher";
+// import CrudDispatcher from "../reducers/CrudDispatcher";
 
 export default class BaseService {
 
-    #_reducerPrefix = null;
-    #_reducerDispatcher = null;
+    //#_reducerPrefix = null;
+    #_storeDispatcher = null;
 
-    constructor() {
+    constructor(storeDispatcher = null) {
+        this.#_storeDispatcher = storeDispatcher;
     }
 
-    set reducerPrefix(value) {
+    /*set reducerPrefix(value) {
         this.#_reducerPrefix = value;
     }
 
     get reducerPrefix() {
         let prefix;
         if (this.#_reducerPrefix == null) {
-            prefix = this.reducerDispatcher.reducerPrefix;
+            prefix = this.storeDispatcher.reducerPrefix;
         } else {
             prefix = this.#_reducerPrefix;
         }
         return prefix;
+    }*/
+
+    get storeDispatcher() {
+        /*if (!this.#_storeDispatcher) {
+            this.#_storeDispatcher = new CrudDispatcher();
+            this.#_storeDispatcher.reducerPrefix = this.reducerPrefix;
+        }*/
+        return this.#_storeDispatcher;
     }
 
-    get reducerDispatcher() {
-        if (!this.#_reducerDispatcher) {
-            this.#_reducerDispatcher = new CrudDispatcher();
-            this.#_reducerDispatcher.reducerPrefix = this.reducerPrefix;
-        }
-        return this.#_reducerDispatcher;
-    }
-
-    set reducerDispatcher(value) {
-        this.#_reducerDispatcher = value;
-    }
+    /*set storeDispatcher(value) {
+        this.#_storeDispatcher = value;
+    }*/
 }

@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import ChatListView from "../views/chatList";
 import {chatService} from "../index";
-import {Route, Switch} from "react-router-dom";
-import MessageList from "./messageList";
 
 class ChatList extends Component {
 
@@ -19,16 +17,6 @@ class ChatList extends Component {
         );
     }
 }
-
-/*const mapStateToProps = function (store) {
-    return {
-        dataProvider: store.chatState.dataProvider
-    };
-};*/
-
-/*const mapStateToProps = function (store) {
-    return store.chatState;
-};*/
 
 const mapStateToProps = (store) => store.chatState;
 export default connect(mapStateToProps)(ChatList);

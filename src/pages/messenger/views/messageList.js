@@ -10,7 +10,6 @@ export default function (props) {
                         return (
                             <li key={chatEntity.id}>
                                 <img src={chatEntity.author.logo} width="25"/>
-
                                 {chatEntity.author.username} -
                                 {chatEntity.text}
                             </li>
@@ -20,8 +19,6 @@ export default function (props) {
                     <div>Empty</div>
                 )}
             </ul>
-
-
         </div>
     );
 }

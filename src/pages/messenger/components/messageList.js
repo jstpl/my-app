@@ -7,11 +7,9 @@ import Query from "../../../packages/domain/libs/Query";
 class MessageList extends Component {
 
     updateList(chatId) {
-        if(chatId) {
-            let query = new Query();
-            query.filter.chatId = chatId;
-            messageService.all(query).then(function () {});
-        }
+        let query = new Query();
+        query.filter.chatId = chatId;
+        messageService.all(query).then(function () {});
     }
 
     componentDidMount() {

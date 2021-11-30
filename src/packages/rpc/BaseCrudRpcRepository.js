@@ -7,11 +7,6 @@ export default class BaseCrudRpcRepository extends BaseRpcRepository {
 
     #_methodPrefix = null;
 
-    constructor(methodPrefix) {
-        super();
-        this.methodPrefix = methodPrefix;
-    }
-
     get methodPrefix() {
         if(this.#_methodPrefix == null) {
             throw new Error('Not configured attribute "methodPrefix" in CRUD repository!');

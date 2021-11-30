@@ -6,7 +6,7 @@ import Query from "../../../packages/domain/libs/Query";
 
 class MessageList extends Component {
 
-    update() {
+    componentDidMount() {
         let userId = this.props.match.params.id;
         console.log(userId);
         if(userId) {
@@ -18,21 +18,16 @@ class MessageList extends Component {
     }
 
     render() {
-        this.update();
+        // this.update();
         return (
-            <>
+            /*<>
                 aaa
                 {this.props.match.params.id}
-            </>
-            // <MessageListView user={this.props.profile}/>
+            </>*/
+            <MessageListView dataProvider={this.props.dataProvider}/>
         );
     }
 }
 
-const mapStateToProps = function (store) {
-    return {
-        profile: store.userState.userProfile
-    };
-};
-
+const mapStateToProps = (store) => store.messageState;
 export default connect(mapStateToProps)(MessageList);

@@ -7,15 +7,18 @@ export default function () {
     return (
         <div>
             <h2>Messenger</h2>
-            <Switch>
+            {/*<Switch>
                 <Route path='/messenger' component={ChatList}/>
-               
-            </Switch>
+
+            </Switch>*/}
             <div className="row">
                 <div className="col-2">
-                    {/*<ChatList/>*/}
+                    <ChatList/>
                 </div>
                 <div className="col-10">
+                    <Switch>
+                        <Route exact path='/messenger/:chatId' component={MessageList}/>
+                    </Switch>
                 </div>
             </div>
         </div>

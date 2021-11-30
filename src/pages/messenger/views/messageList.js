@@ -3,6 +3,7 @@ import React from 'react';
 export default function (props) {
     return (
         <div className="data-list">
+            <h2>Messages</h2>
             <ul>
                 {props.dataProvider && props.dataProvider.collection ? (
                     props.dataProvider.collection.map(function (chatEntity) {

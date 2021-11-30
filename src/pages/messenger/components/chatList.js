@@ -15,9 +15,6 @@ class ChatList extends Component {
         return (
             <>
                 <ChatListView dataProvider={this.props.dataProvider} />
-                <Switch>
-                    <Route exact path='/messenger/:chatId' component={MessageList}/>
-                </Switch>
             </>
         );
     }

@@ -6,7 +6,7 @@ import {ListGroup} from "bootstrap-4-react/lib/components";
 export default function (props) {
     return (
         <div className="data-list">
-            {/*<h1>Chat list</h1>*/}
+            <h2>Chat list</h2>
             <ul>
                 {props.dataProvider && props.dataProvider.collection ? (
                     props.dataProvider.collection.map(function (chatEntity) {

@@ -8,17 +8,7 @@ export default class BaseDispatcher {
         this.#_reducerPrefix = reducerPrefix;
     }
 
-    set reducerPrefix(value) {
-        this.#_reducerPrefix = value;
-    }
-
     get reducerPrefix() {
-        /*let prefix;
-        if (this.#_reducerPrefix == null) {
-            prefix = this.reducer.prefix;
-        } else {
-            prefix = this.#_reducerPrefix;
-        }*/
         return this.#_reducerPrefix;
     }
 
@@ -26,9 +16,10 @@ export default class BaseDispatcher {
         return configManager.get('store');
     }
 
-    /*dispatch(action) {
+    dispatch(action) {
+        action.type = this.reducerAction(action.type);
         this.store.dispatch(action);
-    }*/
+    }
 
     reducerAction(name) {
         return this.reducerPrefix + name;

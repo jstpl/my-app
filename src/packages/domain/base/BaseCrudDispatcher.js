@@ -4,8 +4,9 @@ import BaseDispatcher from "./BaseDispatcher";
 export default class BaseCrudDispatcher extends BaseDispatcher {
 
     setDataProvider(dataProvider) {
-        this.store.dispatch({
-            type: this.reducerAction(crudAction.ALL),
+        //let type = this.reducerAction(crudAction.ALL);
+        this.dispatch({
+            type: crudAction.ALL,
             dataProvider
         });
     }

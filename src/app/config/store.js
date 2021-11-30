@@ -1,16 +1,6 @@
 import {combineReducers, createStore} from 'redux';
+import reducerList from "./reducerList";
 
-// Reducers
-import userReducer from '../../pages/user/reducers/userReducer';
-import authReducer from '../../pages/auth/reducers/authReducer';
-import {chatState} from "../../pages/messenger";
-
-// Combine Reducers
-let reducers = combineReducers({
-    chatState: chatState,
-    userState: userReducer,
-    authState: authReducer,
-});
-
+let reducers = combineReducers(reducerList);
 const store = createStore(reducers);
 export default store;

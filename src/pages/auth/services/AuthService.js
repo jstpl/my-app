@@ -1,7 +1,8 @@
-import store from '../../../app/config/store';
+// import store from '../../../app/config/store';
 import * as authAction from '../actions/authActions';
 import eventEmitter from '../../../packages/event/eventEmitter';
 import authEventEnum from "../enums/authEventEnum";
+import configManager from "../../../packages/configManager/configManager";
 
 export default class AuthService {
 
@@ -19,6 +20,7 @@ export default class AuthService {
                 id: 1234,
                 name: 'Jasy'
             };
+            let store = configManager.get('store');
             store.dispatch(authAction.authorizationSuccess(identityEntity));
             return token;
         } catch (error) {

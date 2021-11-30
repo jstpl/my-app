@@ -2,6 +2,7 @@ import BaseRpcRepository from "./BaseRpcRepository";
 import DataProvider from "../domain/libs/DataProvider";
 import crudRpcMethodEnum from "./enums/crudRpcMethodEnum";
 import Paginator from "../domain/libs/Paginator";
+import _ from 'lodash';
 
 export default class BaseCrudRpcRepository extends BaseRpcRepository {
 
@@ -22,20 +23,33 @@ export default class BaseCrudRpcRepository extends BaseRpcRepository {
         return this.methodPrefix + '.' + name;
     }
 
-    async all() {
+    async all(query = null) {
         let requestEntity = {
             method: this.methodName(crudRpcMethodEnum.ALL),
             // body: body,
         };
+        this._forgeRequestByQuery(requestEntity, query);
         try {
             let responseEntity = await this.sendRequest(requestEntity);
             let dataProvider = new DataProvider();
             dataProvider.collection = responseEntity.body;
             dataProvider.paginator = this._createPaginatorFromRequestMeta(responseEntity.meta);
+            dataProvider.query = query;
             return dataProvider;
         } catch (error) {
             throw error;
         }
+    }
+
+    _forgeRequestByQuery(requestEntity, query) {
+        if(query) {
+            requestEntity.body = {};
+            if(query.filter) {
+                _.set(requestEntity.body, 'filter', query.filter);
+                // requestEntity.body.filter = query.filter;
+            }
+        }
+        return requestEntity;
     }
 
     _createPaginatorFromRequestMeta(meta) {

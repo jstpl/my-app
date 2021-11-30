@@ -1,4 +1,5 @@
 import BaseService from "./BaseService";
+import Query from "../libs/Query";
 
 export default class BaseCrudService extends BaseService {
 
@@ -20,9 +21,9 @@ export default class BaseCrudService extends BaseService {
         return this._repository;
     }
 
-    async all() {
+    async all(query = null) {
         try {
-            let dataProvider = await this.repository.all();
+            let dataProvider = await this.repository.all(query);
             this.storeDispatcher.setDataProvider(dataProvider);
         } catch (error) {
             throw error;

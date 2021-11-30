@@ -5,19 +5,29 @@ import CrudDispatcher from "../../packages/domain/dispatchers/CrudDispatcher";
 import BaseCrudService from "../../packages/domain/services/BaseCrudService";
 import CrudRpcRepository from "../../packages/rpc/CrudRpcRepository";
 
-const actionPrefix = 'messengerChat';
-
+const chatActionPrefix = 'messengerChat';
 let chatService = new BaseCrudService(
-    new CrudDispatcher(actionPrefix),
+    new CrudDispatcher(chatActionPrefix),
     new CrudRpcRepository('messenger-chat')
 );
+let chatState = (new CrudReducer(chatActionPrefix)).getState();
+
+
+const messageActionPrefix = 'messengerMessage';
+let messageService = new BaseCrudService(
+    new CrudDispatcher(messageActionPrefix),
+    new CrudRpcRepository('messenger-message')
+);
+let messageState = (new CrudReducer(messageActionPrefix)).getState();
 
 /*let chatService = new ChatService(
-    new CrudDispatcher(actionPrefix),
+    new CrudDispatcher(chatActionPrefix),
     new ChatRepository()
 );*/
 
-let chatReducer = new CrudReducer(actionPrefix);
-let chatState = chatReducer.getState();
-
-export {chatService, chatState};
+export {
+    chatService,
+    chatState,
+    messageService,
+    messageState
+};

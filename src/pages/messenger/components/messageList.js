@@ -6,15 +6,15 @@ import Query from "../../../packages/domain/libs/Query";
 
 class MessageList extends Component {
 
-    updateList(chatId) {
+    updateList() {
+        let chatId = this.props.match.params.chatId;
         let query = new Query();
         query.filter.chatId = chatId;
         messageService.all(query).then(function () {});
     }
 
     componentDidMount() {
-        let chatId = this.props.match.params.chatId;
-        this.updateList(chatId);
+        this.updateList();
     }
 
     componentDidUpdate(prevProps) {
@@ -22,8 +22,7 @@ class MessageList extends Component {
         let prevChatId = prevProps.match.params.chatId;
         // Обычное использование (не забудьте сравнить свойства):
         if (chatId !== prevChatId) {
-            this.updateList(chatId);
-            // console.log(prevChatId, chatId);
+            this.updateList();
         }
     }
 

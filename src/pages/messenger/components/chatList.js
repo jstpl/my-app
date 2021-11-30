@@ -11,9 +11,7 @@ class ChatList extends Component {
 
     render() {
         return (
-            <>
-                <ChatListView dataProvider={this.props.dataProvider} />
-            </>
+            <ChatListView dataProvider={this.props.dataProvider} />
         );
     }
 }

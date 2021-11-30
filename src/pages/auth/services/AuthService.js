@@ -1,6 +1,6 @@
 import store from '../../../app/config/store';
 import * as authAction from '../actions/authActions';
-import eventEmitter from '../../../app/singletons/eventEmitter';
+import eventEmitter from '../../../packages/event/eventEmitter';
 import authEventEnum from "../enums/authEventEnum";
 
 export default class AuthService {

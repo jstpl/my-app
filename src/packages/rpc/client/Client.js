@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import eventEmitter from "../../../app/singletons/eventEmitter";
+import eventEmitter from "../../event/eventEmitter";
 import rpcEventEnum from "../enums/rpcEventEnum";
 import UnprocessableEntityError from "../../contract/errors/UnprocessableEntityError";
 

@@ -4,12 +4,11 @@ import {Link} from 'react-router-dom';
 export default function (props) {
     return (
         <div className="data-list">
-            <h2>Chat list</h2>
-            <ul>
+            <ul className="list-group">
                 {props.dataProvider && props.dataProvider.collection ? (
                     props.dataProvider.collection.map(function (chatEntity) {
                         return (
-                            <li key={chatEntity.id}>
+                            <li className="list-group-item list-group-item-action">
                                 <Link to={'/messenger/' + chatEntity.id}>{chatEntity.title}</Link>
                             </li>
                         );

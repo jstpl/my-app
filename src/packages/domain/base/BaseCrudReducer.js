@@ -5,6 +5,10 @@ export default class BaseCrudReducer {
     #_prefix;
     #_initialState = {};
 
+    /*constructor(prefix = null) {
+        this.#_prefix = prefix;
+    }*/
+
     set prefix(value) {
         this.#_prefix = value;
     }
@@ -28,5 +32,9 @@ export default class BaseCrudReducer {
             default:
                 return state;
         }
+    }
+
+    getState() {
+        return this.run.bind(this);
     }
 }

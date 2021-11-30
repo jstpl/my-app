@@ -3,11 +3,13 @@ import {combineReducers, createStore} from 'redux';
 // Reducers
 import userReducer from '../../pages/user/reducers/userReducer';
 import authReducer from '../../pages/auth/reducers/authReducer';
-import {chatReducer} from '../../pages/messenger';
+import {chatService} from "../../pages/messenger";
+// import {chatReducer} from '../../pages/messenger';
 
 // Combine Reducers
 let reducers = combineReducers({
-    chatState: chatReducer,
+    chatState: chatService.reducer.getState(),
+    // chatState: chatReducer,
     userState: userReducer,
     authState: authReducer,
 });

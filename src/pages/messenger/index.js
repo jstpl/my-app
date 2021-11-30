@@ -5,17 +5,18 @@ import DataProvider from "../../packages/domain/DataProvider";
 
 const actionPrefix = 'messengerChat';
 
-let reducer = new CrudReducer();
-reducer.prefix = actionPrefix;
-reducer.initialState = {
+let chatReducerInstance = new CrudReducer();
+chatReducerInstance.prefix = actionPrefix;
+chatReducerInstance.initialState = {
     dataProvider: new DataProvider(),
 };
-let chatReducer = reducer.run.bind(reducer);
+// let chatReducer = chatReducerInstance.run.bind(chatReducerInstance);
+// let chatReducer = chatReducerInstance.getReducer();
 
 
 let chatService = new ChatService(new ChatRepository());
 // chatService.prefix = actionPrefix;
-chatService.reducer = reducer;
+chatService.reducer = chatReducerInstance;
 
 
-export {chatService, chatReducer};
+export {chatService/*, chatReducer*/};

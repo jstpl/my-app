@@ -2,7 +2,7 @@ import BaseCrudRpcRepository from "../../../../packages/rpc/BaseCrudRpcRepositor
 
 export default class ChatRepository extends BaseCrudRpcRepository {
 
-    endpoint() {
-        return 'messenger-chat';
+    constructor(methodPrefix = 'messenger-chat') {
+        super(methodPrefix);
     }
 }

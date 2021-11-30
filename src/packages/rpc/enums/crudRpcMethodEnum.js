@@ -1,5 +1,5 @@
 
 export default {
 
-    ALL: 'ALL',
+    ALL: 'all',
 }

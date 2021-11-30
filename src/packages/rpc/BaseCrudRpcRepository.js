@@ -1,15 +1,34 @@
 import BaseRpcRepository from "./BaseRpcRepository";
 import DataProvider from "../domain/DataProvider";
+import crudRpcMethodEnum from "./enums/crudRpcMethodEnum";
 
 export default class BaseCrudRpcRepository extends BaseRpcRepository {
 
-    endpoint() {
-        throw new Error('Not implemented method "endpoint" in CRUD repository!');
+    #_methodPrefix = null;
+
+    constructor(methodPrefix) {
+        super();
+        this.methodPrefix = methodPrefix;
+    }
+
+    get methodPrefix() {
+        if(this.#_methodPrefix == null) {
+            throw new Error('Not configured attribute "methodPrefix" in CRUD repository!');
+        }
+        return this.#_methodPrefix;
+    }
+
+    set methodPrefix(value) {
+        this.#_methodPrefix = value;
+    }
+
+    methodName(name) {
+        return this.methodPrefix + '.' + name;
     }
 
     async all() {
         let requestEntity = {
-            method: this.endpoint() + '.all',
+            method: this.methodName(crudRpcMethodEnum.ALL),
             // body: body,
         };
         try {

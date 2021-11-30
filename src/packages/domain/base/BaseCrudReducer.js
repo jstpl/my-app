@@ -1,3 +1,4 @@
+import crudAction from "../enums/crudAction";
 
 export default class BaseCrudReducer {
 
@@ -22,7 +23,7 @@ export default class BaseCrudReducer {
 
     run(state = this.#_initialState, action) {
         switch (action.type) {
-            case this.actionName('all'):
+            case this.actionName(crudAction.ALL):
                 return Object.assign({}, state, {dataProvider: action.dataProvider});
             default:
                 return state;

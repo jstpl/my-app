@@ -1,6 +1,8 @@
 import store from "../../../app/config/store";
+import crudAction from "../enums/crudAction";
 
 export default class BaseCrudService {
+
     #_prefix;
 
     set prefix(value) {
@@ -23,7 +25,7 @@ export default class BaseCrudService {
         try {
             let dataProvider = await this.repository.all();
             store.dispatch({
-                type: this.actionName('all'),
+                type: this.actionName(crudAction.ALL),
                 dataProvider
             });
         } catch (error) {

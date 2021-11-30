@@ -34,6 +34,11 @@ export default class BaseCrudReducer {
         }
     }
 
+    /**
+     * Получить state
+     * Обычно используется для объявления редьюсеров в store
+     * @return function
+     */
     getState() {
         return this.run.bind(this);
     }

@@ -6,7 +6,7 @@ export default class Paginator {
     #_page;
 
     get perPage() {
-        return this.#_perPage;
+        return this.#_perPage || null;
     }
 
     set perPage(value) {
@@ -14,7 +14,7 @@ export default class Paginator {
     }
 
     get totalCount() {
-        return this.#_totalCount;
+        return this.#_totalCount || null;
     }
 
     set totalCount(value) {
@@ -22,7 +22,7 @@ export default class Paginator {
     }
 
     get page() {
-        return this.#_page;
+        return this.#_page || 1;
     }
 
     set page(value) {

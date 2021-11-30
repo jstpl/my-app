@@ -1,5 +1,6 @@
 import ChatRepository from "./repositories/rpc/ChatRepository";
 import ChatService from "./services/ChatService";
+// import ChatDispatcher from "./dispatchers/ChatDispatcher";
 // import CrudReducer from "../../packages/domain/reducers/CrudReducer";
 // import DataProvider from "../../packages/domain/DataProvider";
 
@@ -19,7 +20,12 @@ chatReducerInstance.initialState = {
 
 
 let chatService = new ChatService(new ChatRepository());
-chatService.prefix = actionPrefix;
+chatService.reducerPrefix = actionPrefix;
+
+// let dispatcher = new ChatDispatcher();
+// dispatcher.reducerPrefix = actionPrefix;
+// chatService.reducerDispatcher = dispatcher;
+
 // chatService.reducer = chatReducerInstance;
 
 

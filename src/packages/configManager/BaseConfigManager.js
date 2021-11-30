@@ -2,7 +2,7 @@ import _ from 'lodash';
 
 let _data = {};
 
-export default class ConfigManager {
+export default class BaseConfigManager {
 
     set(path, value) {
         _.set(_data, path, value);

@@ -1,4 +1,4 @@
-import configManager from "../../../app/singletons/configManager";
+import configManager from "../../configManager/configManager";
 
 export default class BaseDispatcher {
 

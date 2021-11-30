@@ -1,7 +1,7 @@
 import axios from 'axios';
 import store from '../../../app/config/store';
 import * as userAction from '../actions/userActions';
-import configManager from "../../../app/singletons/configManager";
+import configManager from "../../../packages/configManager/configManager";
 
 /**
  * Get all users

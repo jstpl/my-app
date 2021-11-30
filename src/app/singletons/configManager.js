@@ -1,3 +1,3 @@
-import ConfigManager from "../../packages/configManager/ConfigManager";
+import BaseConfigManager from "../../packages/configManager/BaseConfigManager";
 
-export default new ConfigManager();
+//export default new BaseConfigManager();

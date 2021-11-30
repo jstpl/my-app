@@ -1,5 +1,5 @@
 import axios from 'axios';
-import configManager from "../../../app/singletons/configManager";
+import configManager from "../../configManager/configManager";
 // import eventEmitter from "../../../app/singletons/eventEmitter";
 // import authEventEnum from "../../../pages/auth/enums/authEventEnum";
 // import rpcEventEnum from "../enums/rpcEventEnum";

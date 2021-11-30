@@ -45,10 +45,6 @@ export default class BaseService {
         this.#_reducerDispatcher = value;
     }
 
-    /*reducerAction(name) {
-        return this.reducerPrefix + name;
-    }*/
-
     _createReducerInstance() {
         let chatReducerInstance = new CrudReducer();
         chatReducerInstance.prefix = this.reducerPrefix;

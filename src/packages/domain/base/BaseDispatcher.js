@@ -1,4 +1,4 @@
-import configManager from "../../configManager/configManager";
+import container from "../../container/container";
 
 export default class BaseDispatcher {
 
@@ -13,7 +13,7 @@ export default class BaseDispatcher {
     }
 
     get store() {
-        return configManager.get('store');
+        return container.get('store');
     }
 
     dispatch(action) {

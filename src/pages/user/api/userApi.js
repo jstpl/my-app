@@ -2,6 +2,7 @@ import axios from 'axios';
 // import store from '../../../app/config/store';
 import * as userAction from '../actions/userActions';
 import configManager from "../../../packages/configManager/configManager";
+import container from "../../../packages/container/container";
 
 /**
  * Get all users
@@ -10,7 +11,7 @@ export function getUsers() {
     let apiUrl = configManager.get('apiUrl');
     return axios.get(apiUrl + '/users.json')
         .then(response => {
-            let store = configManager.get('store');
+            let store = container.get('store');
             store.dispatch(userAction.getUsersSuccess(response.data));
             return response;
         });
@@ -23,7 +24,7 @@ export function searchUsers(query = '') {
     let apiUrl = configManager.get('apiUrl');
     return axios.get(apiUrl + '/users?q=' + query)
         .then(response => {
-            let store = configManager.get('store');
+            let store = container.get('store');
             store.dispatch(userAction.getUsersSuccess(response.data));
             return response;
         });
@@ -37,7 +38,7 @@ export function deleteUser(user) {
     return axios.get(apiUrl + '/users/' + user.id + '.json')
         .then(response => {
             let user = response.data;
-            let store = configManager.get('store');
+            let store = container.get('store');
             store.dispatch(userAction.deleteUserSuccess(user));
         });
 }
@@ -47,7 +48,7 @@ export function deleteUser(user) {
  * three XHR requests to get all the profile info.
  */
 export function getProfile(userId) {
-    let store = configManager.get('store');
+    let store = container.get('store');
     store.dispatch(userAction.userProfileSuccess({}));
     let apiUrl = configManager.get('apiUrl');
     return axios.get(apiUrl + '/users/' + userId + '.json')

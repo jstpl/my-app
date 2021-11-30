@@ -1,7 +1,20 @@
 import store from '../../../app/config/store';
-import crudAction from "../../../packages/domain/enums/crudAction";
 
 export default class ChatService {
+
+    #_prefix;
+
+    set prefix(value) {
+        this.#_prefix = value;
+    }
+
+    get prefix() {
+        return this.#_prefix;
+    }
+
+    actionName(name) {
+        return this.prefix + name;
+    }
 
     constructor(repository) {
         this.repository = repository;
@@ -11,7 +24,7 @@ export default class ChatService {
         try {
             let dataProvider = await this.repository.all();
             store.dispatch({
-                type: crudAction.ALL,
+                type: this.actionName('all'),
                 dataProvider
             });
         } catch (error) {

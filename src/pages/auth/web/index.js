@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Switch} from "react-router-dom";
-import Auth from "./web/components/auth";
+import Auth from "./components/auth";
 
 export default function () {
     return (

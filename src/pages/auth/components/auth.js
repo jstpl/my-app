@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {authService} from "../index";
-import {Button, Form} from "bootstrap-4-react";
+// import {Button, Form} from "bootstrap-4-react";
 import UnprocessableEntityError from "../../../packages/contract/errors/UnprocessableEntityError";
 import ErrorHelper from "../../../packages/rpc/libs/ErrorHelper";
 import BaseComponent from "../../../packages/component/BaseComponent";
+import {Button, Form, FormGroup} from "react-bootstrap";
 
 class Auth extends BaseComponent {
 
@@ -48,23 +49,31 @@ class Auth extends BaseComponent {
         return (
             <Form onSubmit={this.handleSubmit}>
                 <h1>Authorization</h1>
-                <Form.Group>
+                <FormGroup>
                     <label htmlFor="exampleInputEmail1">Email address</label>
-                    <Form.Input value={this.state.login} onChange={this.handleChange} name="login" type="text"
-                                id="exampleInputEmail1" placeholder="Enter email"/>
+                    <Form.Control
+                        value={this.state.login}
+                        onChange={this.handleChange}
+                        id="exampleInputEmail1"
+                        name="login"
+                        placeholder="Enter email"
+                    />
                     {/*<Form.Text text="muted">We'll never share your email with anyone else.</Form.Text>*/}
-                </Form.Group>
-                <Form.Group>
+                </FormGroup>
+                <FormGroup>
                     <label htmlFor="exampleInputPassword1">Password</label>
-                    <Form.Input value={this.state.password} onChange={this.handleChange} name="password" type="password"
-                                id="exampleInputPassword1" placeholder="Password"/>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Check>
-                        <Form.CheckInput type="checkbox" id="exampleCheck1" />
-                        <Form.CheckLabel htmlFor="exampleCheck1">Check me out</Form.CheckLabel>
-                    </Form.Check>
-                </Form.Group>
+                    <Form.Control
+                        type="password"
+                        value={this.state.password}
+                        onChange={this.handleChange}
+                        id="exampleInputPassword1"
+                        name="password"
+                        placeholder="Password"
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <Form.Check type="checkbox" id="exampleCheck1" label="Remember me" />
+                </FormGroup>
                 <Button primary type="submit">Submit</Button>
             </Form>
             // <AuthView identity={this.props.identity} authorization={}/>

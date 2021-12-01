@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {Form, InputGroup} from "bootstrap-4-react/lib/components";
+import {Button, Col, Form, Row} from "react-bootstrap";
+// import {Button, Form, InputGroup, FormControl, Col} from "react-bootstrap";
 
 class MessageForm extends Component {
 
@@ -23,9 +24,10 @@ class MessageForm extends Component {
 
     async handleSubmit(event) {
         event.preventDefault();
+        // console.log(this);
+        // console.log(this.state);
         this.state.message = '';
         this.setState(this.state);
-        console.log(this.state);
         /*try {
             await authService.authByForm(this.state);
             // console.log(token);
@@ -41,6 +43,21 @@ class MessageForm extends Component {
     render() {
         return (
             <Form onSubmit={this.handleSubmit}>
+                <Row className="align-items-center">
+                    <Col md={10}>
+                        <Form.Control
+                            value={this.state.message}
+                            onChange={this.handleChange}
+                            name="message"
+                            placeholder="Type Message ..."
+                        />
+                    </Col>
+                    <Col md={2}>
+                        <Button type="submit" onClick={this.handleSubmit}>Send</Button>
+                    </Col>
+                </Row>
+            </Form>
+            /*<Form onSubmit={this.handleSubmit}>
                 <InputGroup>
                     <Form.Input
                         className="form-control" value={this.state.message} onChange={this.handleChange}
@@ -49,7 +66,7 @@ class MessageForm extends Component {
                         <button type="button" className="btn btn-primary">Send</button>
                     </span>
                 </InputGroup>
-            </Form>
+            </Form>*/
         );
     }
 }

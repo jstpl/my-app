@@ -8,7 +8,7 @@ import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import './MainLayout.css';
-import {Container} from "bootstrap-4-react";
+import {Container} from "react-bootstrap";
 
 export default function (props) {
     return (

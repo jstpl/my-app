@@ -9,8 +9,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import './MainLayout.css';
 import '../../packages/adminlte/css/adminlte.min.css';
+import {Container} from "react-bootstrap";
 
-import {Container} from "bootstrap-4-react";
 
 export default function (props) {
     return (

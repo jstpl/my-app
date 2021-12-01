@@ -3,8 +3,8 @@ import messengerDomain from "../../pages/messenger/domain";
 import authDomain from "../../pages/auth/domain";
 
 export default {
-    messengerChat: messengerDomain.repositories.state.chat.state,
-    messengerMessage: messengerDomain.repositories.state.message.state,
+    messengerChat: messengerDomain.states.chat,
+    messengerMessage: messengerDomain.states.message,
     // userState: userReducer,
     authToken: authDomain.states.token,
 }

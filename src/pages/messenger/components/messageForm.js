@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import MessageListView from '../views/messageList'
 import {connect} from "react-redux";
 import {Form, InputGroup} from "bootstrap-4-react/lib/components";
 
@@ -41,13 +40,13 @@ class MessageForm extends Component {
 
     render() {
         return (
-            <Form  onSubmit={this.handleSubmit}>
+            <Form onSubmit={this.handleSubmit}>
                 <InputGroup>
-                    <Form.Input className="form-control" value={this.state.message} onChange={this.handleChange} name="message" type="text"
-                                id="message" placeholder="Type Message ..."/>
-
+                    <Form.Input
+                        className="form-control" value={this.state.message} onChange={this.handleChange}
+                        name="message" type="text" id="message" placeholder="Type Message ..."/>
                     <span className="input-group-append">
-                      <button type="button" className="btn btn-primary">Send</button>
+                        <button type="button" className="btn btn-primary">Send</button>
                     </span>
                 </InputGroup>
             </Form>

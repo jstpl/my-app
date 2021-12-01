@@ -6,6 +6,7 @@ import Query from "../../../packages/domain/libs/Query";
 import {authService} from "../../auth";
 import UnprocessableEntityError from "../../../packages/contract/errors/UnprocessableEntityError";
 import ErrorHelper from "../../../packages/rpc/libs/ErrorHelper";
+import container from "../../../packages/container/container";
 
 class MessageList extends Component {
 
@@ -43,6 +44,9 @@ class MessageList extends Component {
     }
 
     updateList() {
+        // let store = container.get('store');
+        // console.log(store.getState().chatState.dataProvider);
+
         let chatId = this.props.match.params.chatId;
         let query = new Query();
         query.filter.chatId = chatId;

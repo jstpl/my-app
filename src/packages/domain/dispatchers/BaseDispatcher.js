@@ -1,4 +1,5 @@
 import container from "../../container/container";
+import crudAction from "../enums/crudAction";
 
 export default class BaseDispatcher {
 
@@ -14,6 +15,11 @@ export default class BaseDispatcher {
 
     get store() {
         return container.get('store');
+    }
+
+    setValue(action) {
+        action.type = crudAction.SET;
+        this.dispatch(action);
     }
 
     dispatch(action) {

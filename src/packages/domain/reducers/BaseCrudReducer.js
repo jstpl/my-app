@@ -1,4 +1,5 @@
 import crudAction from "../enums/crudAction";
+import _ from 'lodash';
 
 export default class BaseCrudReducer {
 
@@ -25,10 +26,33 @@ export default class BaseCrudReducer {
         return this.prefix + name;
     }
 
+    assignAttribute(action, attrNames) {
+        let source2 = {};
+        for(let i in attrNames) {
+            if(attrNames.hasOwnProperty(i)) {
+                let attrName = attrNames[i];
+                source2[attrName] = action[attrName];
+            }
+        }
+        return source2;
+    }
+
+    assignObject(state, action, target = {}) {
+        let source2 = _.clone(action);
+        delete source2.type;
+        return Object.assign(target, state, source2);
+    }
+
     run(state = this.#_initialState, action) {
         switch (action.type) {
+            case this.actionName(crudAction.SET):
+                return this.assignObject(state, action);
             case this.actionName(crudAction.ALL):
-                return Object.assign({}, state, {dataProvider: action.dataProvider});
+                return this.assignObject(state, action);
+
+                // let attrNames = ['dataProvider'];
+                // let source2 = this.assignAttribute(action, attrNames);
+                // return Object.assign({}, state, source2);
             default:
                 return state;
         }

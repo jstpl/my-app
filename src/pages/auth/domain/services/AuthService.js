@@ -1,4 +1,4 @@
-import * as authAction from '../actions/authActions';
+
 import eventEmitter from '../../../../packages/event/eventEmitter';
 import authEventEnum from "../enums/authEventEnum";
 import container from "../../../../packages/container/container";

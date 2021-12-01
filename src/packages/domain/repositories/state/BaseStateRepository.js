@@ -6,11 +6,20 @@ export default class BaseStateRepository {
 
     #_reducerPrefix = null;
     #_reducer = null;
+    #_initialState = {};
 
     constructor(reducerPrefix = null) {
         if(reducerPrefix) {
             this.#_reducerPrefix = reducerPrefix;
         }
+    }
+
+    get initialState() {
+        return this.#_initialState;
+    }
+
+    set initialState(value) {
+        this.#_initialState = value;
     }
 
     get reducerPrefix() {
@@ -20,6 +29,7 @@ export default class BaseStateRepository {
     get reducer() {
         if(this.#_reducer === null) {
             this.#_reducer = new CrudReducer(this.reducerPrefix);
+            this.#_reducer.initialState = this.initialState;
         }
         return this.#_reducer;
     }

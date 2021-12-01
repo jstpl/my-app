@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
 import {Link} from "react-router-dom";
 
 const ui = [
@@ -106,10 +105,4 @@ class List extends Component {
     }
 }
 
-const mapStateToProps = function (store) {
-    return {
-        users: store.userState.users
-    };
-};
-
-export default connect(mapStateToProps)(List);
+export default List;

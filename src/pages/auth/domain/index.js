@@ -1,7 +1,6 @@
 import AuthService from "./services/AuthService";
 import AuthRpcRepository from "./repositories/rpc/AuthRepository";
 import TokenStorageRepository from "./repositories/storage/TokenRepository";
-// import authReducer from "./reducers/authReducer";
 import TokenStateRepository from "./repositories/state/TokenRepository";
 import CrudReducer from "../../../packages/domain/reducers/CrudReducer";
 
@@ -12,6 +11,14 @@ let repositories = {
 };
 repositories.rpc.auth = new AuthRpcRepository();
 repositories.state.token = new TokenStateRepository();
+repositories.state.token.initialState = {
+    identity: {},
+    form: {
+        login: '',
+    },
+    users: [],
+    userProfile: {}
+};
 repositories.storage.token = new TokenStorageRepository();
 
 let services = {};
@@ -21,7 +28,6 @@ let reducers = {};
 reducers.token = new CrudReducer(repositories.state.token.reducerPrefix);
 
 let states = {};
-// states.token = authReducer;
 states.token = reducers.token.getState();
 
 const authDomain = {

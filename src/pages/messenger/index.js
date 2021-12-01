@@ -8,31 +8,27 @@ import ChatDispatcher from "./dispatchers/ChatDispatcher";
 import MessageService from "./services/MessageService";
 import MessageDispatcher from "./dispatchers/MessageDispatcher";
 import ChatService from "./services/ChatService";
+import messengerReducerPrefix from "./enums/messengerReducerPrefix";
 
-const chatActionPrefix = 'messengerChat';
-const messageActionPrefix = 'messengerMessage';
+// const chatActionPrefix = 'messengerChat';
+// const messageActionPrefix = 'messengerMessage';
 
 let dispatchers = {};
-dispatchers.chat = new ChatDispatcher(chatActionPrefix);
-dispatchers.message = new MessageDispatcher(messageActionPrefix);
+dispatchers.chat = new ChatDispatcher(messengerReducerPrefix.chat);
+dispatchers.message = new MessageDispatcher(messengerReducerPrefix.message);
 
 let chatService = new ChatService(
-    new ChatDispatcher(chatActionPrefix),
+    new ChatDispatcher(messengerReducerPrefix.chat),
     new CrudRpcRepository('messenger-chat')
 );
-let chatState = (new CrudReducer(chatActionPrefix)).getState();
+let chatState = (new CrudReducer(messengerReducerPrefix.chat)).getState();
 
 
 let messageService = new MessageService(
-    new MessageDispatcher(messageActionPrefix),
+    new MessageDispatcher(messengerReducerPrefix.message),
     new CrudRpcRepository('messenger-message')
 );
-let messageState = (new CrudReducer(messageActionPrefix)).getState();
-
-/*let chatService = new ChatService(
-    new CrudDispatcher(chatActionPrefix),
-    new ChatRepository()
-);*/
+let messageState = (new CrudReducer(messengerReducerPrefix.message)).getState();
 
 export {
     chatService,

@@ -30,11 +30,9 @@ services.auth = new AuthService(repositories.rpc.auth, repositories.storage.toke
 let reducers = {};
 reducers.authToken = repositories.state.token.state;
 
-const authDomain = {
+export default {
     // states,
     reducers,
     repositories,
     services
 };
-
-export default authDomain;

@@ -33,11 +33,9 @@ let reducers = {};
 reducers.messengerChat = repositories.state.chat.state;
 reducers.messengerMessage = repositories.state.message.state;
 
-const messengerDomain = {
+export default {
     // states,
     reducers,
     repositories,
     services
 };
-
-export default messengerDomain;

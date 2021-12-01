@@ -1,9 +1,7 @@
-import messengerDomain from "../../pages/messenger/domain";
-import authDomain from "../../pages/auth/domain";
+import messenger from "../../pages/messenger/domain";
+import auth from "../../pages/auth/domain";
 
-let domain = {
-    messenger: messengerDomain,
-    auth: authDomain,
+export default {
+    messenger,
+    auth,
 };
-
-export default domain;

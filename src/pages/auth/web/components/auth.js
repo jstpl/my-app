@@ -4,7 +4,7 @@ import UnprocessableEntityError from "../../../../packages/contract/errors/Unpro
 import ErrorHelper from "../../../../packages/rpc/libs/ErrorHelper";
 import BaseComponent from "../../../../packages/component/BaseComponent";
 import {Button, Form, FormGroup} from "react-bootstrap";
-import authDomain from "../../domain";
+import domain from "../../../../app/config/domain";
 
 class Auth extends BaseComponent {
 
@@ -29,7 +29,7 @@ class Auth extends BaseComponent {
     async handleSubmit(event) {
         event.preventDefault();
         try {
-            await authDomain.services.auth.authByForm(this.state);
+            await domain.auth.services.auth.authByForm(this.state);
             this.redirect('/');
         } catch (error) {
             if (error instanceof UnprocessableEntityError) {

@@ -1,11 +1,11 @@
 import BaseCrudService from "../../../../packages/domain/services/BaseCrudService";
-import messengerDomain from "../index";
+import domain from "../../../../app/config/domain";
 
 export default class MessageService extends BaseCrudService {
 
     async all(query = null) {
         super.all(query);
         let chatId = query.filter.chatId;
-        messengerDomain.repositories.state.message.setChatId(chatId);
+        domain.messenger.repositories.state.message.setChatId(chatId);
     }
 }

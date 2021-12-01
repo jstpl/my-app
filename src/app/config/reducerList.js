@@ -1,13 +1,14 @@
 // import userReducer from "../../pages/user/reducers/userReducer";
-import messengerDomain from "../../pages/messenger/domain";
-import authDomain from "../../pages/auth/domain";
+// import messengerDomain from "../../pages/messenger/domain";
+// import authDomain from "../../pages/auth/domain";
+import domain from "./domain";
 
 let reducers = {};
 
 Object.assign(
     reducers,
-    messengerDomain.reducers,
-    authDomain.reducers
+    domain.messenger.reducers,
+    domain.auth.reducers
 );
 
 export default reducers;

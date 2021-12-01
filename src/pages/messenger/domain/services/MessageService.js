@@ -1,5 +1,5 @@
 import BaseCrudService from "../../../../packages/domain/services/BaseCrudService";
-import messenger from "../../index";
+import messenger from "../index";
 
 export default class MessageService extends BaseCrudService {
 

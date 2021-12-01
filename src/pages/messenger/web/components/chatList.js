@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import ChatListView from "../views/chatList";
-import messenger from "../../index";
+import messenger from "../../domain";
 
 class ChatList extends Component {
 

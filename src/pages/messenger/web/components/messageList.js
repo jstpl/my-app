@@ -2,11 +2,7 @@ import React, {Component} from 'react';
 import MessageListView from '../views/messageList'
 import {connect} from "react-redux";
 import Query from "../../../../packages/domain/libs/Query";
-import {authService} from "../../../auth";
-import UnprocessableEntityError from "../../../../packages/contract/errors/UnprocessableEntityError";
-import ErrorHelper from "../../../../packages/rpc/libs/ErrorHelper";
-import container from "../../../../packages/container/container";
-import messenger from "../../index";
+import messenger from "../../domain";
 
 class MessageList extends Component {
 

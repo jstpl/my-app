@@ -1,10 +1,10 @@
-import ChatService from "./domain/services/ChatService";
-import MessageService from "./domain/services/MessageService";
-import ChatStoreRepository from "./domain/repositories/state/ChatRepository";
-import MessageStoreRepository from "./domain/repositories/state/MessageRepository";
-import messengerReducerPrefix from "./domain/enums/messengerReducerPrefix";
-import CrudRpcRepository from "../../packages/rpc/CrudRpcRepository";
-import CrudReducer from "../../packages/domain/reducers/CrudReducer";
+import ChatService from "./services/ChatService";
+import MessageService from "./services/MessageService";
+import ChatStoreRepository from "./repositories/state/ChatRepository";
+import MessageStoreRepository from "./repositories/state/MessageRepository";
+import messengerReducerPrefix from "./enums/messengerReducerPrefix";
+import CrudRpcRepository from "../../../packages/rpc/CrudRpcRepository";
+import CrudReducer from "../../../packages/domain/reducers/CrudReducer";
 
 let repositories = {
     rpc: {},

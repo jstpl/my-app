@@ -4,8 +4,11 @@ import authDomain from "../../pages/auth/domain";
 
 let reducers = {};
 
-Object.assign(reducers, messengerDomain.reducers);
-Object.assign(reducers, authDomain.reducers);
+Object.assign(
+    reducers,
+    messengerDomain.reducers,
+    authDomain.reducers
+);
 
 export default reducers;
 

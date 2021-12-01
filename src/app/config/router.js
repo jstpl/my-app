@@ -8,7 +8,7 @@ import MainLayout from '../layouts/AdminLteLayout';
 // import UserModule from "../../pages/user/module";
 import AuthModule from "../../pages/auth/web";
 import SiteModule from "../../pages/site/module";
-import UiModule from "../../pages/ui/module";
+import UiModule from "../../pages/ui/web";
 import MessengerModule from "../../pages/messenger/web";
 
 export default (

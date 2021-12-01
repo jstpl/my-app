@@ -5,11 +5,19 @@ import domain from "./domain";
 
 let reducers = {};
 
-Object.assign(
+for (let domainName in domain) {
+    if(domain.hasOwnProperty(domainName)) {
+        let domainInstance = domain[domainName];
+        Object.assign(reducers, domainInstance.reducers);
+        // console.log(domainInstance);
+    }
+}
+
+/*Object.assign(
     reducers,
     domain.messenger.reducers,
     domain.auth.reducers
-);
+);*/
 
 export default reducers;
 

@@ -1,10 +1,10 @@
 import userReducer from "../../pages/user/reducers/userReducer";
-import authReducer from "../../pages/auth/domain/reducers/authReducer";
 import messengerDomain from "../../pages/messenger/domain";
+import authDomain from "../../pages/auth/domain";
 
 export default {
     messengerChat: messengerDomain.states.chat,
     messengerMessage: messengerDomain.states.message,
     userState: userReducer,
-    authState: authReducer,
+    authState: authDomain.states.auth,
 }

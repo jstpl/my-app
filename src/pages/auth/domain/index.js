@@ -1,6 +1,7 @@
 import AuthService from "./services/AuthService";
 import AuthRepository from "./repositories/rpc/AuthRepository";
 import TokenRepository from "./repositories/storage/TokenRepository";
+import authReducer from "./reducers/authReducer";
 
 let repositories = {
     rpc: {},
@@ -15,15 +16,14 @@ services.auth = new AuthService(repositories.rpc.auth, repositories.storage.toke
 
 
 /*let reducers = {};
-reducers.chat = new CrudReducer(messengerReducerPrefix.chat);
-reducers.message = new CrudReducer(messengerReducerPrefix.message);
+reducers.auth = new CrudReducer(messengerReducerPrefix.chat);
+reducers.message = new CrudReducer(messengerReducerPrefix.message);*/
 
 let states = {};
-states.chat = reducers.chat.getState();
-states.message = reducers.message.getState();*/
+states.auth = authReducer;
 
 const authDomain = {
-    // states,
+    states,
     repositories,
     services
 };

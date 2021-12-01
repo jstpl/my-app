@@ -1,6 +1,7 @@
 import container from "../../../container/container";
 import crudAction from "../../enums/crudAction";
 import CrudReducer from "../../reducers/CrudReducer";
+import domain from "../../../../app/config/domain";
 
 export default class BaseStateRepository {
 
@@ -43,7 +44,8 @@ export default class BaseStateRepository {
     }
 
     get store() {
-        return container.get('store');
+        return domain.app.store;
+        // return container.get('store');
     }
 
     setValue(action) {

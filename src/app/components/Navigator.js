@@ -12,9 +12,9 @@ export default class Navigator extends Component {
                 <Navbar.Collapse id="navbarsExampleDefault">
                     <Navbar.Nav mr="auto">
 
-                        <Nav.Item activeclassname="active">
+                        {/*<Nav.Item activeclassname="active">
                             <Link className="nav-link" to="/users">Users</Link>
-                        </Nav.Item>
+                        </Nav.Item>*/}
 
                         <Nav.Item activeclassname="active">
                             <Link className="nav-link" to="/ui">UI</Link>

@@ -8,7 +8,7 @@ export default function (props) {
                 {props.dataProvider && props.dataProvider.collection ? (
                     props.dataProvider.collection.map(function (chatEntity) {
                         return (
-                            <li className="list-group-item list-group-item-action">
+                            <li key={chatEntity.id} className="list-group-item list-group-item-action">
                                 <Link to={'/messenger/' + chatEntity.id}>{chatEntity.title}</Link>
                             </li>
                         );

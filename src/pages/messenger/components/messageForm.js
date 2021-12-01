@@ -1,19 +1,14 @@
 import React, {Component} from 'react';
 import MessageListView from '../views/messageList'
 import {connect} from "react-redux";
-import {messageService} from "../index";
-import Query from "../../../packages/domain/libs/Query";
-import {authService} from "../../auth";
-import UnprocessableEntityError from "../../../packages/contract/errors/UnprocessableEntityError";
-import ErrorHelper from "../../../packages/rpc/libs/ErrorHelper";
+import {Form, InputGroup} from "bootstrap-4-react/lib/components";
 
-class MessageList extends Component {
+class MessageForm extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            login: '',
-            password: '',
+            message: '',
             errors: {},
         };
         this.handleChange = this.handleChange.bind(this);
@@ -29,6 +24,8 @@ class MessageList extends Component {
 
     async handleSubmit(event) {
         event.preventDefault();
+        this.state.message = '';
+        this.setState(this.state);
         console.log(this.state);
         /*try {
             await authService.authByForm(this.state);
@@ -42,32 +39,21 @@ class MessageList extends Component {
         }*/
     }
 
-    updateList() {
-        let chatId = this.props.match.params.chatId;
-        let query = new Query();
-        query.filter.chatId = chatId;
-        messageService.all(query).then(function () {});
-    }
-
-    componentDidMount() {
-        this.updateList();
-    }
-
-    componentDidUpdate(prevProps) {
-        let chatId = this.props.match.params.chatId;
-        let prevChatId = prevProps.match.params.chatId;
-        // Обычное использование (не забудьте сравнить свойства):
-        if (chatId !== prevChatId) {
-            this.updateList();
-        }
-    }
-
     render() {
         return (
-            <MessageListView dataProvider={this.props.dataProvider}/>
+            <Form  onSubmit={this.handleSubmit}>
+                <InputGroup>
+                    <Form.Input className="form-control" value={this.state.message} onChange={this.handleChange} name="message" type="text"
+                                id="message" placeholder="Type Message ..."/>
+
+                    <span className="input-group-append">
+                      <button type="button" className="btn btn-primary">Send</button>
+                    </span>
+                </InputGroup>
+            </Form>
         );
     }
 }
 
 const mapStateToProps = (store) => store.messageState;
-export default connect(mapStateToProps)(MessageList);
+export default connect(mapStateToProps)(MessageForm);

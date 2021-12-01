@@ -1,4 +1,5 @@
 import React from 'react';
+import MessageForm from "../components/messageForm";
 
 export default function (props) {
     return (
@@ -26,7 +27,7 @@ export default function (props) {
                         {props.dataProvider && props.dataProvider.collection ? (
                             props.dataProvider.collection.map(function (messageEntity) {
                                 return (
-                                    <div className="direct-chat-msg">
+                                    <div key={messageEntity.id} className="direct-chat-msg">
                                         <div className="direct-chat-infos clearfix">
                                             <span className="direct-chat-name float-left">{messageEntity.author.username}</span>
                                             <span className="direct-chat-timestamp float-right">{messageEntity.createdAt}</span>
@@ -60,14 +61,7 @@ export default function (props) {
                     </div>
                 </div>
                 <div className="card-footer">
-                    <form action="#" method="post">
-                        <div className="input-group">
-                            <input type="text" name="message" placeholder="Type Message ..." className="form-control"/>
-                            <span className="input-group-append">
-                              <button type="button" className="btn btn-primary">Send</button>
-                            </span>
-                        </div>
-                    </form>
+                    <MessageForm/>
                 </div>
             </div>
         </div>

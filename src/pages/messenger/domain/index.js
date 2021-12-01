@@ -35,10 +35,10 @@ let states = {};
 states.chat = reducers.chat.getState();
 states.message = reducers.message.getState();
 
-const messenger = {
+const messengerDomain = {
     states,
     repositories,
     services
 };
 
-export default messenger;
+export default messengerDomain;

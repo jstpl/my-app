@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import MessageListView from '../views/messageList'
 import {connect} from "react-redux";
 import Query from "../../../../packages/domain/libs/Query";
-import messenger from "../../domain";
+import messengerDomain from "../../domain";
 
 class MessageList extends Component {
 
@@ -46,7 +46,7 @@ class MessageList extends Component {
         let chatId = this.props.match.params.chatId;
         let query = new Query();
         query.filter.chatId = chatId;
-        messenger.services.message.all(query).then(function () {});
+        messengerDomain.services.message.all(query).then(function () {});
     }
 
     componentDidMount() {

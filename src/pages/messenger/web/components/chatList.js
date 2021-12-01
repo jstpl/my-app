@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import ChatListView from "../views/chatList";
-import messenger from "../../domain";
+import messengerDomain from "../../domain";
 
 class ChatList extends Component {
 
     componentDidMount() {
-        messenger.services.chat.all(this.state).catch(function () {});
+        messengerDomain.services.chat.all(this.state).catch(function () {});
     }
 
     render() {

@@ -1,19 +1,12 @@
-import MessageService from "./services/MessageService";
-import ChatService from "./services/ChatService";
-import messengerDispatchers from "./config/messengerDispatchers";
 import repositories from "./config/repositories";
+import services from "./config/services";
+import states from "./config/messengerStates";
 
-let chatService = new ChatService(
-    messengerDispatchers.chat,
-    repositories.chatRpc
-);
 
-let messageService = new MessageService(
-    messengerDispatchers.message,
-    repositories.messageRpc
-);
-
-export {
-    chatService,
-    messageService
+const messenger = {
+    states,
+    repositories,
+    services
 };
+
+export default messenger;

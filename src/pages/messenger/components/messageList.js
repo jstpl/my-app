@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import MessageListView from '../views/messageList'
 import {connect} from "react-redux";
-import {messageService} from "../index";
 import Query from "../../../packages/domain/libs/Query";
 import {authService} from "../../auth";
 import UnprocessableEntityError from "../../../packages/contract/errors/UnprocessableEntityError";
 import ErrorHelper from "../../../packages/rpc/libs/ErrorHelper";
 import container from "../../../packages/container/container";
+import messenger from "../index";
 
 class MessageList extends Component {
 
@@ -50,7 +50,7 @@ class MessageList extends Component {
         let chatId = this.props.match.params.chatId;
         let query = new Query();
         query.filter.chatId = chatId;
-        messageService.all(query).then(function () {});
+        messenger.services.message.all(query).then(function () {});
     }
 
     componentDidMount() {

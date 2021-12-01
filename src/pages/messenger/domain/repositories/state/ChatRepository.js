@@ -2,5 +2,7 @@ import BaseCrudStateRepository from "../../../../../packages/domain/repositories
 
 export default class ChatRepository extends BaseCrudStateRepository {
 
-
+    get reducerPrefix() {
+        return 'messengerChat';
+    }
 }

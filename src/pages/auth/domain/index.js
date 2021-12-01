@@ -1,7 +1,7 @@
 import AuthService from "./services/AuthService";
 import AuthRpcRepository from "./repositories/rpc/AuthRepository";
 import TokenStorageRepository from "./repositories/storage/TokenRepository";
-import authReducer from "./reducers/authReducer";
+// import authReducer from "./reducers/authReducer";
 import TokenStateRepository from "./repositories/state/TokenRepository";
 import CrudReducer from "../../../packages/domain/reducers/CrudReducer";
 

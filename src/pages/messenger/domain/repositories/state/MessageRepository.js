@@ -3,6 +3,10 @@ import chatAction from "../../enums/action/chatAction";
 
 export default class MessageRepository extends BaseCrudStateRepository {
 
+    get reducerPrefix() {
+        return 'messengerMessage';
+    }
+
     setChatId(chatId) {
         this.dispatch({
             type: chatAction.SET_CHAT_ID,

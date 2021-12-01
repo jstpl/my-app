@@ -5,8 +5,10 @@ export default class BaseStateRepository {
 
     #_reducerPrefix = null;
 
-    constructor(reducerPrefix) {
-        this.#_reducerPrefix = reducerPrefix;
+    constructor(reducerPrefix = null) {
+        if(reducerPrefix) {
+            this.#_reducerPrefix = reducerPrefix;
+        }
     }
 
     get reducerPrefix() {

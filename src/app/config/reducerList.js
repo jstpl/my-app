@@ -6,5 +6,5 @@ export default {
     messengerChat: messengerDomain.states.chat,
     messengerMessage: messengerDomain.states.message,
     // userState: userReducer,
-    authState: authDomain.states.auth,
+    authToken: authDomain.states.token,
 }

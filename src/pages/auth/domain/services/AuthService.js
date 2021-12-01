@@ -5,22 +5,25 @@ import container from "../../../../packages/container/container";
 
 export default class AuthService {
 
-    constructor(authRepository, tokenRepository) {
-        this.authRepository = authRepository;
-        this.tokenRepository = tokenRepository;
+    constructor(authRpcRepository, tokenStorageRepository, tokenStateRepository) {
+        this.authRpcRepository = authRpcRepository;
+        this.tokenStorageRepository = tokenStorageRepository;
+        this.tokenStateRepository = tokenStateRepository;
     }
 
     async authByForm(form) {
         try {
-            let token = await this.authRepository.getTokenByForm(form);
-            this.tokenRepository.set(token);
+            let token = await this.authRpcRepository.getTokenByForm(form);
+            this.tokenStorageRepository.set(token);
+
             eventEmitter.emit(authEventEnum.AUTHORIZATION, token);
             let identityEntity = {
                 id: 1234,
                 name: 'Jasy'
             };
-            let store = container.get('store');
-            store.dispatch(authAction.authorizationSuccess(identityEntity));
+            this.tokenStateRepository.setIdentity(identityEntity);
+            // let store = container.get('store');
+            // store.dispatch(authAction.authorizationSuccess(identityEntity));
             return token;
         } catch (error) {
             throw error;

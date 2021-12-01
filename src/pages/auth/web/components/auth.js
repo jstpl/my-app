@@ -77,7 +77,7 @@ class Auth extends BaseComponent {
 
 const mapStateToProps = function (store) {
     return {
-        identity: store.authState.identity
+        identity: store.authToken.identity
     };
 };
 

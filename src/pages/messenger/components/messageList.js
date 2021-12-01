@@ -73,5 +73,5 @@ class MessageList extends Component {
     }
 }
 
-const mapStateToProps = (store) => store.messageState;
+const mapStateToProps = (store) => store.messengerMessage;
 export default connect(mapStateToProps)(MessageList);

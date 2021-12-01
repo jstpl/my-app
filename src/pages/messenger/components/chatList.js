@@ -16,5 +16,5 @@ class ChatList extends Component {
     }
 }
 
-const mapStateToProps = (store) => store.chatState;
+const mapStateToProps = (store) => store.messengerChat;
 export default connect(mapStateToProps)(ChatList);

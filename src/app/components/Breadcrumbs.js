@@ -1,16 +1,15 @@
 import React, {Component} from 'react';
-import {Breadcrumb} from "bootstrap-4-react/lib/components";
-import {Link} from "react-router-dom";
+import {Breadcrumb} from "react-bootstrap";
 
 export default class Breadcrumbs extends Component {
     render() {
         return (
             <Breadcrumb>
-                <Breadcrumb.Item>
-                    <Link to="/">Home</Link>
+                <Breadcrumb.Item href="#/">
+                    Home
                 </Breadcrumb.Item>
-                <Breadcrumb.Item>
-                    <Link to="/users">Users</Link>
+                <Breadcrumb.Item href="#/users">
+                    Users
                 </Breadcrumb.Item>
                 <Breadcrumb.Item active aria-current="page">
                     Data

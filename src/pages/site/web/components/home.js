@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Jumbotron, Display4, Lead, Button } from 'bootstrap-4-react';
+import { /*Jumbotron, Display4, Lead,*/ Button } from 'react-bootstrap';
 import Fullscreen from "../../../../packages/browser/Fullscreen";
 
 class Home extends Component {
@@ -11,15 +11,20 @@ class Home extends Component {
 
     render() {
         return (
-            <Jumbotron>
-                <Display4>Hello, world</Display4>
-                <Lead>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</Lead>
-                <hr className="my-4" />
-                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                <Button primary lg>Learn more</Button>
-                &nbsp;
-                <button className="btn btn-primary" onClick={this.fullscreen.bind(this)}>Full screen</button>
-            </Jumbotron>
+            <div className="jumbotron">
+                <h1 className="display-4">Hello, world!</h1>
+                <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra
+                    attention to featured content or information.
+                </p>
+                <hr className="my-4"/>
+                    <p>It uses utility classes for typography and spacing to space content out within the larger
+                        container.
+                    </p>
+                    <p className="lead">
+                        <a className="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                        <button className="btn btn-primary" onClick={this.fullscreen.bind(this)}>Full screen</button>
+                    </p>
+            </div>
         );
     }
 }

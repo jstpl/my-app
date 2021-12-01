@@ -1,53 +1,27 @@
 import React, {Component} from 'react';
-import {Button, Dropdown, Form, Nav, Navbar} from 'bootstrap-4-react';
-import {Link} from 'react-router-dom';
+import {Nav, Navbar, NavDropdown} from 'react-bootstrap';
 
 export default class Navigator extends Component {
     render() {
         return (
-            <Navbar expand="md" dark bg="dark" fixed="top">
-                <Navbar.Brand href="#">Navbar</Navbar.Brand>
-                <Navbar.Toggler target="#navbarsExampleDefault"/>
-
-                <Navbar.Collapse id="navbarsExampleDefault">
-                    <Navbar.Nav mr="auto">
-
-                        {/*<Nav.Item activeclassname="active">
-                            <Link className="nav-link" to="/users">Users</Link>
-                        </Nav.Item>*/}
-
-                        <Nav.Item activeclassname="active">
-                            <Link className="nav-link" to="/ui">UI</Link>
-                        </Nav.Item>
-
-                        <Nav.Item activeclassname="active">
-                            <Link className="nav-link" to="/auth">Auth</Link>
-                        </Nav.Item>
-
-                        <Nav.Item activeclassname="active">
-                            <Link className="nav-link" to="/messenger">messenger</Link>
-                        </Nav.Item>
-
-                        <Nav.Item dropdown>
-                            <Nav.Link
-                                dropdownToggle
-                                href="https://example.com"
-                                id="dropdown01"
-                            >
-                                Dropdown
-                            </Nav.Link>
-                            <Dropdown.Menu aria-labelledby="dropdown01">
-                                <Dropdown.Item href="#">Action</Dropdown.Item>
-                                <Dropdown.Item href="#">Another action</Dropdown.Item>
-                                <Dropdown.Item href="#">Something else here</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Nav.Item>
-                    </Navbar.Nav>
-
-                    <Form inline my="2 lg-0">
-                        <Form.Input mr="sm-2" type="text" placeholder="Search" aria-label="Search"/>
-                        <Button outline success my="2 sm-0" type="submit">Search</Button>
-                    </Form>
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
+                <Navbar.Brand href="#/">React-Bootstrap</Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="mr-auto">
+                        <Nav.Link href="#ui">UI</Nav.Link>
+                        <Nav.Link href="#messenger">Messenger</Nav.Link>
+                        <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                        </NavDropdown>
+                    </Nav>
+                    <Nav>
+                        <Nav.Link href="#auth">Auth</Nav.Link>
+                    </Nav>
                 </Navbar.Collapse>
             </Navbar>
         )

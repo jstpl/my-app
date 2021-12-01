@@ -40,9 +40,6 @@ class MessageList extends Component {
     }
 
     updateList() {
-        // let store = container.get('store');
-        // console.log(store.getState().chatState.dataProvider);
-
         let chatId = this.props.match.params.chatId;
         let query = new Query();
         query.filter.chatId = chatId;

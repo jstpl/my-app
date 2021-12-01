@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {Button, Col, Form, Row} from "react-bootstrap";
 
-// import {Button, Form, InputGroup, FormControl, Col} from "react-bootstrap";
-
 class MessageForm extends Component {
 
     constructor(props) {
@@ -25,8 +23,6 @@ class MessageForm extends Component {
 
     async handleSubmit(event) {
         event.preventDefault();
-        // console.log(this);
-        // console.log(this.state);
         this.state.message = '';
         this.setState(this.state);
         /*try {
@@ -58,16 +54,6 @@ class MessageForm extends Component {
                     </Col>
                 </Row>
             </Form>
-            /*<Form onSubmit={this.handleSubmit}>
-                <InputGroup>
-                    <Form.Input
-                        className="form-control" value={this.state.message} onChange={this.handleChange}
-                        name="message" type="text" id="message" placeholder="Type Message ..."/>
-                    <span className="input-group-append">
-                        <button type="button" className="btn btn-primary">Send</button>
-                    </span>
-                </InputGroup>
-            </Form>*/
         );
     }
 }

@@ -2,7 +2,7 @@ import AuthService from "./services/AuthService";
 import AuthRpcRepository from "./repositories/rpc/AuthRepository";
 import TokenStorageRepository from "./repositories/storage/TokenRepository";
 import TokenStateRepository from "./repositories/state/TokenRepository";
-import CrudReducer from "../../../packages/domain/reducers/CrudReducer";
+// import CrudReducer from "../../../packages/domain/reducers/CrudReducer";
 
 let repositories = {
     rpc: {},
@@ -24,14 +24,14 @@ repositories.storage.token = new TokenStorageRepository();
 let services = {};
 services.auth = new AuthService(repositories.rpc.auth, repositories.storage.token, repositories.state.token);
 
-let states = {};
-states.token = repositories.state.token.state;
+// let states = {};
+// states.token = repositories.state.token.state;
 
 let reducers = {};
-reducers.authToken = states.token;
+reducers.authToken = repositories.state.token.state;
 
 const authDomain = {
-    states,
+    // states,
     reducers,
     repositories,
     services

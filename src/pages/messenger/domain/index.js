@@ -25,16 +25,16 @@ services.message = new MessageService(
     repositories.rpc.message
 );
 
-let states = {};
-states.chat = repositories.state.chat.state;
-states.message = repositories.state.message.state;
+// let states = {};
+// states.chat = repositories.state.chat.state;
+// states.message = repositories.state.message.state;
 
 let reducers = {};
-reducers.messengerChat = states.chat;
-reducers.messengerMessage = states.message;
+reducers.messengerChat = repositories.state.chat.state;
+reducers.messengerMessage = repositories.state.message.state;
 
 const messengerDomain = {
-    states,
+    // states,
     reducers,
     repositories,
     services

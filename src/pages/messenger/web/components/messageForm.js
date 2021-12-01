@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {Button, Col, Form, Row} from "react-bootstrap";
-import messenger from "../index";
+import messenger from "../../index";
 // import {Button, Form, InputGroup, FormControl, Col} from "react-bootstrap";
 
 class MessageForm extends Component {

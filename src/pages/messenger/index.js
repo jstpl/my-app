@@ -13,18 +13,21 @@ let repositories = {
 repositories.rpc.chat = new CrudRpcRepository('messenger-chat');
 repositories.rpc.message = new CrudRpcRepository('messenger-message');
 
-let dispatchers = {};
-dispatchers.chat = new ChatStoreRepository(messengerReducerPrefix.chat);
-dispatchers.message = new MessageStoreRepository(messengerReducerPrefix.message);
+repositories.state.chat = new ChatStoreRepository(messengerReducerPrefix.chat);
+repositories.state.message = new MessageStoreRepository(messengerReducerPrefix.message);
+
+/*let dispatchers = {};
+dispatchers.chat = new ;
+dispatchers.message = ;*/
 
 let services = {};
 services.chat = new ChatService(
-    dispatchers.chat,
+    repositories.state.chat,
     repositories.rpc.chat
 );
 
 services.message = new MessageService(
-    dispatchers.message,
+    repositories.state.message,
     repositories.rpc.message
 );
 
@@ -37,7 +40,7 @@ states.chat = reducers.chat.getState();
 states.message = reducers.message.getState();
 
 const messenger = {
-    dispatchers,
+    // dispatchers,
     states,
     repositories,
     services

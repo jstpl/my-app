@@ -6,6 +6,6 @@ export default class MessageService extends BaseCrudService {
     async all(query = null) {
         super.all(query);
         let chatId = query.filter.chatId;
-        messenger.dispatchers.message.setChatId(chatId);
+        messenger.repositories.state.message.setChatId(chatId);
     }
 }

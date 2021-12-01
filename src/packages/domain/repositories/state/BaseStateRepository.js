@@ -1,7 +1,7 @@
-import container from "../../container/container";
-import crudAction from "../enums/crudAction";
+import container from "../../../container/container";
+import crudAction from "../../enums/crudAction";
 
-export default class BaseDispatcher {
+export default class BaseStateRepository {
 
     #_reducerPrefix = null;
 

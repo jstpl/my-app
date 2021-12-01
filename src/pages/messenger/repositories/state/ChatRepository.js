@@ -1,6 +1,6 @@
-import BaseCrudDispatcher from "../../../../packages/domain/dispatchers/BaseCrudDispatcher";
+import BaseCrudStateRepository from "../../../../packages/domain/repositories/state/BaseCrudStateRepository";
 
-export default class ChatRepository extends BaseCrudDispatcher {
+export default class ChatRepository extends BaseCrudStateRepository {
 
 
 }

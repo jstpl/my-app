@@ -1,17 +1,17 @@
 import ChatService from "../services/ChatService";
-import messengerDispatchers from "./messengerDispatchers";
+import dispatchers from "./dispatchers";
 import repositories from "./repositories";
 import MessageService from "../services/MessageService";
 
 let services = {};
 
 services.chat = new ChatService(
-    messengerDispatchers.chat,
+    dispatchers.chat,
     repositories.chatRpc
 );
 
 services.message = new MessageService(
-    messengerDispatchers.message,
+    dispatchers.message,
     repositories.messageRpc
 );
 

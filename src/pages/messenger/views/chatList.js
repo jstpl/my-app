@@ -4,19 +4,17 @@ import {Link} from 'react-router-dom';
 export default function (props) {
     return (
         <div className="data-list">
-            <ul className="list-group">
-                {props.dataProvider && props.dataProvider.collection ? (
-                    props.dataProvider.collection.map(function (chatEntity) {
+            {props.dataProvider && props.dataProvider.collection ? (
+                <ul className="nav flex-column">
+                    {props.dataProvider.collection.map(function (chatEntity) {
                         return (
-                            <li key={chatEntity.id} className="list-group-item list-group-item-action">
-                                <Link to={'/messenger/' + chatEntity.id}>{chatEntity.title}</Link>
-                            </li>
+                            <Link key={chatEntity.id} className="nav-link" to={'/messenger/' + chatEntity.id}>{chatEntity.title}</Link>
                         );
-                    })
-                ) : (
-                    <div>Empty</div>
-                )}
-            </ul>
+                    })}
+                </ul>
+            ) : (
+                <div>Empty</div>
+            )}
         </div>
     );
 }

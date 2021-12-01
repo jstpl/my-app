@@ -1,5 +1,5 @@
 import BaseCrudService from "../../../packages/domain/services/BaseCrudService";
-import {dispatchers} from "../index";
+import dispatchers from "../config/dispatchers";
 
 export default class MessageService extends BaseCrudService {
 

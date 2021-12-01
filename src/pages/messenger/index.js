@@ -9,23 +9,17 @@ import MessageService from "./services/MessageService";
 import MessageDispatcher from "./dispatchers/MessageDispatcher";
 import ChatService from "./services/ChatService";
 import messengerReducerPrefix from "./enums/messengerReducerPrefix";
-
-// const chatActionPrefix = 'messengerChat';
-// const messageActionPrefix = 'messengerMessage';
-
-let dispatchers = {};
-dispatchers.chat = new ChatDispatcher(messengerReducerPrefix.chat);
-dispatchers.message = new MessageDispatcher(messengerReducerPrefix.message);
+import dispatchers from "./config/dispatchers";
 
 let chatService = new ChatService(
-    new ChatDispatcher(messengerReducerPrefix.chat),
+    dispatchers.chat,
     new CrudRpcRepository('messenger-chat')
 );
 let chatState = (new CrudReducer(messengerReducerPrefix.chat)).getState();
 
 
 let messageService = new MessageService(
-    new MessageDispatcher(messengerReducerPrefix.message),
+    dispatchers.message,
     new CrudRpcRepository('messenger-message')
 );
 let messageState = (new CrudReducer(messengerReducerPrefix.message)).getState();
@@ -34,6 +28,5 @@ export {
     chatService,
     chatState,
     messageService,
-    messageState,
-    dispatchers
+    messageState
 };

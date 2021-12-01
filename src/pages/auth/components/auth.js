@@ -74,7 +74,7 @@ class Auth extends BaseComponent {
                 <FormGroup>
                     <Form.Check type="checkbox" id="exampleCheck1" label="Remember me" />
                 </FormGroup>
-                <Button primary type="submit">Submit</Button>
+                <Button type="submit">Submit</Button>
             </Form>
             // <AuthView identity={this.props.identity} authorization={}/>
         );

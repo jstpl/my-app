@@ -19,7 +19,7 @@ export default (
                 <Route path="/users" component={UserModule}/>
                 <Route component={AuthModule}/>
                 <Route component={UiModule}/>
-                <Route component={MessengerModule}/>
+                <Route path="/messenger" component={MessengerModule}/>
             </MainLayout>
         </HashRouter>
     </BrowserRouter>

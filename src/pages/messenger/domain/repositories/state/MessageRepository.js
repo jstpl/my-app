@@ -1,16 +1,22 @@
 import BaseCrudStateRepository from "../../../../../packages/domain/repositories/state/BaseCrudStateRepository";
-import chatAction from "../../enums/action/chatAction";
 
 export default class MessageRepository extends BaseCrudStateRepository {
+
+    /*get actions() {
+        return {
+            SET_CHAT_ID: 'SET_CHAT_ID',
+        };
+    }*/
 
     get reducerPrefix() {
         return 'messengerMessage';
     }
 
     setChatId(chatId) {
-        this.dispatch({
-            type: chatAction.SET_CHAT_ID,
+        this.setValue({chatId});
+        /*this.dispatch({
+            type: this.actions.SET_CHAT_ID,
             chatId
-        });
+        });*/
     }
 }

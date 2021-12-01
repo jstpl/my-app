@@ -7,12 +7,12 @@ let services = {};
 
 services.chat = new ChatService(
     dispatchers.chat,
-    repositories.chatRpc
+    repositories.rpc.chat
 );
 
 services.message = new MessageService(
     dispatchers.message,
-    repositories.messageRpc
+    repositories.rpc.message
 );
 
 export default services;

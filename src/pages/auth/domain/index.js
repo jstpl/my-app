@@ -24,14 +24,15 @@ repositories.storage.token = new TokenStorageRepository();
 let services = {};
 services.auth = new AuthService(repositories.rpc.auth, repositories.storage.token, repositories.state.token);
 
-let reducers = {};
-reducers.token = new CrudReducer(repositories.state.token.reducerPrefix);
-
 let states = {};
-states.token = reducers.token.getState();
+states.token = repositories.state.token.state;
+
+let reducers = {};
+reducers.authToken = states.token;
 
 const authDomain = {
     states,
+    reducers,
     repositories,
     services
 };

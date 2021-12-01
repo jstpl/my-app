@@ -29,8 +29,13 @@ let states = {};
 states.chat = repositories.state.chat.state;
 states.message = repositories.state.message.state;
 
+let reducers = {};
+reducers.messengerChat = states.chat;
+reducers.messengerMessage = states.message;
+
 const messengerDomain = {
     states,
+    reducers,
     repositories,
     services
 };

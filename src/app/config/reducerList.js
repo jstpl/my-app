@@ -2,9 +2,15 @@
 import messengerDomain from "../../pages/messenger/domain";
 import authDomain from "../../pages/auth/domain";
 
-export default {
+let reducers = {};
+Object.assign(reducers, messengerDomain.reducers);
+Object.assign(reducers, authDomain.reducers);
+
+export default reducers;
+
+/*export default {
     messengerChat: messengerDomain.states.chat,
     messengerMessage: messengerDomain.states.message,
     // userState: userReducer,
     authToken: authDomain.states.token,
-}
+}*/

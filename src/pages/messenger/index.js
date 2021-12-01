@@ -16,10 +16,6 @@ repositories.rpc.message = new CrudRpcRepository('messenger-message');
 repositories.state.chat = new ChatStoreRepository(messengerReducerPrefix.chat);
 repositories.state.message = new MessageStoreRepository(messengerReducerPrefix.message);
 
-/*let dispatchers = {};
-dispatchers.chat = new ;
-dispatchers.message = ;*/
-
 let services = {};
 services.chat = new ChatService(
     repositories.state.chat,
@@ -40,7 +36,6 @@ states.chat = reducers.chat.getState();
 states.message = reducers.message.getState();
 
 const messenger = {
-    // dispatchers,
     states,
     repositories,
     services

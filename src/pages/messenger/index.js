@@ -1,26 +1,19 @@
-import CrudReducer from "../../packages/domain/reducers/CrudReducer";
-import CrudRpcRepository from "../../packages/rpc/CrudRpcRepository";
 import MessageService from "./services/MessageService";
 import ChatService from "./services/ChatService";
-import messengerReducerPrefix from "./enums/messengerReducerPrefix";
-import dispatchers from "./config/dispatchers";
+import messengerDispatchers from "./config/messengerDispatchers";
+import repositories from "./config/repositories";
 
 let chatService = new ChatService(
-    dispatchers.chat,
-    new CrudRpcRepository('messenger-chat')
+    messengerDispatchers.chat,
+    repositories.chatRpc
 );
-let chatState = (new CrudReducer(messengerReducerPrefix.chat)).getState();
-
 
 let messageService = new MessageService(
-    dispatchers.message,
-    new CrudRpcRepository('messenger-message')
+    messengerDispatchers.message,
+    repositories.messageRpc
 );
-let messageState = (new CrudReducer(messengerReducerPrefix.message)).getState();
 
 export {
     chatService,
-    chatState,
-    messageService,
-    messageState
+    messageService
 };

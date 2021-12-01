@@ -1,5 +1,5 @@
 import userReducer from "../../pages/user/reducers/userReducer";
-import authReducer from "../../pages/auth/reducers/authReducer";
+import authReducer from "../../pages/auth/domain/reducers/authReducer";
 import messengerDomain from "../../pages/messenger/domain";
 
 export default {

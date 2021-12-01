@@ -1,4 +1,4 @@
-import * as userActionEnum from '../../auth/enums/authActionEnum';
+import * as userActionEnum from '../enums/authActionEnum';
 
 export function authorizationSuccess(identity) {
     return {

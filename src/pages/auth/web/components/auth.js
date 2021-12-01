@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {authService} from "../index";
+import {authService} from "../../index";
 // import {Button, Form} from "bootstrap-4-react";
-import UnprocessableEntityError from "../../../packages/contract/errors/UnprocessableEntityError";
-import ErrorHelper from "../../../packages/rpc/libs/ErrorHelper";
-import BaseComponent from "../../../packages/component/BaseComponent";
+import UnprocessableEntityError from "../../../../packages/contract/errors/UnprocessableEntityError";
+import ErrorHelper from "../../../../packages/rpc/libs/ErrorHelper";
+import BaseComponent from "../../../../packages/component/BaseComponent";
 import {Button, Form, FormGroup} from "react-bootstrap";
 
 class Auth extends BaseComponent {

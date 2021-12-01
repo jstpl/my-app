@@ -1,6 +1,6 @@
-import AuthRepository from "./repositories/rpc/AuthRepository";
-import AuthService from "./services/AuthService";
-import TokenRepository from "./repositories/storage/TokenRepository";
+import AuthRepository from "./domain/repositories/rpc/AuthRepository";
+import AuthService from "./domain/services/AuthService";
+import TokenRepository from "./domain/repositories/storage/TokenRepository";
 
 let authService = new AuthService(new AuthRepository(), new TokenRepository());
 

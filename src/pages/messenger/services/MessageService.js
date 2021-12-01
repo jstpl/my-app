@@ -1,12 +1,11 @@
 import BaseCrudService from "../../../packages/domain/services/BaseCrudService";
-import messengerDispatchers from "../config/messengerDispatchers";
+import messenger from "../index";
 
 export default class MessageService extends BaseCrudService {
 
     async all(query = null) {
         super.all(query);
         let chatId = query.filter.chatId;
-        messengerDispatchers.message.setChatId(chatId);
-        // console.log(chatId);
+        messenger.dispatchers.message.setChatId(chatId);
     }
 }

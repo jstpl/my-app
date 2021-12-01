@@ -9,7 +9,7 @@ import UserModule from "../../pages/user/module";
 import AuthModule from "../../pages/auth/module";
 import SiteModule from "../../pages/site/module";
 import UiModule from "../../pages/ui/module";
-import MessengerModule from "../../pages/messenger/web/module";
+import MessengerModule from "../../pages/messenger/web";
 
 export default (
     <BrowserRouter>

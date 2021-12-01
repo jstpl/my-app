@@ -1,21 +1,21 @@
 import ChatService from "./services/ChatService";
 import MessageService from "./services/MessageService";
-import ChatDispatcher from "./dispatchers/ChatDispatcher";
+import ChatStoreRepository from "./repositories/state/ChatRepository";
+import MessageStoreRepository from "./repositories/state/MessageRepository";
 import messengerReducerPrefix from "./enums/messengerReducerPrefix";
-import MessageDispatcher from "./dispatchers/MessageDispatcher";
 import CrudRpcRepository from "../../packages/rpc/CrudRpcRepository";
 import CrudReducer from "../../packages/domain/reducers/CrudReducer";
 
 let repositories = {
-    rpc: {}
+    rpc: {},
+    state: {},
 };
 repositories.rpc.chat = new CrudRpcRepository('messenger-chat');
 repositories.rpc.message = new CrudRpcRepository('messenger-message');
 
-
 let dispatchers = {};
-dispatchers.chat = new ChatDispatcher(messengerReducerPrefix.chat);
-dispatchers.message = new MessageDispatcher(messengerReducerPrefix.message);
+dispatchers.chat = new ChatStoreRepository(messengerReducerPrefix.chat);
+dispatchers.message = new MessageStoreRepository(messengerReducerPrefix.message);
 
 let services = {};
 services.chat = new ChatService(

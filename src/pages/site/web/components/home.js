@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Jumbotron, Display4, Lead, Button } from 'bootstrap-4-react';
-import Fullscreen from "../../../packages/browser/Fullscreen";
+import Fullscreen from "../../../../packages/browser/Fullscreen";
 
 class Home extends Component {
 

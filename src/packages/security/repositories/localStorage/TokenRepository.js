@@ -18,8 +18,9 @@ export default class TokenRepository extends BaseLocalStorageRepository {
     getTokenEntity() {
         let value =  this.get('tokenEntity');
         let tokenEntity = new TokenEntity();
-        tokenEntity.isAuthenticated = value.isAuthenticated;
-        tokenEntity.value = value.value;
+        Object.assign(tokenEntity, value);
+        // tokenEntity.isAuthenticated = value.isAuthenticated;
+        // tokenEntity.value = value.value;
         return tokenEntity;
     }
 }

@@ -5,10 +5,8 @@ import TokenEntity from "../../../../packages/security/entities/TokenEntity";
 
 export default class AuthService {
 
-    constructor(authRpcRepository, tokenStorageRepository, tokenStateRepository) {
+    constructor(authRpcRepository) {
         this.authRpcRepository = authRpcRepository;
-        this.tokenStorageRepository = tokenStorageRepository;
-        this.tokenStateRepository = tokenStateRepository;
     }
 
     async authByForm(form) {
@@ -16,25 +14,12 @@ export default class AuthService {
             let token = await this.authRpcRepository.getTokenByForm(form);
             let tokenEntity = new TokenEntity(token);
             container.security.services.userProvider.login(tokenEntity);
-
             eventEmitter.emit(authEventEnum.LOGIN, token);
             let identityEntity = {
                 id: 1234,
                 name: 'Jasy'
             };
 
-            // container.security.services.security.identity = identityEntity;
-
-
-            // this.tokenStorageRepository.setIdentity(identityEntity);
-            // this.tokenStateRepository.setIdentity(identityEntity);
-
-
-
-            // container.security.services.security.init();
-
-            // let store = container.get('store');
-            // store.dispatch(authAction.authorizationSuccess(identityEntity));
             return token;
         } catch (error) {
             throw error;

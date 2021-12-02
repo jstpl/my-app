@@ -4,10 +4,10 @@ import BaseTokenEntity from "../entities/BaseTokenEntity";
 
 export default class SecurityService {
 
-    #_token;
-    #_identity;
+    // #_token;
+    // #_identity;
     #_tokenEntity;
-    #_identityEntity;
+    // #_identityEntity;
 
     init() {
         // this.token = container.auth.repositories.storage.token.getToken();
@@ -17,7 +17,7 @@ export default class SecurityService {
         //console.log(this.tokenEntity.value);
     }
 
-    get token() {
+    /*get token() {
         return this.#_token;
     }
 
@@ -34,7 +34,7 @@ export default class SecurityService {
         this.#_identity = value;
         // container.auth.repositories.storage.token.setIdentity(value);
         // container.auth.repositories.state.token.setIdentity(value);
-    }
+    }*/
 
     get tokenEntity() {
         if(!this.#_tokenEntity || !this.#_tokenEntity instanceof BaseTokenEntity) {
@@ -47,11 +47,11 @@ export default class SecurityService {
         this.#_tokenEntity = value;
     }
 
-    get identityEntity() {
+    /*get identityEntity() {
         return this.#_identityEntity;
     }
 
     set identityEntity(value) {
         this.#_identityEntity = value;
-    }
+    }*/
 }

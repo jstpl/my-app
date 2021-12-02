@@ -15,6 +15,10 @@ export default class UserProviderService {
         //container.security.services.security.init();
     }
 
+    getToken() {
+
+    }
+
     refresh(tokenEntity) {
 
     }

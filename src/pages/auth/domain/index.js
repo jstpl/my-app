@@ -1,15 +1,15 @@
 import AuthService from "./services/AuthService";
 import AuthRpcRepository from "./repositories/rpc/AuthRepository";
-import TokenStorageRepository from "./repositories/storage/TokenRepository";
+import TokenStorageRepository from "./repositories/localStorage/TokenRepository";
 import TokenStateRepository from "./repositories/state/TokenRepository";
 // import CrudReducer from "../../../packages/domain/reducers/CrudReducer";
 
 let repositories = {
-    rpc: {},
+    api: {},
     state: {},
     storage: {},
 };
-repositories.rpc.auth = new AuthRpcRepository();
+repositories.api.auth = new AuthRpcRepository();
 repositories.state.token = new TokenStateRepository();
 repositories.state.token.initialState = {
     identity: {},
@@ -22,7 +22,7 @@ repositories.state.token.initialState = {
 repositories.storage.token = new TokenStorageRepository();
 
 let services = {};
-services.auth = new AuthService(repositories.rpc.auth, repositories.storage.token, repositories.state.token);
+services.auth = new AuthService(repositories.api.auth, repositories.storage.token, repositories.state.token);
 
 // let states = {};
 // states.token = repositories.state.token.state;

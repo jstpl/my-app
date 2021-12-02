@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-export default class PermanentStorage {
+export default class LocalStorage {
 
     get(key, defaultValue) {
         let data = null;

@@ -6,6 +6,7 @@ import container from "../../../../app/config/container";
 class ChatList extends Component {
 
     componentDidMount() {
+        //const { chat } = container.messenger.services;
         container.messenger.services.chat.all(this.state).catch(function () {
         });
     }

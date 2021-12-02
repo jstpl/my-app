@@ -5,11 +5,11 @@ import MessageStoreRepository from "./repositories/state/MessageRepository";
 import CrudRpcRepository from "../../../packages/rpc/CrudRpcRepository";
 
 let repositories = {
-    rpc: {},
+    api: {},
     state: {},
 };
-repositories.rpc.chat = new CrudRpcRepository('messenger-chat');
-repositories.rpc.message = new CrudRpcRepository('messenger-message');
+repositories.api.chat = new CrudRpcRepository('messenger-chat');
+repositories.api.message = new CrudRpcRepository('messenger-message');
 
 repositories.state.chat = new ChatStoreRepository();
 repositories.state.message = new MessageStoreRepository();
@@ -17,12 +17,12 @@ repositories.state.message = new MessageStoreRepository();
 let services = {};
 services.chat = new ChatService(
     repositories.state.chat,
-    repositories.rpc.chat
+    repositories.api.chat
 );
 
 services.message = new MessageService(
     repositories.state.message,
-    repositories.rpc.message
+    repositories.api.message
 );
 
 // let states = {};

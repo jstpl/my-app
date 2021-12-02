@@ -47,8 +47,8 @@ export default class BaseCrudReducer {
         switch (action.type) {
             case this.actionName(crudAction.SET):
                 return this.assignObject(state, action);
-            case this.actionName(crudAction.ALL):
-                return this.assignObject(state, action);
+            /*case this.actionName(crudAction.ALL):
+                return this.assignObject(state, action);*/
 
                 // let attrNames = ['dataProvider'];
                 // let source2 = this.assignAttribute(action, attrNames);

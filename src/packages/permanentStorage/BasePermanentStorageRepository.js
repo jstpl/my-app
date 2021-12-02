@@ -1,11 +1,17 @@
-import PermanentStorage from "./PermanentStorage";
-
 export default class BasePermanentStorageRepository {
 
-    permanentStorage;
+    #_permanentStorage;
 
-    constructor() {
-        this.permanentStorage = new PermanentStorage();
+    constructor(permanentStorage) {
+        this.#_permanentStorage = permanentStorage;
+    }
+
+    get permanentStorage() {
+        return this.#_permanentStorage;
+    }
+
+    set permanentStorage(value) {
+        this.#_permanentStorage = value;
     }
 
     key() {

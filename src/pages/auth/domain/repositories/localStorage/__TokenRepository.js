@@ -1,6 +1,6 @@
 import BaseLocalStorageRepository from "../../../../../packages/permanentStorage/BaseLocalStorageRepository";
 
-export default class TokenRepository extends BaseLocalStorageRepository {
+export default class __TokenRepository extends BaseLocalStorageRepository {
 
     key() {
         return 'authToken';

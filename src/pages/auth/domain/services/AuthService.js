@@ -11,16 +11,18 @@ export default class AuthService {
 
     async authByForm(form) {
         try {
-            let token = await this.authRpcRepository.getTokenByForm(form);
-            let tokenEntity = new TokenEntity(token);
+            let tokenEntityValue = await this.authRpcRepository.getTokenByForm(form);
+
+            let tokenEntity = new TokenEntity(tokenEntityValue.tokenString);
+            tokenEntity.identity = tokenEntityValue.identity;
             container.security.services.userProvider.login(tokenEntity);
-            eventEmitter.emit(authEventEnum.LOGIN, token);
-            let identityEntity = {
+            eventEmitter.emit(authEventEnum.LOGIN, tokenEntity);
+            /*let identityEntity = {
                 id: 1234,
                 name: 'Jasy'
-            };
+            };*/
 
-            return token;
+            return tokenEntity;
         } catch (error) {
             throw error;
         }

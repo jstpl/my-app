@@ -3,13 +3,13 @@ import BaseRpcRepository from "../../../../../packages/rpc/BaseRpcRepository";
 export default class AuthRepository extends BaseRpcRepository {
     async getTokenByForm(body) {
         let requestEntity = {
-            method: 'authentication.getTokenByPassword',
+            method: 'authentication.getToken',
             body: body,
         };
 
         try {
             let responseEntity = await this.sendRequest(requestEntity);
-            return responseEntity.body.token;
+            return responseEntity.body;
         } catch (error) {
             throw error;
         }

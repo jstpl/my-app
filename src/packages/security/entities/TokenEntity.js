@@ -5,7 +5,7 @@ export default class TokenEntity extends BaseTokenEntity {
 
     #_isAuthenticated = null;
     #_value = null;
-    ddd;
+    #_identity = null;
 
     constructor(value = null) {
         super();
@@ -29,5 +29,13 @@ export default class TokenEntity extends BaseTokenEntity {
 
     set value(value) {
         this.#_value = value;
+    }
+
+    get identity() {
+        return this.#_identity;
+    }
+
+    set identity(value) {
+        this.#_identity = value;
     }
 }

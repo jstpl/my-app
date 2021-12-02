@@ -1,8 +1,8 @@
 
 class Scroll {
 
-    top() {
-        window.scrollTo({top: 0});
+    top(element = window) {
+        element.scrollTo({top: 0});
     }
 }
 

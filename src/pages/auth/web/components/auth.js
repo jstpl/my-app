@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import UnprocessableEntityError from "../../../../packages/contract/errors/UnprocessableEntityError";
 import ErrorHelper from "../../../../packages/rpc/libs/ErrorHelper";
 import BaseComponent from "../../../../packages/component/BaseComponent";
 import {Button, Form, FormGroup} from "react-bootstrap";
-import domain from "../../../../app/config/domain";
+import container from "../../../../app/config/container";
 
 class Auth extends BaseComponent {
 
@@ -29,7 +29,7 @@ class Auth extends BaseComponent {
     async handleSubmit(event) {
         event.preventDefault();
         try {
-            await domain.auth.services.auth.authByForm(this.state);
+            await container.auth.services.auth.authByForm(this.state);
             this.redirect('/');
         } catch (error) {
             if (error instanceof UnprocessableEntityError) {

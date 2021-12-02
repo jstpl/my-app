@@ -1,9 +1,7 @@
 import axios from 'axios';
-// import store from '../../../app/config/store';
 import * as userAction from '../actions/userActions';
 import configManager from "../../../packages/configManager/configManager";
-import container from "../../../packages/container/container";
-import domain from "../../../app/config/domain";
+import container from "../../../app/config/container";
 
 /**
  * Get all users
@@ -13,7 +11,7 @@ export function getUsers() {
     return axios.get(apiUrl + '/users.json')
         .then(response => {
             // let store = container.get('store');
-            domain.app.store.dispatch(userAction.getUsersSuccess(response.data));
+            container.app.store.dispatch(userAction.getUsersSuccess(response.data));
             return response;
         });
 }
@@ -26,7 +24,7 @@ export function searchUsers(query = '') {
     return axios.get(apiUrl + '/users?q=' + query)
         .then(response => {
             // let store = container.get('store');
-            domain.app.store.dispatch(userAction.getUsersSuccess(response.data));
+            container.app.store.dispatch(userAction.getUsersSuccess(response.data));
             return response;
         });
 }
@@ -40,7 +38,7 @@ export function deleteUser(user) {
         .then(response => {
             let user = response.data;
             // let store = container.get('store');
-            domain.app.store.dispatch(userAction.deleteUserSuccess(user));
+            container.app.store.dispatch(userAction.deleteUserSuccess(user));
         });
 }
 
@@ -50,11 +48,11 @@ export function deleteUser(user) {
  */
 export function getProfile(userId) {
     // let store = container.get('store');
-    domain.app.store.dispatch(userAction.userProfileSuccess({}));
+    container.app.store.dispatch(userAction.userProfileSuccess({}));
     let apiUrl = configManager.get('apiUrl');
     return axios.get(apiUrl + '/users/' + userId + '.json')
         .then(response => {
             let user = response.data;
-            store.dispatch(userAction.userProfileSuccess(user));
+            container.app.store.dispatch(userAction.userProfileSuccess(user));
         });
 }

@@ -1,7 +1,5 @@
-
 import eventEmitter from '../../../../packages/event/eventEmitter';
 import authEventEnum from "../enums/authEventEnum";
-import container from "../../../../packages/container/container";
 
 export default class AuthService {
 

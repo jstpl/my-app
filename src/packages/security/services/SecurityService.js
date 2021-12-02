@@ -1,6 +1,7 @@
 import container from "../../../app/config/container";
 import NullTokenEntity from "../entities/NullTokenEntity";
 import BaseTokenEntity from "../entities/BaseTokenEntity";
+import entityHelper from "../../helpers/entityHelper";
 
 export default class SecurityService {
 
@@ -14,7 +15,11 @@ export default class SecurityService {
         // this.identity = container.auth.repositories.storage.token.getIdentity();
 
         this.tokenEntity = container.security.repositories.storage.token.getTokenEntity();
-        //console.log(this.tokenEntity.value);
+
+        //entityHelper.getValues(this.tokenEntity);
+
+        // console.log(Object.getOwnPropertyNames(this.tokenEntity));
+        // console.log(Object.keys(this.tokenEntity));
     }
 
     /*get token() {

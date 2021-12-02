@@ -5,6 +5,7 @@ export default class TokenEntity extends BaseTokenEntity {
 
     #_isAuthenticated = null;
     #_value = null;
+    ddd;
 
     constructor(value = null) {
         super();

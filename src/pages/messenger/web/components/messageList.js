@@ -43,7 +43,7 @@ class MessageList extends Component {
         let chatId = this.props.match.params.chatId;
         let query = new Query();
         query.filter.chatId = chatId;
-        container.messenger.services.message.all(query).then(function () {
+        container.messenger.services.message.all(query).catch(function () {
         });
     }
 

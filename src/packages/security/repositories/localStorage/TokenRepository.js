@@ -1,5 +1,6 @@
 import BaseLocalStorageRepository from "../../../permanentStorage/BaseLocalStorageRepository";
 import TokenEntity from "../../entities/TokenEntity";
+import entityHelper from "../../../helpers/entityHelper";
 
 export default class TokenRepository extends BaseLocalStorageRepository {
 
@@ -8,19 +9,14 @@ export default class TokenRepository extends BaseLocalStorageRepository {
     }
 
     setTokenEntity(tokenEntity) {
-        let value = {
-            isAuthenticated: tokenEntity.isAuthenticated,
-            value: tokenEntity.value,
-        };
+        let value = entityHelper.getValues(tokenEntity);
         this.set('tokenEntity', value);
     }
 
     getTokenEntity() {
         let value =  this.get('tokenEntity');
         let tokenEntity = new TokenEntity();
-        Object.assign(tokenEntity, value);
-        // tokenEntity.isAuthenticated = value.isAuthenticated;
-        // tokenEntity.value = value.value;
+        entityHelper.setValues(tokenEntity, value);
         return tokenEntity;
     }
 }

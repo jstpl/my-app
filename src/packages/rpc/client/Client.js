@@ -44,7 +44,7 @@ export default class Client {
     }
 
     prepareRequest(requestEntity) {
-        let tokenEntity = container.security.services.security.tokenEntity;
+        let tokenEntity = container.security.services.userProvider.getTokenEntity();
         if (tokenEntity.isAuthenticated) {
             _.set(requestEntity, 'meta.Authorization', tokenEntity.value);
         }

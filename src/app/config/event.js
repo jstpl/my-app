@@ -11,6 +11,10 @@ eventEmitter.on(authEventEnum.LOGIN, function (token) {
 
 eventEmitter.on(authEventEnum.LOGOUT, function (token) {
     toast.success("Success logout!");
+    /*toast.success("Success logout!", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+        className: 'foo-bar'
+    });*/
 });
 
 eventEmitter.on(rpcEventEnum.CLIENT_ERROR, function (error) {

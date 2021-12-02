@@ -5,7 +5,9 @@ class ReduceHelper {
         for (let domainName in domain) {
             if (domain.hasOwnProperty(domainName)) {
                 let domainInstance = domain[domainName];
-                Object.assign(reducers, domainInstance.reducers);
+                if(typeof domainInstance.reducers === 'object') {
+                    Object.assign(reducers, domainInstance.reducers);
+                }
             }
         }
         return reducers;

@@ -57,10 +57,13 @@ export default class Client {
     }
 
     prepareRequest(requestEntity) {
-        if(!this.tokenRepository) {
+
+        let token = container.security.services.security.token;
+
+        /*if(!this.tokenRepository) {
             this.tokenRepository = container.auth.repositories.storage.token;
         }
-        let token = this.tokenRepository.getToken();
+        let token = this.tokenRepository.getToken();*/
         if (!_.isEmpty(token)) {
             _.set(requestEntity, 'meta.Authorization', token);
         }

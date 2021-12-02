@@ -1,6 +1,7 @@
 import _ from 'lodash';
+import StorageInterface from "../interfaces/StorageInterface";
 
-export default class LocalStorage {
+export default class LocalStorage extends StorageInterface {
 
     get(key, defaultValue) {
         let data = null;

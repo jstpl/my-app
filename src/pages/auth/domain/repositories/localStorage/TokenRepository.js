@@ -11,6 +11,14 @@ export default class TokenRepository extends BaseLocalStorageRepository {
     }
 
     getIdentity() {
-        this.get('identity');
+        return this.get('identity');
+    }
+
+    setToken(value) {
+        this.set('token', value);
+    }
+
+    getToken() {
+        return this.get('token');
     }
 }

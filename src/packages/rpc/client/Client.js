@@ -2,6 +2,7 @@ import _ from 'lodash';
 import eventEmitter from "../../event/eventEmitter";
 import rpcEventEnum from "../enums/rpcEventEnum";
 import UnprocessableEntityError from "../../contract/errors/UnprocessableEntityError";
+import container from "../../../app/config/container";
 
 /*let __Client = {
     send: function (method, body, meta, version) {
@@ -21,7 +22,7 @@ export default class Client {
     requestEncoder;
     responseEncoder;
 
-    constructor(transport, requestEncoder, responseEncoder, tokenRepository) {
+    constructor(transport, requestEncoder, responseEncoder, tokenRepository = null) {
         this.transport = transport;
         this.requestEncoder = requestEncoder;
         this.responseEncoder = responseEncoder;
@@ -56,7 +57,10 @@ export default class Client {
     }
 
     prepareRequest(requestEntity) {
-        let token = this.tokenRepository.get();
+        if(!this.tokenRepository) {
+            this.tokenRepository = container.auth.repositories.storage.token;
+        }
+        let token = this.tokenRepository.getToken();
         if (!_.isEmpty(token)) {
             _.set(requestEntity, 'meta.Authorization', token);
         }

@@ -1,9 +1,12 @@
-export default class BasePermanentStorageRepository {
+import StorageRepositoryInterface from "./interfaces/StorageRepositoryInterface";
+
+export default class BasePermanentStorageRepository extends StorageRepositoryInterface {
 
     #_permanentStorage;
 
     constructor(permanentStorage) {
-        this.#_permanentStorage = permanentStorage;
+        super();
+        this.permanentStorage = permanentStorage;
     }
 
     get permanentStorage() {
@@ -18,15 +21,19 @@ export default class BasePermanentStorageRepository {
         throw new Error('Method "key" not implemented!');
     }
 
-    get() {
-        return this.permanentStorage.get(this.key());
+    get(key) {
+        return this.permanentStorage.get(this._key(key));
     }
 
-    set(value) {
-        this.permanentStorage.set(this.key(), value);
+    set(key, value) {
+        this.permanentStorage.set(this._key(key), value);
     }
 
-    reset() {
-        this.permanentStorage.remove(this.key());
+    remove(key) {
+        this.permanentStorage.remove(this._key(key));
+    }
+
+    _key(key) {
+        return this.key() + '.' + key;
     }
 }

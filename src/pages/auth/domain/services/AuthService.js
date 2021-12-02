@@ -12,13 +12,14 @@ export default class AuthService {
     async authByForm(form) {
         try {
             let token = await this.authRpcRepository.getTokenByForm(form);
-            this.tokenStorageRepository.set(token);
+            this.tokenStorageRepository.setToken(token);
 
             eventEmitter.emit(authEventEnum.AUTHORIZATION, token);
             let identityEntity = {
                 id: 1234,
                 name: 'Jasy'
             };
+            this.tokenStorageRepository.setIdentity(identityEntity);
             this.tokenStateRepository.setIdentity(identityEntity);
             // let store = container.get('store');
             // store.dispatch(authAction.authorizationSuccess(identityEntity));

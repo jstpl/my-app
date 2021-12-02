@@ -4,29 +4,16 @@ import rpcEventEnum from "../enums/rpcEventEnum";
 import UnprocessableEntityError from "../../contract/errors/UnprocessableEntityError";
 import container from "../../../app/config/container";
 
-/*let __Client = {
-    send: function (method, body, meta, version) {
-        let requestEntity = {
-            method: method,
-            body: body,
-            meta: meta,
-            version: version,
-        };
-        return this.sendRequest(requestEntity);
-    },
-};*/
-
 export default class Client {
 
     transport;
     requestEncoder;
     responseEncoder;
 
-    constructor(transport, requestEncoder, responseEncoder, tokenRepository = null) {
+    constructor(transport, requestEncoder, responseEncoder) {
         this.transport = transport;
         this.requestEncoder = requestEncoder;
         this.responseEncoder = responseEncoder;
-        this.tokenRepository= tokenRepository;
     }
 
     sendRequest(requestEntity) {
@@ -40,7 +27,7 @@ export default class Client {
                 if (_.isEmpty(responseEntity.error)) {
                     return responseEntity;
                 } else {
-                    if(responseEntity.error.code === -32602) {
+                    if (responseEntity.error.code === -32602) {
                         let error = new UnprocessableEntityError(responseEntity.error.message);
                         error.setErrors(responseEntity.error.data);
                         throw error;
@@ -57,15 +44,9 @@ export default class Client {
     }
 
     prepareRequest(requestEntity) {
-
-        let token = container.security.services.security.token;
-
-        /*if(!this.tokenRepository) {
-            this.tokenRepository = container.auth.repositories.storage.token;
-        }
-        let token = this.tokenRepository.getToken();*/
-        if (!_.isEmpty(token)) {
-            _.set(requestEntity, 'meta.Authorization', token);
+        let tokenEntity = container.security.services.security.tokenEntity;
+        if (tokenEntity.isAuthenticated) {
+            _.set(requestEntity, 'meta.Authorization', tokenEntity.value);
         }
     }
 }

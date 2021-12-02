@@ -1,6 +1,7 @@
 import eventEmitter from '../../../../packages/event/eventEmitter';
 import authEventEnum from "../enums/authEventEnum";
 import container from "../../../../app/config/container";
+import TokenEntity from "../../../../packages/security/entities/TokenEntity";
 
 export default class AuthService {
 
@@ -13,8 +14,8 @@ export default class AuthService {
     async authByForm(form) {
         try {
             let token = await this.authRpcRepository.getTokenByForm(form);
-            this.tokenStorageRepository.setToken(token);
-            container.security.services.security.token = token;
+            let tokenEntity = new TokenEntity(token);
+            container.security.services.userProvider.login(tokenEntity);
 
             eventEmitter.emit(authEventEnum.AUTHORIZATION, token);
             let identityEntity = {
@@ -25,10 +26,12 @@ export default class AuthService {
             // container.security.services.security.identity = identityEntity;
 
 
-            this.tokenStorageRepository.setIdentity(identityEntity);
-            this.tokenStateRepository.setIdentity(identityEntity);
+            // this.tokenStorageRepository.setIdentity(identityEntity);
+            // this.tokenStateRepository.setIdentity(identityEntity);
 
-            container.security.services.security.init();
+
+
+            // container.security.services.security.init();
 
             // let store = container.get('store');
             // store.dispatch(authAction.authorizationSuccess(identityEntity));
@@ -36,5 +39,9 @@ export default class AuthService {
         } catch (error) {
             throw error;
         }
+    }
+
+    logout() {
+        container.security.services.userProvider.logout();
     }
 }

@@ -75,10 +75,4 @@ class Auth extends BaseComponent {
     }
 }
 
-const mapStateToProps = function (store) {
-    return {
-        identity: store.authToken.identity
-    };
-};
-
-export default connect(mapStateToProps)(Auth);
+export default Auth;

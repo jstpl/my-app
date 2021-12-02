@@ -21,6 +21,8 @@ export default class Navigator extends Component {
                     </Nav>
                     <Nav>
                         <Nav.Link href="#auth">Auth</Nav.Link>
+                        <Nav.Link href="#login">login</Nav.Link>
+                        <Nav.Link href="#logout">logout</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

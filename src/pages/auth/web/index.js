@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Switch} from "react-router-dom";
-import Auth from "./components/auth";
+import Login from "./components/login";
 import Logout from "./components/logout";
 
 export default function () {
@@ -8,7 +8,7 @@ export default function () {
         <div>
             {/*<h2>This is a user page!</h2>*/}
             <Switch>
-                <Route exact path='/auth' component={Auth}/>
+                <Route exact path='/login' component={Login}/>
                 <Route exact path='/logout' component={Logout}/>
             </Switch>
         </div>

@@ -6,7 +6,7 @@ import BaseComponent from "../../../../packages/component/BaseComponent";
 import {Button, Form, FormGroup} from "react-bootstrap";
 import container from "../../../../app/config/container";
 
-class Auth extends BaseComponent {
+class Login extends BaseComponent {
 
     constructor(props) {
         super(props);
@@ -75,4 +75,4 @@ class Auth extends BaseComponent {
     }
 }
 
-export default Auth;
+export default Login;

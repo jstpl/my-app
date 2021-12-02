@@ -5,8 +5,12 @@ import rpcEventEnum from "../../packages/rpc/enums/rpcEventEnum";
 import UnprocessableEntityError from "../../packages/contract/errors/UnprocessableEntityError";
 import ErrorHelper from "../../packages/rpc/libs/ErrorHelper";
 
-eventEmitter.on(authEventEnum.AUTHORIZATION, function (token) {
+eventEmitter.on(authEventEnum.LOGIN, function (token) {
     toast.success("Success authorization!");
+});
+
+eventEmitter.on(authEventEnum.LOGOUT, function (token) {
+    toast.success("Success logout!");
 });
 
 eventEmitter.on(rpcEventEnum.CLIENT_ERROR, function (error) {

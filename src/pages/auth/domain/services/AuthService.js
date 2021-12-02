@@ -17,7 +17,7 @@ export default class AuthService {
             let tokenEntity = new TokenEntity(token);
             container.security.services.userProvider.login(tokenEntity);
 
-            eventEmitter.emit(authEventEnum.AUTHORIZATION, token);
+            eventEmitter.emit(authEventEnum.LOGIN, token);
             let identityEntity = {
                 id: 1234,
                 name: 'Jasy'
@@ -43,5 +43,6 @@ export default class AuthService {
 
     logout() {
         container.security.services.userProvider.logout();
+        eventEmitter.emit(authEventEnum.LOGOUT);
     }
 }

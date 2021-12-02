@@ -1,5 +1,6 @@
 
 export default Object.freeze({
 
-    AUTHORIZATION: 'AUTHORIZATION',
+    LOGIN: 'LOGIN',
+    LOGOUT: 'LOGOUT',
 });

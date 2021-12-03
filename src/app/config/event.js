@@ -1,5 +1,5 @@
 import eventEmitter from "../../packages/event/eventEmitter";
-import authEventEnum from "../../pages/auth/domain/enums/authEventEnum";
+import authEventEnum from "../../pages/user/domain/enums/authEventEnum";
 import {toast} from "react-toastify";
 import rpcEventEnum from "../../packages/rpc/enums/rpcEventEnum";
 import UnprocessableEntityError from "../../packages/contract/errors/UnprocessableEntityError";

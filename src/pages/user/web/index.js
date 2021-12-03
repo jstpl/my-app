@@ -8,8 +8,8 @@ export default function () {
         <div>
             {/*<h2>This is a user page!</h2>*/}
             <Switch>
-                <Route exact path='/login' component={Login}/>
-                <Route exact path='/logout' component={Logout}/>
+                <Route exact path='/user/login' component={Login}/>
+                <Route exact path='/user/logout' component={Logout}/>
             </Switch>
         </div>
     );

@@ -20,8 +20,8 @@ export default class Navigator extends Component {
                         </NavDropdown>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#login">login</Nav.Link>
-                        <Nav.Link href="#logout">logout</Nav.Link>
+                        <Nav.Link href="#user/login">login</Nav.Link>
+                        <Nav.Link href="#user/logout">logout</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

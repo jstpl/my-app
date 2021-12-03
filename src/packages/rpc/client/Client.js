@@ -3,6 +3,7 @@ import eventEmitter from "../../event/eventEmitter";
 import rpcEventEnum from "../enums/rpcEventEnum";
 import UnprocessableEntityError from "../../contract/errors/UnprocessableEntityError";
 import container from "../../../app/config/container";
+import UnauthorizedError from "../../contract/errors/UnauthorizedError";
 
 export default class Client {
 
@@ -26,6 +27,8 @@ export default class Client {
                 let responseEntity = that.responseEncoder.decode(response);
                 if (_.isEmpty(responseEntity.error)) {
                     return responseEntity;
+                } else if(responseEntity.error.code === 401) {
+                    throw new UnauthorizedError(responseEntity.error.message);
                 } else {
                     if (responseEntity.error.code === -32602) {
                         let error = new UnprocessableEntityError(responseEntity.error.message);

@@ -1,13 +1,13 @@
 
 export default class UnprocessableEntityError extends Error {
 
-    _errors = [];
+    #_errors = [];
 
     setErrors(errors) {
-        this._errors = errors;
+        this.#_errors = errors;
     }
 
     getErrors() {
-        return this._errors;
+        return this.#_errors;
     }
 }

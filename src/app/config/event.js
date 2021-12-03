@@ -21,7 +21,7 @@ eventEmitter.on(authEventEnum.LOGOUT, function (token) {
 eventEmitter.on(rpcEventEnum.CLIENT_ERROR, function (error) {
     if (error instanceof UnprocessableEntityError) {
         let errorHelper = new ErrorHelper();
-        toast.warning(errorHelper.unprocessableEntityErrorToString(error));
+        toast.error(errorHelper.unprocessableEntityErrorToString(error));
     } else if(error instanceof UnauthorizedError) {
         toast.info(error.message);
         window.location.href = '#user/login';

@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {Button, Col, Form, Row} from "react-bootstrap";
+import {Button, Form} from "react-bootstrap";
 import container from "../../../../app/config/container";
+import messageList from "./messageList";
+
 
 class MessageForm extends Component {
 
@@ -26,21 +28,11 @@ class MessageForm extends Component {
         event.preventDefault();
         let form = {};
         form.message = this.state.message;
-
-        container.messenger.services.message.send(form).then( () => {});
-        this.state.message = '';
-        // console.log(this.state);
-        this.setState(this.state);
-        /*try {
-            await authService.authByForm(this.state);
-            // console.log(token);
-            this.redirect('/');
-        } catch (error) {
-            if (error instanceof UnprocessableEntityError) {
-                let errorHelper = new ErrorHelper();
-                this.state.errors = errorHelper.unprocessableEntityErrorToAssoc(error);
-            }
-        }*/
+        container.messenger.services.message.send(form).then( () => {
+            this.state.message = '';
+            this.setState(this.state);
+            this.props.updateList();
+        });
     }
 
     render() {

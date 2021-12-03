@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-// import MessageListView from '../views/messageList'
 import {connect} from "react-redux";
 import Query from "../../../../packages/domain/libs/Query";
 import container from "../../../../app/config/container";
 import MessageForm from "./messageForm";
-import Scroll from "../../../../packages/browser/Scroll";
 import MessageItems from "../views/message/messageItems";
+import scroll from "../../../../packages/browser/scroll";
 
 class MessageList extends Component {
 
@@ -38,13 +37,10 @@ class MessageList extends Component {
     }
 
     scrollToBottom() {
-        (new Scroll()).bottom(this.messagesList);
-        // this.messagesList.scrollTop = this.messagesList.scrollHeight;
+        scroll.bottom(this.messagesList);
     }
 
     render() {
-        let myId = container.security.services.userProvider.getTokenEntity().identity.id;
-        //console.log(this.props);
         return (
             <div className="data-list">
                 <div className="card card-primary direct-chat direct-chat-primary">
@@ -55,17 +51,17 @@ class MessageList extends Component {
                         </div>
                     </div>
                     <div className="card-body">
-                        <div className="direct-chat-messages" ref={(el) => { this.messagesList = el; }}>
+                        <div className="direct-chat-messages" ref={(el) => {
+                            this.messagesList = el;
+                        }}>
                             <MessageItems dataProvider={this.props.dataProvider}/>
-
                         </div>
                     </div>
                     <div className="card-footer">
-                        <MessageForm/>
+                        <MessageForm updateList={this.updateList.bind(this)}/>
                     </div>
                 </div>
             </div>
-            // <MessageListView messagesEnd={this.messagesEnd} dataProvider={this.props.dataProvider}/>
         );
     }
 }

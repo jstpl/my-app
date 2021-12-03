@@ -2,9 +2,7 @@ import React from 'react';
 import container from "../../../../../app/config/container";
 
 export default function (props) {
-    // console.log(props);
     let myId = container.security.services.userProvider.getTokenEntity().identity.id;
-
     let isEmpty = !props.dataProvider || !props.dataProvider.collection;
     if(!isEmpty) {
         return (

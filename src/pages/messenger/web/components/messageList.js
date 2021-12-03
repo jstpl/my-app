@@ -18,7 +18,7 @@ class MessageList extends Component {
 
     componentDidMount() {
         this.updateList();
-        this.scrollToBottom();
+        this.onUpdate();
     }
 
     componentDidUpdate(prevProps) {
@@ -28,6 +28,10 @@ class MessageList extends Component {
         if (chatId !== prevChatId) {
             this.updateList();
         }
+        this.onUpdate();
+    }
+
+    onUpdate() {
         this.scrollToBottom();
     }
 
@@ -36,6 +40,8 @@ class MessageList extends Component {
     }
 
     render() {
+        let myId = container.security.services.userProvider.getTokenEntity().identity.id;
+        //console.log(myId);
         return (
             <div className="data-list">
                 <div className="card card-primary direct-chat direct-chat-primary">
@@ -46,23 +52,41 @@ class MessageList extends Component {
                         </div>
                     </div>
                     <div className="card-body">
-                        <div className="direct-chat-messages" ref={(el) => { this.messagesList = el; }}>>
+                        <div className="direct-chat-messages" ref={(el) => { this.messagesList = el; }}>
 
                             {this.props.dataProvider && this.props.dataProvider.collection ? (
                                 this.props.dataProvider.collection.map(function (messageEntity) {
-                                    return (
-                                        <div key={messageEntity.id} className="direct-chat-msg">
-                                            <div className="direct-chat-infos clearfix">
-                                                <span className="direct-chat-name float-left">{messageEntity.author.username}</span>
-                                                <span className="direct-chat-timestamp float-right">{messageEntity.createdAt}</span>
+                                    if(messageEntity.authorId === myId) {
+                                        return (
+                                            <div key={messageEntity.id} className="direct-chat-msg right">
+                                                <div className="direct-chat-infos clearfix">
+                                                    <span className="direct-chat-name float-right">{messageEntity.author.username}</span>
+                                                    <span
+                                                        className="direct-chat-timestamp float-left">{messageEntity.createdAt}</span>
+                                                </div>
+                                                <img className="direct-chat-img"
+                                                     src={messageEntity.author.logo}
+                                                     alt="message user image"/>
+                                                <div className="direct-chat-text">
+                                                    {messageEntity.text}
+                                                </div>
                                             </div>
-                                            <img className="direct-chat-img" src={messageEntity.author.logo}
-                                                 alt="message user image"/>
-                                            <div className="direct-chat-text">
-                                                {messageEntity.text}
+                                        );
+                                    } else {
+                                        return (
+                                            <div key={messageEntity.id} className="direct-chat-msg">
+                                                <div className="direct-chat-infos clearfix">
+                                                    <span className="direct-chat-name float-left">{messageEntity.author.username}</span>
+                                                    <span className="direct-chat-timestamp float-right">{messageEntity.createdAt}</span>
+                                                </div>
+                                                <img className="direct-chat-img" src={messageEntity.author.logo}
+                                                     alt="message user image"/>
+                                                <div className="direct-chat-text">
+                                                    {messageEntity.text}
+                                                </div>
                                             </div>
-                                        </div>
-                                    );
+                                        );
+                                    }
                                 })
                             ) : (
                                 <div>Empty</div>

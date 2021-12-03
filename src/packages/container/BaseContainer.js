@@ -1,22 +1,20 @@
 import _ from 'lodash';
 
-let _data = {};
-
 export default class BaseContainer {
 
     set(path, value) {
-        _.set(_data, path, value);
+        _.set(this, path, value);
     }
 
     get(path, defaultValue) {
-        return _.get(_data, path, defaultValue);
+        return _.get(this, path, defaultValue);
     }
 
     load(config) {
-        _data = config;
+        Object.assign(this, config);
     }
 
-    all() {
-        return _data;
-    }
+    /*all() {
+        return this;
+    }*/
 }

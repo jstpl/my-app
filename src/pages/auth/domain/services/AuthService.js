@@ -13,7 +13,7 @@ export default class AuthService {
         try {
             let tokenEntityValue = await this.authRpcRepository.getTokenByForm(form);
 
-            let tokenEntity = new TokenEntity(tokenEntityValue.tokenString);
+            let tokenEntity = new TokenEntity(tokenEntityValue.token);
             tokenEntity.identity = tokenEntityValue.identity;
             container.security.services.userProvider.login(tokenEntity);
             eventEmitter.emit(authEventEnum.LOGIN, tokenEntity);

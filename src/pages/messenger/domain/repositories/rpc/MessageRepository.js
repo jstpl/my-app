@@ -7,8 +7,12 @@ export default class ChatRepository extends BaseCrudRpcRepository {
         this.methodPrefix = 'messenger-message';
     }
 
-    send(form) {
-
-        console.log(form);
+    async send(form) {
+        let method = this.methodName('send');
+        try {
+            return await this.sendByMethod(method, form);
+        } catch (error) {
+            throw error;
+        }
     }
 }

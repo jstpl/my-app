@@ -5,6 +5,11 @@ import assertHelper from "../../helpers/assertHelper";
 
 export default class UserProviderService {
 
+    init() {
+        let tokenEntity = this.getTokenEntity();
+        this._setTokenEntity(tokenEntity);
+    }
+
     login(tokenEntity) {
         this._setTokenEntity(tokenEntity);
     }
@@ -33,5 +38,6 @@ export default class UserProviderService {
     _setTokenEntity(tokenEntity) {
         assertHelper.assertClass(tokenEntity, BaseTokenEntity);
         container.security.repositories.storage.token.setTokenEntity(tokenEntity);
+        container.security.repositories.state.identity.setIdentity(tokenEntity.identity);
     }
 }

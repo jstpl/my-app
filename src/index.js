@@ -8,6 +8,8 @@ import container from "./app/config/container";
 
 container.app.store = store;
 
+container.security.services.userProvider.init();
+
 ReactDOM.render(
     <Provider store={store}>{router}</Provider>,
     document.getElementById('root')

@@ -1,8 +1,17 @@
 import React, {Component} from 'react';
 import {Nav, Navbar, NavDropdown} from 'react-bootstrap';
+import container from "../config/container";
+import {connect} from "react-redux";
 
-export default class Navigator extends Component {
+class Navigator extends Component {
+
+    componentDidMount() {
+        // let tokenEntity = container.security.services.userProvider.getTokenEntity();
+        // console.log(tokenEntity.identity);
+    }
+
     render() {
+        // console.log(this.props.identity);
         return (
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
                 <Navbar.Brand href="#/">React-Bootstrap</Navbar.Brand>
@@ -20,11 +29,20 @@ export default class Navigator extends Component {
                         </NavDropdown>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#user/login">login</Nav.Link>
-                        <Nav.Link href="#user/logout">logout</Nav.Link>
+
+                        {this.props.identity && this.props.identity.username ? (
+                            <Nav.Link href="#user/logout">logout ({this.props.identity.username})</Nav.Link>
+                        ) : (
+                            <Nav.Link href="#user/login">login</Nav.Link>
+                        )}
+
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
         )
     }
 }
+
+
+const mapStateToProps = (store) => store.securityIdentity;
+export default connect(mapStateToProps)(Navigator);

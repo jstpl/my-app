@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {Button, Form} from "react-bootstrap";
 import container from "../../../../app/config/container";
-import messageList from "./messageList";
-
 
 class MessageForm extends Component {
 
@@ -26,13 +24,15 @@ class MessageForm extends Component {
 
     async handleSubmit(event) {
         event.preventDefault();
-        let form = {};
-        form.message = this.state.message;
-        container.messenger.services.message.send(form).then( () => {
-            this.state.message = '';
-            this.setState(this.state);
-            this.props.updateList();
-        });
+        if(this.state.message) {
+            let form = {};
+            form.message = this.state.message;
+            container.messenger.services.message.send(form).then(() => {
+                this.state.message = '';
+                this.setState(this.state);
+                this.props.updateList();
+            });
+        }
     }
 
     render() {

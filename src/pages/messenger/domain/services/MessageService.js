@@ -15,7 +15,7 @@ export default class MessageService extends BaseCrudService {
         try {
             await this.repository.send(form);
         } catch (error) {
-            throw error;
+            // throw error;
         }
     }
 }

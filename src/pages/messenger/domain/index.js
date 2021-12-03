@@ -2,7 +2,7 @@ import ChatService from "./services/ChatService";
 import MessageService from "./services/MessageService";
 import ChatStoreRepository from "./repositories/state/ChatRepository";
 import MessageStoreRepository from "./repositories/state/MessageRepository";
-import CrudRpcRepository from "../../../packages/rpc/CrudRpcRepository";
+import CrudRpcRepository from "../../../packages/rpc/repositories/CrudRpcRepository";
 
 let repositories = {
     api: {},

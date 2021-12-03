@@ -40,19 +40,17 @@ class MessageForm extends Component {
     render() {
         return (
             <Form onSubmit={this.handleSubmit}>
-                <Row className="align-items-center">
-                    <Col md={10}>
-                        <Form.Control
-                            value={this.state.message}
-                            onChange={this.handleChange}
-                            name="message"
-                            placeholder="Type Message ..."
-                        />
-                    </Col>
-                    <Col md={2}>
+                <div className="input-group">
+                    <Form.Control
+                        value={this.state.message}
+                        onChange={this.handleChange}
+                        name="message"
+                        placeholder="Type Message ..."
+                    />
+                    <span className="input-group-append">
                         <Button type="submit" onClick={this.handleSubmit}>Send</Button>
-                    </Col>
-                </Row>
+                    </span>
+                </div>
             </Form>
         );
     }

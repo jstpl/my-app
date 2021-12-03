@@ -1,4 +1,4 @@
-import rpcClient from "./client";
+import rpcClient from "../client";
 
 export default class BaseRpcRepository {
 

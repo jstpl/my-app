@@ -6,4 +6,9 @@ export default class ChatRepository extends BaseCrudRpcRepository {
         super();
         this.methodPrefix = 'messenger-message';
     }
+
+    send(form) {
+
+        console.log(form);
+    }
 }

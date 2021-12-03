@@ -2,14 +2,15 @@ import ChatService from "./services/ChatService";
 import MessageService from "./services/MessageService";
 import ChatStoreRepository from "./repositories/state/ChatRepository";
 import MessageStoreRepository from "./repositories/state/MessageRepository";
-import CrudRpcRepository from "../../../packages/rpc/repositories/CrudRpcRepository";
+import ChatApiRepository from "./repositories/rpc/ChatRepository";
+import MessageApiRepository from "./repositories/rpc/MessageRepository";
 
 let repositories = {
     api: {},
     state: {},
 };
-repositories.api.chat = new CrudRpcRepository('messenger-chat');
-repositories.api.message = new CrudRpcRepository('messenger-message');
+repositories.api.chat = new ChatApiRepository();
+repositories.api.message = new MessageApiRepository();
 
 repositories.state.chat = new ChatStoreRepository();
 repositories.state.message = new MessageStoreRepository();

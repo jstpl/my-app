@@ -14,7 +14,6 @@ class MessageList extends Component {
             errors: {},
         };
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event) {
@@ -22,21 +21,6 @@ class MessageList extends Component {
         let state = {};
         state[name] = event.target.value;
         this.setState(state);
-    }
-
-    async handleSubmit(event) {
-        event.preventDefault();
-        console.log(this.state);
-        /*try {
-            await authService.authByForm(this.state);
-            // console.log(token);
-            this.redirect('/');
-        } catch (error) {
-            if (error instanceof UnprocessableEntityError) {
-                let errorHelper = new ErrorHelper();
-                this.state.errors = errorHelper.unprocessableEntityErrorToAssoc(error);
-            }
-        }*/
     }
 
     updateList() {

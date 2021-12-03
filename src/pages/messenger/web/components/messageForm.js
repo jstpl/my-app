@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {Button, Col, Form, Row} from "react-bootstrap";
+import container from "../../../../app/config/container";
 
 class MessageForm extends Component {
 
@@ -23,7 +24,12 @@ class MessageForm extends Component {
 
     async handleSubmit(event) {
         event.preventDefault();
+        let form = {};
+        form.message = this.state.message;
+
+        container.messenger.services.message.send(form).then( () => {});
         this.state.message = '';
+        // console.log(this.state);
         this.setState(this.state);
         /*try {
             await authService.authByForm(this.state);

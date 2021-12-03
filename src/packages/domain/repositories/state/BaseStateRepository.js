@@ -51,6 +51,15 @@ export default class BaseStateRepository {
         this.dispatch(action);
     }
 
+    _getSelfState() {
+        return this.store.getState()[this.reducerPrefix];
+    }
+
+    getValue(name) {
+        let state = this._getSelfState();
+        return state[name];
+    }
+
     dispatch(action) {
         action.type = this.reducerAction(action.type);
         this.store.dispatch(action);

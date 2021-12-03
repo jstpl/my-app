@@ -19,4 +19,8 @@ export default class MessageRepository extends BaseCrudStateRepository {
             chatId
         });*/
     }
+
+    getChatId() {
+        return this.getValue('chatId');
+    }
 }

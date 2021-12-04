@@ -1,6 +1,5 @@
 import eventEmitter from "../../packages/event/eventEmitter";
 import authEventEnum from "../../pages/user/domain/enums/authEventEnum";
-import {toast} from "react-toastify";
 import rpcEventEnum from "../../packages/rpc/enums/rpcEventEnum";
 import UnprocessableEntityError from "../../packages/contract/errors/UnprocessableEntityError";
 import ErrorHelper from "../../packages/rpc/libs/ErrorHelper";
@@ -25,11 +24,11 @@ eventEmitter.on(authEventEnum.LOGOUT, function (token) {
 eventEmitter.on(rpcEventEnum.CLIENT_ERROR, function (error) {
     if (error instanceof UnprocessableEntityError) {
         let errorHelper = new ErrorHelper();
-        toast.error(errorHelper.unprocessableEntityErrorToString(error));
+        toastService.error(errorHelper.unprocessableEntityErrorToString(error));
     } else if (error instanceof UnauthorizedError) {
-        toast.info(error.message);
+        toastService.info(error.message);
         window.location.href = '#user/login';
     } else {
-        toast.error(error.message);
+        toastService.error(error.message);
     }
 });

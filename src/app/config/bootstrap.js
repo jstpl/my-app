@@ -15,17 +15,14 @@ container.security.services.userProvider.init();
 breadcrumbFacade.addHome();
 breadcrumbFacade.add('Main');
 
-let tokenEntity = container.security.services.userProvider.getTokenEntity();
-// console.log(tokenEntity.isAuthenticated);
-
 // todo: подключать сокет при авторизации через событие
 // todo: отключать при разлогировании
 
+let tokenEntity = container.security.services.userProvider.getTokenEntity();
 if (tokenEntity.isAuthenticated) {
-    let webSocketUrl = configManager.get('webSocketUrl');
-    let userId = tokenEntity.identity.id;
     let webSocketConnection = container.webSocket.services.connection;
-    webSocketConnection.url = webSocketUrl + '?userId=' + userId;
+    webSocketConnection.url = configManager.get('webSocketUrl');
+    webSocketConnection.userId = tokenEntity.identity.id;
     webSocketConnection.open();
 }
 

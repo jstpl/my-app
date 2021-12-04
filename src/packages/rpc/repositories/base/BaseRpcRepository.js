@@ -1,4 +1,3 @@
-import rpcClient from "../../client";
 import container from "../../../../app/config/container";
 
 export default class BaseRpcRepository {
@@ -11,10 +10,10 @@ export default class BaseRpcRepository {
     sendByMethod(method, body = {}, meta = {}) {
         let requestEntity = {};
         requestEntity.method = method;
-        if(body) {
+        if (body) {
             requestEntity.body = body;
         }
-        if(meta) {
+        if (meta) {
             requestEntity.meta = meta;
         }
         return this.sendRequest(requestEntity);

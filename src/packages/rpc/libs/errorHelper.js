@@ -1,4 +1,4 @@
-export default class ErrorHelper {
+class ErrorHelper {
 
     unprocessableEntityErrorToString(error) {
         let message = '';
@@ -34,3 +34,5 @@ export default class ErrorHelper {
         return errors;
     }
 }
+
+export default new ErrorHelper();

@@ -4,7 +4,7 @@ import toastFacade from "../../packages/notify/facades/toastFacade";
 import appEventEnum from "../enums.appEventEnum";
 import "../../packages/webSocket/config/eventDev";
 import "./event/rpc";
-import "./event/socket";
+import "./event/socketConnect";
 import breadcrumbFacade from "../../packages/breadcrumb/domain/facades/breadcrumbFacade";
 
 eventEmitter.on(authEventEnum.LOGIN, function (token) {
@@ -14,7 +14,6 @@ eventEmitter.on(authEventEnum.LOGIN, function (token) {
 eventEmitter.on(authEventEnum.LOGOUT, function (token) {
     toastFacade.success("Success logout!");
 });
-
 
 /*eventEmitter.on(rpcEventEnum.CLIENT_RESPONSE_SUCCESS, function (responseEntity) {
     console.log(responseEntity);

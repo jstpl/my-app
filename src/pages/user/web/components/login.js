@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import UnprocessableEntityError from "../../../../packages/contract/errors/UnprocessableEntityError";
-import ErrorHelper from "../../../../packages/rpc/libs/ErrorHelper";
 import BaseComponent from "../../../../packages/component/BaseComponent";
 import {Button, Form, FormGroup} from "react-bootstrap";
 import container from "../../../../app/config/container";
+import errorHelper from "../../../../packages/rpc/libs/errorHelper";
 
 class Login extends BaseComponent {
 
@@ -33,7 +33,6 @@ class Login extends BaseComponent {
             this.redirect('/');
         } catch (error) {
             if (error instanceof UnprocessableEntityError) {
-                let errorHelper = new ErrorHelper();
                 this.state.errors = errorHelper.unprocessableEntityErrorToAssoc(error);
             }
         }

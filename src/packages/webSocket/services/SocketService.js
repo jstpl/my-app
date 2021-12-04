@@ -1,70 +1,40 @@
+import eventEmitter from "../../event/eventEmitter";
+import socketEventEnum from "../enums/socketEventEnum";
+import SocketEventEntity from "../entities/SocketEventEntity";
 
 export default class SocketService {
 
-    handlers = {};
+    showLog = false;
+
+    log(message) {
+        if (this.showLog) {
+            console.log(message);
+        }
+    }
 
     connect(url) {
         var socket = new WebSocket(url);
-        socket.onopen = function () {
-            console.log("Соединение установлено.");
+        socket.onopen = () => {
+            eventEmitter.emit(socketEventEnum.OPEN);
         };
-        socket.onclose = function (event) {
+        socket.onclose = (event) => {
             if (event.wasClean) {
-                console.log('Соединение закрыто чисто');
+                eventEmitter.emit(socketEventEnum.CLOSE, event);
             } else {
-                console.log('Обрыв соединения');
                 // например, "убит" процесс сервера
+                eventEmitter.emit(socketEventEnum.BREAK, event);
             }
-            console.log('Код: ' + event.code + ' причина: ' + event.reason);
         };
-        socket.onmessage = function (event) {
+        socket.onmessage = (event) => {
             var data = JSON.parse(event.data);
-            var eventName = data.name;
-            var eventData = data.data;
-
-            // EventService.trigger('socketService.' + data.name, data.data);
-
-
-
-
-
-
-
-            //SocketService.trigger(data.name, data.data);
-            console.log("Получены данные " + event.data);
+            // todo: сущность
+            let socketEventEntity = new SocketEventEntity();
+            socketEventEntity.name = data.name;
+            socketEventEntity.data = data.data;
+            eventEmitter.emit(socketEventEnum.MESSAGE, socketEventEntity);
         };
-        socket.onerror = function (error) {
-            console.log("Ошибка " + error.message);
-        };
-    }
-
-    addHandler(eventName, handler) {
-        if (this.handlers[eventName] == undefined) {
-            this.handlers[eventName] = [];
-        }
-        this.handlers[eventName].push(handler);
-    }
-
-    trigger(eventName, params) {
-        //console.log(eventName, params);
-        var handlers = this.handlers[eventName];
-        for (var i in handlers) {
-            var handler = handlers[i];
-            handler.run(params);
-        }
-    }
-
-    connect1111() {
-        var ws = new WebSocket("ws://example.com:10081/");
-        ws.onopen = function() {
-            ws.send("Hello");  // Sends a message.
-        };
-        ws.onmessage = function(e) {
-            // Receives a message.
-            alert(e.data);
-        };
-        ws.onclose = function() {
-            alert("closed");
+        socket.onerror = (error) => {
+            eventEmitter.emit(socketEventEnum.ERROR, error);
         };
     }
 }

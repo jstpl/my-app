@@ -1,5 +1,6 @@
 
 export default {
 
-    CLIENT_ERROR: 'rpcClientError',
+    CLIENT_RESPONSE_SUCCESS: 'rpc.client.success',
+    CLIENT_RESPONSE_ERROR: 'rpc.client.error',
 }

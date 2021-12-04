@@ -15,7 +15,7 @@ eventEmitter.on(authEventEnum.LOGOUT, function (token) {
     toastFacade.success("Success logout!");
 });
 
-eventEmitter.on(rpcEventEnum.CLIENT_ERROR, function (error) {
+eventEmitter.on(rpcEventEnum.CLIENT_RESPONSE_ERROR, function (error) {
     if (error instanceof UnprocessableEntityError) {
         let errorHelper = new ErrorHelper();
         toastFacade.error(errorHelper.unprocessableEntityErrorToString(error));
@@ -27,7 +27,10 @@ eventEmitter.on(rpcEventEnum.CLIENT_ERROR, function (error) {
     }
 });
 
-/*
+/*eventEmitter.on(rpcEventEnum.CLIENT_RESPONSE_SUCCESS, function (responseEntity) {
+    console.log(responseEntity);
+});
+
 eventEmitter.on(appEventEnum.AFTER_BOOTSTRAP, function () {
     console.log('app.bootstrap.after');
 });*/

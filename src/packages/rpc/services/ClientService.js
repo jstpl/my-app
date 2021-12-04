@@ -25,6 +25,7 @@ export default class ClientService {
             let response = await this.transportRepository.send(body);
             let responseEntity = this.responseEncoder.decode(response);
             if (_.isEmpty(responseEntity.error)) {
+                eventEmitter.emit(rpcEventEnum.CLIENT_RESPONSE_SUCCESS, responseEntity);
                 return responseEntity;
             } else if(responseEntity.error.code === 401) {
                 throw new UnauthorizedError(responseEntity.error.message);
@@ -38,7 +39,7 @@ export default class ClientService {
                 }
             }
         } catch (error) {
-            eventEmitter.emit(rpcEventEnum.CLIENT_ERROR, error);
+            eventEmitter.emit(rpcEventEnum.CLIENT_RESPONSE_ERROR, error);
             throw error;
         }
     }

@@ -13,8 +13,22 @@ export default class ToastRepository {
         };
     }
 
-    success(toastEntity) {
-        toast.success(toastEntity.message, {
+    get types() {
+        return {
+            INFO: toast.TYPE.INFO,
+            SUCCESS: toast.TYPE.SUCCESS,
+            WARNING: toast.TYPE.WARNING,
+            ERROR: toast.TYPE.ERROR,
+            DEFAULT: toast.TYPE.DEFAULT,
+            DARK: toast.TYPE.DARK,
+        };
+    }
+
+    send(toastEntity) {
+        let methodName = toastEntity.type;
+        methodName = methodName.toLowerCase();
+        let method = toast[methodName];
+        method(toastEntity.message, {
             position: this.positions[toastEntity.position],
         });
     }

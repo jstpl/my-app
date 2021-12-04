@@ -39,6 +39,6 @@ export default class ToastService {
     send(toastEntity) {
         toastEntity.position = toastEntity.position || this.positions.BOTTOM_RIGHT;
         toastEntity.type = toastEntity.type || this.types.INFO;
-        this.repository.success(toastEntity);
+        this.repository.send(toastEntity);
     }
 }

@@ -1,6 +1,5 @@
 import BaseRpcRepository from "./BaseRpcRepository";
 import DataProvider from "../../../domain/libs/DataProvider";
-import crudRpcMethodEnum from "../../enums/crudRpcMethodEnum";
 import Paginator from "../../../domain/libs/Paginator";
 import _ from 'lodash';
 
@@ -25,7 +24,7 @@ export default class BaseCrudRpcRepository extends BaseRpcRepository {
 
     async all(query = null) {
         let requestEntity = {
-            method: this.methodName(crudRpcMethodEnum.ALL),
+            method: this.methodName('all'),
             // body: body,
         };
         this._forgeRequestByQuery(requestEntity, query);

@@ -17,32 +17,30 @@ export default class ClientService {
         this.responseEncoder = responseEncoder;
     }
 
-    sendRequest(requestEntity) {
+    async sendRequest(requestEntity) {
         this.prepareRequest(requestEntity);
         let body = this.requestEncoder.encode(requestEntity);
-        let axiosPromise = this.transportRepository.send(body);
-        let that = this;
-        return axiosPromise
-            .then(function (response) {
-                let responseEntity = that.responseEncoder.decode(response);
-                if (_.isEmpty(responseEntity.error)) {
-                    return responseEntity;
-                } else if(responseEntity.error.code === 401) {
-                    throw new UnauthorizedError(responseEntity.error.message);
+
+        try {
+            let response = await this.transportRepository.send(body);
+            let responseEntity = this.responseEncoder.decode(response);
+            if (_.isEmpty(responseEntity.error)) {
+                return responseEntity;
+            } else if(responseEntity.error.code === 401) {
+                throw new UnauthorizedError(responseEntity.error.message);
+            } else {
+                if (responseEntity.error.code === -32602) {
+                    let error = new UnprocessableEntityError(responseEntity.error.message);
+                    error.setErrors(responseEntity.error.data);
+                    throw error;
                 } else {
-                    if (responseEntity.error.code === -32602) {
-                        let error = new UnprocessableEntityError(responseEntity.error.message);
-                        error.setErrors(responseEntity.error.data);
-                        throw error;
-                    } else {
-                        throw new Error(responseEntity.error.message);
-                    }
+                    throw new Error(responseEntity.error.message);
                 }
-            })
-            .catch(function (error) {
-                eventEmitter.emit(rpcEventEnum.CLIENT_ERROR, error);
-                throw error;
-            });
+            }
+        } catch (error) {
+            eventEmitter.emit(rpcEventEnum.CLIENT_ERROR, error);
+            throw error;
+        }
     }
 
     prepareRequest(requestEntity) {

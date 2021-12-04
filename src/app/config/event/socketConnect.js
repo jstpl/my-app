@@ -12,5 +12,6 @@ eventEmitter.on(appEventEnum.AFTER_BOOTSTRAP_LOAD, function () {
         webSocketConnection.url = configManager.get('webSocketUrl');
         webSocketConnection.userId = tokenEntity.identity.id;
         webSocketConnection.open();
+        // webSocketConnection.close();
     }
 });

@@ -15,6 +15,10 @@ export default class ConnectionService {
         this.bindHandlers(this.connection, this.eventHandler);
     }
 
+    close() {
+        this.connection.close();
+    }
+
     bindHandlers(socket, connection) {
         socket.onopen = connection.onOpen;
         socket.onclose = connection.onClose;

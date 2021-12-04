@@ -7,6 +7,10 @@ export default class BreadcrumbService {
         this.#_itemRepository = itemRepository;
     }
 
+    clear() {
+        this.#_itemRepository.clear();
+    }
+
     add(title, route) {
         let itemEntity = {
             title: title,

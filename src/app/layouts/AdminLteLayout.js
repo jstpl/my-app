@@ -10,9 +10,22 @@ import 'react-toastify/dist/ReactToastify.css';
 import './MainLayout.css';
 import '../../packages/adminlte/css/adminlte.min.css';
 import {Container} from "react-bootstrap";
+import {useLocation} from "react-router";
+import breadcrumbFacade from "../../packages/breadcrumb/domain/facades/breadcrumbFacade";
 
+class Effect {
+
+    run() {
+        // breadcrumbFacade.addHome();
+        // console.log('asda');
+    }
+}
+
+const effect = new Effect();
 
 export default function (props) {
+    const location = useLocation();
+    React.useEffect(() => {effect.run()}, [location]);
     return (
         <React.Fragment>
 

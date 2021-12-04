@@ -8,19 +8,26 @@ class Breadcrumbs extends Component {
 
     }
 
+    componentDidUpdate(prevProps) {
+        // console.log(555);
+    }
+
     render() {
-        console.log(this.props.collection);
-        return (
-            <Breadcrumb>
-                {this.props.collection.map(function (itemEntity) {
-                    return (
-                        <Breadcrumb.Item href={"#" + itemEntity.route}>
-                            {itemEntity.title}
-                        </Breadcrumb.Item>
-                    );
-                })}
-            </Breadcrumb>
-        );
+        if(this.props.collection.length) {
+            return (
+                <Breadcrumb>
+                    {this.props.collection.map(function (itemEntity, key) {
+                        return (
+                            <Breadcrumb.Item key={key} href={"#" + itemEntity.route}>
+                                {itemEntity.title}
+                            </Breadcrumb.Item>
+                        );
+                    })}
+                </Breadcrumb>
+            );
+        } else {
+            return '';
+        }
     }
 }
 

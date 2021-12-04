@@ -7,11 +7,13 @@ import breadcrumbFacade from "../../../../packages/breadcrumb/domain/facades/bre
 class ChatList extends Component {
 
     componentDidMount() {
-        breadcrumbFacade.addHome();
-        breadcrumbFacade.add('Messenger', '/messenger');
-        //const { chat } = container.messenger.services;
+        // breadcrumbFacade.add('Messenger', '/messenger');
         container.messenger.services.chat.all(this.state).catch(function () {
         });
+    }
+
+    componentDidUpdate() {
+        // breadcrumbFacade.add('Messenger', '/messenger');
     }
 
     render() {

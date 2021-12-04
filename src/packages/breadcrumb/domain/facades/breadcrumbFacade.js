@@ -3,6 +3,7 @@ import container from "../../../../app/config/container";
 class BreadcrumbFacade {
 
     addHome() {
+        container.breadcrumb.services.breadcrumb.clear();
         this.add('Home', '/');
     }
 

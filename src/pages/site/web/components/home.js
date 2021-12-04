@@ -1,12 +1,17 @@
 import React, {Component} from 'react';
 import Fullscreen from "../../../../packages/browser/Fullscreen";
 import {Link} from "react-router-dom";
+import breadcrumbFacade from "../../../../packages/breadcrumb/domain/facades/breadcrumbFacade";
 
 class Home extends Component {
 
     fullscreen() {
         let fullscreen = new Fullscreen();
         fullscreen.open();
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        // breadcrumbFacade.addHome();
     }
 
     render() {

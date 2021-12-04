@@ -1,7 +1,7 @@
 
 export default Object.freeze({
 
-    LOGIN: 'LOGIN',
-    LOGOUT: 'LOGOUT',
-    UNAUTHORIZED: 'UNAUTHORIZED',
+    LOGIN: 'userAuthLogin',
+    LOGOUT: 'userAuthLogout',
+    UNAUTHORIZED: 'userAuthUnauthorized',
 });

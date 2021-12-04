@@ -5,13 +5,17 @@ import rpcEventEnum from "../../packages/rpc/enums/rpcEventEnum";
 import UnprocessableEntityError from "../../packages/contract/errors/UnprocessableEntityError";
 import ErrorHelper from "../../packages/rpc/libs/ErrorHelper";
 import UnauthorizedError from "../../packages/contract/errors/UnauthorizedError";
+import toastService from "../../packages/notify/facades/toastService";
 
 eventEmitter.on(authEventEnum.LOGIN, function (token) {
-    toast.success("Success authorization!");
+    // toast.success();
+    toastService.success("Success authorization!");
 });
 
+
 eventEmitter.on(authEventEnum.LOGOUT, function (token) {
-    toast.success("Success logout!");
+    toastService.success("Success logout!");
+    //toast.success();
     /*toast.success("Success logout!", {
         position: toast.POSITION.BOTTOM_RIGHT,
         className: 'foo-bar'
@@ -22,7 +26,7 @@ eventEmitter.on(rpcEventEnum.CLIENT_ERROR, function (error) {
     if (error instanceof UnprocessableEntityError) {
         let errorHelper = new ErrorHelper();
         toast.error(errorHelper.unprocessableEntityErrorToString(error));
-    } else if(error instanceof UnauthorizedError) {
+    } else if (error instanceof UnauthorizedError) {
         toast.info(error.message);
         window.location.href = '#user/login';
     } else {

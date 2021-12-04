@@ -17,11 +17,6 @@ export default class AuthService {
             tokenEntity.identity = tokenEntityValue.identity;
             container.security.services.userProvider.login(tokenEntity);
             eventEmitter.emit(authEventEnum.LOGIN, tokenEntity);
-            /*let identityEntity = {
-                id: 1234,
-                name: 'Jasy'
-            };*/
-
             return tokenEntity;
         } catch (error) {
             throw error;

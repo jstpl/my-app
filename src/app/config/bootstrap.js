@@ -16,9 +16,17 @@ container.security.services.userProvider.init();
 breadcrumbFacade.addHome();
 breadcrumbFacade.add('Main');
 
-let socket = new SocketService();
-let webSocketUrl = configManager.get('webSocketUrl');
-let userId = container.security.services.userProvider.getTokenEntity().identity.id;
-socket.connect(webSocketUrl + '?userId=' + userId);
+let tokenEntity = container.security.services.userProvider.getTokenEntity();
+// console.log(tokenEntity.isAuthenticated);
+
+// todo: подключать сокет при авторизации через событие
+// todo: отключать при разлогировании
+
+if(tokenEntity.isAuthenticated) {
+    let socket = new SocketService();
+    let webSocketUrl = configManager.get('webSocketUrl');
+    let userId = tokenEntity.identity.id;
+    socket.connect(webSocketUrl + '?userId=' + userId);
+}
 
 eventEmitter.emit(appEventEnum.AFTER_BOOTSTRAP_LOAD);

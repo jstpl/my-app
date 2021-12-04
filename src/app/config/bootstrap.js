@@ -9,21 +9,9 @@ import breadcrumbFacade from "../../packages/breadcrumb/domain/facades/breadcrum
 eventEmitter.emit(appEventEnum.BEFORE_BOOTSTRAP_LOAD);
 
 configManager.load(config);
-container.rpc.repositories.api.transport.rpcUrl = configManager.get('rpcUrl');
 container.app.store = store;
 container.security.services.userProvider.init();
-breadcrumbFacade.addHome();
-breadcrumbFacade.add('Main');
 
-// todo: подключать сокет при авторизации через событие
-// todo: отключать при разлогировании
 
-let tokenEntity = container.security.services.userProvider.getTokenEntity();
-if (tokenEntity.isAuthenticated) {
-    let webSocketConnection = container.webSocket.services.connection;
-    webSocketConnection.url = configManager.get('webSocketUrl');
-    webSocketConnection.userId = tokenEntity.identity.id;
-    webSocketConnection.open();
-}
 
 eventEmitter.emit(appEventEnum.AFTER_BOOTSTRAP_LOAD);

@@ -5,4 +5,5 @@ let apiOrigin = 'http://tournament.casino';
 export default {
     apiUrl: urlHelper.getOrigin() + "/api",
     rpcUrl: apiOrigin + "/json-rpc",
+    webSocketUrl: 'ws://tournament.casino:8001',
 };

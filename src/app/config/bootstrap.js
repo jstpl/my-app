@@ -17,6 +17,8 @@ breadcrumbFacade.addHome();
 breadcrumbFacade.add('Main');
 
 let socket = new SocketService();
-socket.connect('ws://tournament.casino:8001?userId=1');
+let webSocketUrl = configManager.get('webSocketUrl');
+let userId = container.security.services.userProvider.getTokenEntity().identity.id;
+socket.connect(webSocketUrl + '?userId=' + userId);
 
 eventEmitter.emit(appEventEnum.AFTER_BOOTSTRAP_LOAD);

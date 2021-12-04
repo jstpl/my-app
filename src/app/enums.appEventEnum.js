@@ -1,7 +1,9 @@
 
 const appEventEnum = Object.freeze({
-    BEFORE_BOOTSTRAP: 'app.bootstrap.before',
-    AFTER_BOOTSTRAP: 'app.bootstrap.after',
+
+    BEFORE_BOOTSTRAP_LOAD: 'app.bootstrap.load.before',
+    AFTER_BOOTSTRAP_LOAD: 'app.bootstrap.load.after',
+
 });
 
 export default appEventEnum;

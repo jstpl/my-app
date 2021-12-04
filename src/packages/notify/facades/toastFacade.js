@@ -30,5 +30,4 @@ class ToastFacade {
     }
 }
 
-let toastService = new ToastFacade();
-export default toastService;
+export default new ToastFacade();

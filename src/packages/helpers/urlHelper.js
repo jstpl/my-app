@@ -1,17 +1,17 @@
 
-var urlHelper = {
+class UrlHelper {
 
-    getLocation: function(href) {
+    getLocation(href) {
         return new URL(window.location);
         /*let urlObject = document.createElement("a");
         urlObject.href = href;
         return urlObject;*/
-    },
+    }
 
-    getOrigin: function (url) {
+    getOrigin(url) {
         url = url || window.location;
         return this.getLocation(url).origin;
-    },
-};
+    }
+}
 
-export default urlHelper;
+export default new UrlHelper();

@@ -24,9 +24,9 @@ let tokenEntity = container.security.services.userProvider.getTokenEntity();
 if (tokenEntity.isAuthenticated) {
     let webSocketUrl = configManager.get('webSocketUrl');
     let userId = tokenEntity.identity.id;
-    let socket = container.webSocket.services.connection;
-    socket.url = webSocketUrl + '?userId=' + userId;
-    socket.connect();
+    let webSocketConnection = container.webSocket.services.connection;
+    webSocketConnection.url = webSocketUrl + '?userId=' + userId;
+    webSocketConnection.open();
 }
 
 eventEmitter.emit(appEventEnum.AFTER_BOOTSTRAP_LOAD);

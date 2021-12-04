@@ -1,13 +1,14 @@
 import eventEmitter from "../../event/eventEmitter";
 import socketEventEnum from "../enums/socketEventEnum";
 import SocketEventEntity from "../entities/SocketEventEntity";
+import entityHelper from "../../helpers/entityHelper";
 
 export default class ConnectionService {
 
     url = null;
 
-    connect() {
-        var socket = new WebSocket(this.url);
+    open() {
+        let socket = new WebSocket(this.url);
         socket.onopen = () => {
             eventEmitter.emit(socketEventEnum.OPEN);
         };
@@ -20,11 +21,9 @@ export default class ConnectionService {
             }
         };
         socket.onmessage = (event) => {
-            var data = JSON.parse(event.data);
-            // todo: сущность
+            let data = JSON.parse(event.data);
             let socketEventEntity = new SocketEventEntity();
-            socketEventEntity.name = data.name;
-            socketEventEntity.data = data.data;
+            entityHelper.setValues(socketEventEntity, data);
             eventEmitter.emit(socketEventEnum.MESSAGE, socketEventEntity);
         };
         socket.onerror = (error) => {

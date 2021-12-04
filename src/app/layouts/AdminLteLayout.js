@@ -1,6 +1,6 @@
 import React from 'react';
 import Navigator from '../components/Navigator';
-import Breadcrumbs from '../components/Breadcrumbs';
+import Breadcrumbs from '../../packages/breadcrumb/web/components/Breadcrumbs';
 import Main from "../components/Main";
 import Footer from "../components/Footer";
 

@@ -4,12 +4,14 @@ import auth from "../../pages/user/domain";
 import security from "../../packages/security";
 import notify from "../../packages/notify";
 import rpc from "../../packages/rpc"
+import breadcrumb from "../../packages/breadcrumb"
 
 let container = new BaseContainer();
 
 Object.assign(container, {
     app: {},
     rpc,
+    breadcrumb,
     notify,
     security,
     messenger,

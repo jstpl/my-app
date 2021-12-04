@@ -1,7 +1,7 @@
 
 let voidFunction = function () {};
 
-export default class Fullscreen {
+class Fullscreen {
 
     _status = false;
 
@@ -32,3 +32,5 @@ export default class Fullscreen {
         }
     }
 }
+
+export default new Fullscreen();

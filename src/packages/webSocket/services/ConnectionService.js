@@ -40,6 +40,10 @@ export default class ConnectionService {
     open() {
         let url = this._getConnectionUr();
         let socket = new WebSocket(url);
+        this.bindHandlers(socket, connection);
+    }
+
+    bindHandlers(socket, connection) {
         socket.onopen = connection.onOpen;
         socket.onclose = connection.onClose;
         socket.onmessage = connection.onMessage;

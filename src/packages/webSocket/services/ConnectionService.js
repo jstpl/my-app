@@ -13,6 +13,10 @@ export default class ConnectionService {
         let url = this._getConnectionUr();
         this.connection = new WebSocket(url);
         this.bindHandlers(this.connection, this.eventHandler);
+        window.addEventListener("unload", function () {
+            if(this.connection.readyState === WebSocket.OPEN)
+                this.connection.close();
+        });
     }
 
     close() {

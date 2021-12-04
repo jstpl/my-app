@@ -1,7 +1,16 @@
 import axios from "axios";
-import configManager from "../../../configManager/configManager";
 
 export default class TransportRepository {
+
+    #_rpcUrl = null;
+
+    get rpcUrl() {
+        return this.#_rpcUrl;
+    }
+
+    set rpcUrl(value) {
+        this.#_rpcUrl = value;
+    }
 
     send(body) {
         let options = {
@@ -10,11 +19,11 @@ export default class TransportRepository {
             },
         };
 
-        let axiosPromise = axios.post(configManager.get('rpcUrl'), body, options);
+        let axiosPromise = axios.post(this.rpcUrl, body, options);
         return axiosPromise
             .then(function (response) {
-                if(response.headers['content-type'] === 'application/json') {
-                    if(typeof response.data === 'object') {
+                if (response.headers['content-type'] === 'application/json') {
+                    if (typeof response.data === 'object') {
                         return response.data;
                     } else {
                         throw new Error("Transport error. Parse error.");

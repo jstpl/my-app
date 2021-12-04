@@ -5,6 +5,7 @@ import UnprocessableEntityError from "../../packages/contract/errors/Unprocessab
 import ErrorHelper from "../../packages/rpc/libs/ErrorHelper";
 import UnauthorizedError from "../../packages/contract/errors/UnauthorizedError";
 import toastFacade from "../../packages/notify/facades/toastFacade";
+import appEventEnum from "../enums.appEventEnum";
 
 eventEmitter.on(authEventEnum.LOGIN, function (token) {
     toastFacade.success("Success authorization!");
@@ -25,3 +26,8 @@ eventEmitter.on(rpcEventEnum.CLIENT_ERROR, function (error) {
         toastFacade.error(error.message);
     }
 });
+
+/*
+eventEmitter.on(appEventEnum.AFTER_BOOTSTRAP, function () {
+    console.log('app.bootstrap.after');
+});*/

@@ -7,6 +7,8 @@ import rpc from "../../packages/rpc"
 
 let container = new BaseContainer();
 
+
+
 Object.assign(container, {
     app: {},
     rpc,

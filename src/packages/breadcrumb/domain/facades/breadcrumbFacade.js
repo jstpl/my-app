@@ -7,7 +7,7 @@ class BreadcrumbFacade {
         this.add('Home', '/');
     }
 
-    add(title, route) {
+    add(title, route = '/') {
         container.breadcrumb.services.breadcrumb.add(title, route);
     }
 }

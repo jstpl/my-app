@@ -13,5 +13,6 @@ container.rpc.repositories.api.transport.rpcUrl = configManager.get('rpcUrl');
 container.app.store = store;
 container.security.services.userProvider.init();
 breadcrumbFacade.addHome();
+breadcrumbFacade.add('Main');
 
 eventEmitter.emit(appEventEnum.AFTER_BOOTSTRAP_LOAD);

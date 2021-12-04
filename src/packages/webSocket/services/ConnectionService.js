@@ -4,16 +4,10 @@ import SocketEventEntity from "../entities/SocketEventEntity";
 
 export default class ConnectionService {
 
-    showLog = false;
+    url = null;
 
-    log(message) {
-        if (this.showLog) {
-            console.log(message);
-        }
-    }
-
-    connect(url) {
-        var socket = new WebSocket(url);
+    connect() {
+        var socket = new WebSocket(this.url);
         socket.onopen = () => {
             eventEmitter.emit(socketEventEnum.OPEN);
         };

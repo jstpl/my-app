@@ -5,7 +5,6 @@ import eventEmitter from "../../packages/event/eventEmitter";
 import store from "./store";
 import appEventEnum from "../enums.appEventEnum";
 import breadcrumbFacade from "../../packages/breadcrumb/domain/facades/breadcrumbFacade";
-import ConnectionService from "../../packages/webSocket/services/ConnectionService";
 
 eventEmitter.emit(appEventEnum.BEFORE_BOOTSTRAP_LOAD);
 
@@ -22,11 +21,12 @@ let tokenEntity = container.security.services.userProvider.getTokenEntity();
 // todo: подключать сокет при авторизации через событие
 // todo: отключать при разлогировании
 
-if(tokenEntity.isAuthenticated) {
-    let socket = new ConnectionService();
+if (tokenEntity.isAuthenticated) {
     let webSocketUrl = configManager.get('webSocketUrl');
     let userId = tokenEntity.identity.id;
-    socket.connect(webSocketUrl + '?userId=' + userId);
+    let socket = container.webSocket.services.connection;
+    socket.url = webSocketUrl + '?userId=' + userId;
+    socket.connect();
 }
 
 eventEmitter.emit(appEventEnum.AFTER_BOOTSTRAP_LOAD);

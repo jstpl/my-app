@@ -5,12 +5,14 @@ import security from "../../packages/security";
 import notify from "../../packages/notify";
 import rpc from "../../packages/rpc"
 import breadcrumb from "../../packages/breadcrumb"
+import webSocket from "../../packages/webSocket"
 
 let container = new BaseContainer();
 
 Object.assign(container, {
     app: {},
     rpc,
+    webSocket,
     breadcrumb,
     notify,
     security,

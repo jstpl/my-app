@@ -1,7 +1,7 @@
 import TransportRepository from "./repositories/http/TransportRepository";
 import ClientService from "./services/ClientService";
-import RequestEncoder from "./encoders/RequestEncoder";
-import ResponseEncoder from "./encoders/ResponseEncoder";
+import RequestEncoder from "./libs/encoders/RequestEncoder";
+import ResponseEncoder from "./libs/encoders/ResponseEncoder";
 
 let repositories = {
     api: {},

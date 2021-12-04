@@ -1,7 +1,7 @@
-import axios from 'axios';
-import configManager from "../../configManager/configManager";
+import axios from "axios";
+import configManager from "../../../configManager/configManager";
 
-export default class Transport {
+export default class TransportRepository {
 
     send(body) {
         let options = {

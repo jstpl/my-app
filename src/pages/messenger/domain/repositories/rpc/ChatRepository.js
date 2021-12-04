@@ -1,4 +1,4 @@
-import BaseCrudRpcRepository from "../../../../../packages/rpc/repositories/BaseCrudRpcRepository";
+import BaseCrudRpcRepository from "../../../../../packages/rpc/repositories/base/BaseCrudRpcRepository";
 
 export default class ChatRepository extends BaseCrudRpcRepository {
 

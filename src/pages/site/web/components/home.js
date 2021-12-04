@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Fullscreen from "../../../../packages/browser/Fullscreen";
+import {Link} from "react-router-dom";
 
 class Home extends Component {
 
@@ -20,7 +21,7 @@ class Home extends Component {
                         container.
                     </p>
                     <p className="lead">
-                        <a className="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                        <Link className="btn btn-primary btn-lg" to="/" role="button">Learn more</Link>
                         <button className="btn btn-primary" onClick={this.fullscreen.bind(this)}>Full screen</button>
                     </p>
             </div>

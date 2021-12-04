@@ -1,4 +1,4 @@
-import BaseRpcRepository from "../../../../../packages/rpc/repositories/BaseRpcRepository";
+import BaseRpcRepository from "../../../../../packages/rpc/repositories/base/BaseRpcRepository";
 
 export default class AuthRepository extends BaseRpcRepository {
     async getTokenByForm(body) {

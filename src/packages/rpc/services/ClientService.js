@@ -1,11 +1,11 @@
-import _ from 'lodash';
+import _ from "lodash";
+import UnauthorizedError from "../../contract/errors/UnauthorizedError";
+import UnprocessableEntityError from "../../contract/errors/UnprocessableEntityError";
 import eventEmitter from "../../event/eventEmitter";
 import rpcEventEnum from "../enums/rpcEventEnum";
-import UnprocessableEntityError from "../../contract/errors/UnprocessableEntityError";
 import container from "../../../app/config/container";
-import UnauthorizedError from "../../contract/errors/UnauthorizedError";
 
-export default class Client {
+export default class ClientService {
 
     transportRepository;
     requestEncoder;

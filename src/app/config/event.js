@@ -7,18 +7,11 @@ import UnauthorizedError from "../../packages/contract/errors/UnauthorizedError"
 import toastFacade from "../../packages/notify/facades/toastFacade";
 
 eventEmitter.on(authEventEnum.LOGIN, function (token) {
-    // toast.success();
     toastFacade.success("Success authorization!");
 });
 
-
 eventEmitter.on(authEventEnum.LOGOUT, function (token) {
     toastFacade.success("Success logout!");
-    //toast.success();
-    /*toast.success("Success logout!", {
-        position: toast.POSITION.BOTTOM_RIGHT,
-        className: 'foo-bar'
-    });*/
 });
 
 eventEmitter.on(rpcEventEnum.CLIENT_ERROR, function (error) {

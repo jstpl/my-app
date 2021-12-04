@@ -1,7 +1,7 @@
 import BaseRpcRepository from "./BaseRpcRepository";
-import DataProvider from "../../domain/libs/DataProvider";
-import crudRpcMethodEnum from "../enums/crudRpcMethodEnum";
-import Paginator from "../../domain/libs/Paginator";
+import DataProvider from "../../../domain/libs/DataProvider";
+import crudRpcMethodEnum from "../../enums/crudRpcMethodEnum";
+import Paginator from "../../../domain/libs/Paginator";
 import _ from 'lodash';
 
 export default class BaseCrudRpcRepository extends BaseRpcRepository {

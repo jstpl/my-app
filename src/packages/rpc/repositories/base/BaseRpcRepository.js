@@ -1,9 +1,11 @@
-import rpcClient from "../client";
+import rpcClient from "../../client";
+import container from "../../../../app/config/container";
 
 export default class BaseRpcRepository {
 
     sendRequest(requestEntity) {
-        return rpcClient.sendRequest(requestEntity);
+        return container.rpc.services.client.sendRequest(requestEntity);
+        //return rpcClient.sendRequest(requestEntity);
     }
 
     sendByMethod(method, body = {}, meta = {}) {

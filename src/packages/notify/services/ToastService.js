@@ -1,5 +1,3 @@
-import ToastEntity from "../entities/ToastEntity";
-
 export default class ToastService {
 
     constructor(ToastRepository) {
@@ -27,14 +25,6 @@ export default class ToastService {
             DARK: 'DARK',
         };
     }
-
-    /*success(message, position = null) {
-        let toastEntity = new ToastEntity();
-        toastEntity.message = message;
-        toastEntity.position = position;
-        toastEntity.type = this.types.SUCCESS;
-        this.repository.success(toastEntity);
-    }*/
 
     send(toastEntity) {
         toastEntity.position = toastEntity.position || this.positions.BOTTOM_RIGHT;

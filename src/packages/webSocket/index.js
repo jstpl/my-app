@@ -1,4 +1,4 @@
-import SocketService from "./services/SocketService";
+import ConnectionService from "./services/ConnectionService";
 
 /*let repositories = {
     api: {},
@@ -6,7 +6,7 @@ import SocketService from "./services/SocketService";
 repositories.api.transport = new ();*/
 
 let services = {};
-services.connection = new SocketService();
+services.connection = new ConnectionService();
 
 export default {
     services,

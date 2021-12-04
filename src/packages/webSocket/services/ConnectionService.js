@@ -2,7 +2,7 @@ import eventEmitter from "../../event/eventEmitter";
 import socketEventEnum from "../enums/socketEventEnum";
 import SocketEventEntity from "../entities/SocketEventEntity";
 
-export default class SocketService {
+export default class ConnectionService {
 
     showLog = false;
 

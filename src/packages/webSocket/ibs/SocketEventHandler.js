@@ -5,6 +5,13 @@ import entityHelper from "../../helpers/entityHelper";
 
 export default class SocketEventHandler {
 
+    bindHandlers(socket) {
+        socket.onopen = this.onOpen;
+        socket.onclose = this.onClose;
+        socket.onmessage = this.onMessage;
+        socket.onerror = this.onError;
+    }
+
     onOpen() {
         eventEmitter.emit(socketEventEnum.OPEN);
     }

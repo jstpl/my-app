@@ -12,7 +12,7 @@ export default class ConnectionService {
     open() {
         let url = this._getConnectionUr();
         this.connection = new WebSocket(url);
-        this.bindHandlers(this.connection, this.eventHandler);
+        this.eventHandler.bindHandlers(this.connection);
         window.addEventListener("unload", function () {
             if(this.connection.readyState === WebSocket.OPEN)
                 this.connection.close();
@@ -21,13 +21,6 @@ export default class ConnectionService {
 
     close() {
         this.connection.close();
-    }
-
-    bindHandlers(socket, connection) {
-        socket.onopen = connection.onOpen;
-        socket.onclose = connection.onClose;
-        socket.onmessage = connection.onMessage;
-        socket.onerror = connection.onError;
     }
 
     _getConnectionUr() {

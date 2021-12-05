@@ -30,7 +30,7 @@ class MessageForm extends Component {
             container.messenger.services.message.send(form).then(() => {
                 this.state.message = '';
                 this.setState(this.state);
-                this.props.updateList();
+                //this.props.updateList();
             });
         }
     }

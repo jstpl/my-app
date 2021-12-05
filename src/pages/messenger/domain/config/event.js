@@ -1,10 +1,18 @@
 import socketEventEnum from "../../../../packages/webSocket/enums/socketEventEnum";
+import messengerEventEnum from "../enums/messengerEventEnum";
 
 export default function (container, eventEmitter) {
+
     eventEmitter.on(socketEventEnum.MESSAGE, function (socketEventEntity) {
-        console.log(container.notify.services.toast.info(socketEventEntity.name));
-        //container.notify.services.toast.info(socketEventEntity.name);
-        //console.log("Получены данные ", socketEventEntity);
-        // console.log(socketEventEntity);
+        if(socketEventEntity.name === 'sendMessage') {
+            // container.notify.services.toast.info(socketEventEntity.name)
+            // console.log(socketEventEntity.data.chatId);
+            container.messenger.services.message.newMessage(socketEventEntity.data);
+        }
     });
+
+    eventEmitter.on(messengerEventEnum.NEW_MESSAGE, function (data) {
+        container.notify.services.toast.info('New message! ' + data.text);
+    });
+
 }

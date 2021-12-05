@@ -1,22 +1,22 @@
 import _ from 'lodash';
 
-let _data = {};
-
 export default class BaseConfigManager {
 
+    #_data = {};
+
     set(path, value) {
-        _.set(_data, path, value);
+        _.set(this.#_data, path, value);
     }
 
     get(path, defaultValue) {
-        return _.get(_data, path, defaultValue);
+        return _.get(this.#_data, path, defaultValue);
     }
 
     load(config) {
-        _data = config;
+        this.#_data = config;
     }
 
     all() {
-        return _data;
+        return this.#_data;
     }
 }

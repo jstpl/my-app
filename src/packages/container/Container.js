@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-export default class BaseContainer {
+export default class Container {
 
     set(path, value) {
         _.set(this, path, value);

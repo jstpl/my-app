@@ -1,3 +1,5 @@
+import ToastEntity from "../entities/ToastEntity";
+
 export default class ToastService {
 
     constructor(ToastRepository) {
@@ -24,6 +26,30 @@ export default class ToastService {
             DEFAULT: 'DEFAULT',
             DARK: 'DARK',
         };
+    }
+
+    success(message, position = null) {
+        let toastEntity = new ToastEntity();
+        toastEntity.message = message;
+        toastEntity.position = position;
+        toastEntity.type = this.types.SUCCESS;
+        this.send(toastEntity);
+    }
+
+    info(message, position = null) {
+        let toastEntity = new ToastEntity();
+        toastEntity.message = message;
+        toastEntity.position = position;
+        toastEntity.type = this.types.INFO;
+        this.send(toastEntity);
+    }
+
+    error(message, position = null) {
+        let toastEntity = new ToastEntity();
+        toastEntity.message = message;
+        toastEntity.position = position;
+        toastEntity.type = this.types.ERROR;
+        this.send(toastEntity);
     }
 
     send(toastEntity) {

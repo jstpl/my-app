@@ -4,6 +4,7 @@ import ChatStoreRepository from "./repositories/state/ChatRepository";
 import MessageStoreRepository from "./repositories/state/MessageRepository";
 import ChatApiRepository from "./repositories/rpc/ChatRepository";
 import MessageApiRepository from "./repositories/rpc/MessageRepository";
+import eventConfig from "./config/event"
 
 let repositories = {
     api: {},
@@ -30,12 +31,16 @@ services.message = new MessageService(
 // states.chat = repositories.state.chat.state;
 // states.message = repositories.state.message.state;
 
+let config = {};
+config.event = eventConfig;
+
 let reducers = {};
 reducers.messengerChat = repositories.state.chat.state;
 reducers.messengerMessage = repositories.state.message.state;
 
 export default {
     // states,
+    config,
     reducers,
     repositories,
     services

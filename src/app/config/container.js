@@ -1,4 +1,4 @@
-import BaseContainer from "../../packages/container/BaseContainer";
+import Container from "../../packages/container/Container";
 import messenger from "../../pages/messenger/domain";
 import auth from "../../pages/user/domain";
 import security from "../../packages/security";
@@ -7,7 +7,7 @@ import rpc from "../../packages/rpc"
 import breadcrumb from "../../packages/breadcrumb"
 import webSocket from "../../packages/webSocket"
 
-let container = new BaseContainer();
+let container = new Container();
 
 Object.assign(container, {
     app: {},

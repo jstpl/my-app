@@ -12,7 +12,10 @@ export default function (container, eventEmitter) {
     });
 
     eventEmitter.on(messengerEventEnum.NEW_MESSAGE, function (data) {
-        container.notify.services.toast.info('New message! ' + data.text);
+        // console.log();
+        if(data.direction === 'in') {
+            container.notify.services.toast.info('New message! ' + data.text);
+        }
     });
 
 }

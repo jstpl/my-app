@@ -13,8 +13,7 @@ export default class MessageService extends BaseCrudService {
     }
 
     async send(form = null) {
-        let chatId = container.messenger.repositories.state.message.getChatId();
-        form.chatId = chatId;
+        form.chatId = container.messenger.repositories.state.message.getChatId();
         try {
             await this.repository.send(form);
         } catch (error) {

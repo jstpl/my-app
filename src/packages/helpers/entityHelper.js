@@ -1,12 +1,19 @@
+import _ from "lodash";
 
 class EntityHelper {
 
     setValues(entity, array) {
+        if(typeof array !== 'object') {
+            return;
+        }
         let attributes = this.getAttributes(entity);
         for(let i in attributes) {
             if(attributes.hasOwnProperty(i)) {
                 let attributeName = attributes[i];
-                entity[attributeName] = array[attributeName];
+
+                if(!_.isEmpty(array[attributeName])) {
+                    entity[attributeName] = array[attributeName];
+                }
             }
         }
     }

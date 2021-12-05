@@ -5,7 +5,6 @@ import container from "../../../../app/config/container";
 import MessageForm from "./messageForm";
 import MessageItems from "../views/message/messageItems";
 import scroll from "../../../../packages/browser/scroll";
-import breadcrumbFacade from "../../../../packages/breadcrumb/domain/facades/breadcrumbFacade";
 
 class MessageList extends Component {
 
@@ -35,10 +34,6 @@ class MessageList extends Component {
 
     onUpdate() {
         // breadcrumbFacade.add('Dialog', '/');
-        this.scrollToBottom();
-    }
-
-    scrollToBottom() {
         scroll.bottom(this.messagesList);
     }
 
